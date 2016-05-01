@@ -1,0 +1,92 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\usepackage[british]{babel}
+\usepackage[noadjust]{cite}
+\usepackage{graphicx}
+\usepackage[hyphens]{url}
+%\usepackage{paralist}
+%\usepackage[pdftex,colorlinks=true,hyperfootnotes=false]{hyperref}
+
+% reduce indent on all paralist environments
+%\setdefaultleftmargin{0.5cm}{}{}{}{}{}
+
+\begin{document}
+
+% paper title
+\title{TBC}
+
+
+% author names and affiliations
+% use a multiple column layout for up to three different
+% affiliations
+\author{\IEEEauthorblockN{Nabeel Albishry}
+\IEEEauthorblockA{Faculty of Engineering\\
+University of Bristol\\
+Bristol, UK\\
+Email: n.albishry@bristol.ac.uk}
+\and
+\IEEEauthorblockN{Theo Tryfonas}
+\IEEEauthorblockA{Faculty of Engineering\\
+University of Bristol\\
+Bristol, UK\\
+Email: theo.tryfonas@bristol.ac.uk}
+\and
+\IEEEauthorblockN{Tom Crick}
+\IEEEauthorblockA{Department of Computing\\
+Cardiff Metropolitan University\\
+Cardiff, UK\\
+Email: tcrick@cardiffmet.ac.uk}}
+
+% conference papers do not typically use \thanks and this command
+% is locked out in conference mode. If really needed, such as for
+% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
+% after \documentclass
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+% make the title area
+\maketitle
+
+
+\begin{abstract}
+Abstract here...
+\end{abstract}
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries Keywords \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+%\IEEEpeerreviewmaketitle
+
+\begin{IEEEkeywords}
+Keywords here...
+\end{IEEEkeywords}
+
+\section{Introduction}
+
+Test cite~\cite{oatley+crick:2015}.
+
+%\newpage
+
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{28}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
+% references section
+\bibliographystyle{IEEEtran}
+\bibliography{si2016}
+
+% that's all folks
+\end{document}
+
+
