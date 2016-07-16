@@ -1,2 +1,2 @@
-# SI2016
-Paper for SI 2016, the Workshop on Social Influence.
+# SSCI2016
+Paper for 2016 IEEE Symposium Series on Computational Intelligence (IEEE SSCI 2016)
