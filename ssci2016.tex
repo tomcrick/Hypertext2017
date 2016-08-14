@@ -52,17 +52,22 @@ Email: tcrick@cardiffmet.ac.uk}}
 
 
 \begin{abstract}
-In this paper we present our analysis of online conversations that
-took place on the social networking site Twitter during the Baltimore
-riots in April 2015. It aims to evaluate the extent to which different
-language communities engage and interact and thereby utilising
-language information from user profiles and statuses to identify and
-categorise communities, the pattern of their interactions, and to
-construct their network graphs. The results show that the nature of
-the event is reflected on the engagement degree and wider interaction
-of communities.  This analysis of language communities may also help
-in deciding which group of users to engage with, and hence increase
-the chance of influential action when participating on Twitter
+In this paper we present our analysis of online interactions that took
+place on the social networking site Twitter during the Baltimore
+protests in April 2015. While little is currently known about the
+factors that promote the propagation of information in online social
+networks following significant events, such as rioting and terrorism,
+this paper evaluates the extent to which different language
+communities engage and interact. By utilising language information
+from user profiles ({\emph{N}}=716,494) and status updates
+({\emph{N}}=1,250,000) relating to the Baltimore protests to
+identify and categorise communities, we are able to provide insight
+into the pattern of their interactions, as well as constructing their
+network graphs. The results show that the nature of the event is
+reflected on the engagement degree and wider interaction of
+communities. This analysis of language communities may also help in
+deciding which group of users to engage with, and hence increase the
+chance of influential action when participating on Twitter
 conversations.
 \end{abstract}
 
@@ -78,82 +83,133 @@ conversations.
 
 % tweak these at the end
 \begin{IEEEkeywords}
-Language communities, community interactions, networks, social networking, Twitter.
+Social network analysis, Twitter, language communities, information
+flows, information propagation, social media, networks.
 \end{IEEEkeywords}
 
 
 \section{Introduction}\label{intro}
 
-Online social networks (OSNs) have been utilised as means to express
-opinions, spread information about events, or even stimulate and
-propagate calls to action. Social networks such as Twitter played an
-important role during what was then known as the ``Arab Spring'',
-which has been extensively examined in the social network analysis
-domain~\cite{lotan-et-al:2011,howard-et-al:2011,comunello+anzera:2012,wolfsfeld-et-al:2013}. Furthermore,
-there are various projects that used Twitter corpora and related
-datasets to make predictions about elections~\cite{
-tumasjan-et-al:2010}, stock markets~\cite{zhang-et-al:2011}, and
-crimes and
-policing~\cite{gerber:2014,oatley+crick_fosintsi2014,oatley+crick:2015}.
+In recent years, online social networks (OSNs) have been utilised as
+means to express opinions, spread information about events, or even
+stimulate and propagate calls to action. Social networking platforms
+such as Twitter, Facebook and YouTube have created (generally) open
+digital platforms that have empowered global citizens to promote their
+ideas, work and themselves to a diverse international audience. The
+engagement of certain demographies of society with social networks
+offers the exciting opportunity for researchers interested in
+observing and interpreting society to apply established theory and
+methods to an emerging online culture. With over a billion active
+users, social networks are producing massive amounts of data (volume)
+on a real-time basis (velocity) with implicit sociological attributes
+such as belief, opinion, behaviour, societal structure and influence
+(variety)~\cite{burnap-et-al:2015}. These data exhibit the key traits
+of what is often referred to as big data: volume, velocity and
+variety~\cite{postsm:2014}. Behaviour and interaction have been
+empirically studied for centuries by social scientists, with
+rigorously applied methods and analyses being developed to yield
+meaningful results. In the age of big data and the increasingly
+interconnected online and digital society, there is a new challenge --
+to support the development of interoperable and scalable methods and
+tools that can be applied to digitised social behaviour produced via
+social networks -- or analysing big social data to provide insight
+into real-world events and
+actions~\cite{lazer-et-al:2009,burnap-et-al:2015}.
+
+Recent
+work~\cite{blamey-et-al-2012,schwartz-et-al:2013,blamey-et-al-2013,oatley+crick:2014,oatley-et-al-soccogcomp2015}
+has analysed what people say on social media to find distinctive
+words, phrases, and topics as functions of known attributes of people
+such as gender, age, location, or psychological characteristics. This
+can thus be collated and aggregated, inferring gender, age, location
+and sentiments, from social media data. Potential negative
+implications of these approaches include the fact that they can easily
+be applied to large numbers of people without obtaining their
+individual consent or even being aware. Commercial companies,
+governmental institutions, or even one's Twitter followers or Facebook
+friends could use software to infer personality (and other attributes,
+such as sexual orientation or political affiliations) that an
+individual may not have intended to
+share~\cite{lambiotte+kosinski:2014,postsm:2014}.
+
+To satisfy the demand for various types of interaction and engagement,
+there are now vast numbers of social media sites\footnote{This list is
+by no means exhaustive: \url{http://en.wikipedia.org/wiki/List of
+social networking websites}}, with a number of attempted
+categorisations There are various projects that have used Twitter
+corpora and related datasets to make predictions about
+elections~\cite{tumasjan-et-al:2010}, stock
+markets~\cite{zhang-et-al:2011}, and crimes and
+policing~\cite{gerber:2014,oatley+crick_fosintsi2014,oatley+crick:2015}. Twitter
+played an important role during what was then known as the ``Arab
+Spring'', which has been extensively examined in the social network
+analysis
+domain~\cite{lotan-et-al:2011,howard-et-al:2011,comunello+anzera:2012,wolfsfeld-et-al:2013,bruns-et-al:2013}.
+While the use of Twitter data has been demonstrated to provide insight
+-- and sociologically relevant demographics~\cite{sloan-et-al:2013} --
+into major social and physical events such as
+riots~\cite{procter-et-al:2013} and terror
+attacks~\cite{burnap-et-al:2014}, often all is not what it may seem;
+for instance many tweets may not a crowd make~\cite{liang-et-al:2013}.
 
 In the social network analysis (SNA) domain, centrality measures
 provide the ability to assess network graphs that are constructed from
 collected data (for example, tweets). Selection of these centrality
 measures is dependent on the goal of the analysis; for example, the
 degree of node helps to identify nodes with high number of connections
-within the network. In a representation of a real world network, this
-metric may help to identify highly connected persons, such as
-political leaders, sports stars or celebrities, who are potential``
-information
-spreaders''~\cite{cha-et-al:2012,borge-holthoefer-et-al:2012,zhang-et-al:2016}. Centrality
-measures such as degrees, betweenness, clustering coefficient,
-modularity and cliques have been used in many projects to measure
-influence or detect the emergence of new
+within the
+network~\cite{borgatti+everett:2000,rombach-et-al:2014,liu-et-al:2014}.
+In a representation of a real world network, this metric may help to
+identify highly connected persons, such as political leaders, sports
+stars or celebrities, who are potential ``information
+spreaders''~\cite{cha-et-al:2012,borge-holthoefer-et-al:2012,zhang-et-al:2016}.
+Centrality measures such as degrees, betweenness, clustering
+coefficient, modularity and cliques have been used in many projects to
+measure influence or detect the emergence of new
 communities~\cite{willis-et-al:2015,oatley+crick:2015}.
 
 Clustering users in communities has been an important analytic factor
-in social networking analysis. Numerous papers have focused on
-clustering users based on their locations. However, for sake of
-anonymity, many users tend not to disclose information about their
-identity, such as locations~\cite{kang-et-al:2013}. It has also been
-reported in the literature that geotagged tweets are generally low in
-number~\cite{morstatter-et-al:2013}[10][11].
+in social networking analysis; numerous work has focused on clustering
+users based on their locations. However, for the sake of anonymity,
+many users tend not to disclose information about their identity, such
+as locations~\cite{kang-et-al:2013}. It has also been reported in the
+literature that geotagged tweets are generally low in
+number~\cite{morstatter-et-al:2013,tan-et-al:2013,kumar-et-al:2014},
+the exponential growth in social media over the past decade has been
+joined by the rise of location as a central organising
+theme~\cite{liang-et-al:2013} of how users engage with online
+information services and, more importantly, with each
+other~\cite{cheng-et-al:2010,caverlee-et-al:2013}.
 
-% should this be in the Introduction?
-Furthermore, we took the step to verify this claim in our datasets
-too. In the best cases, the ratio of geotagged tweets did not exceed
-2\%. In the case of the {\texttt{\#BaltimoreRiots}} dataset, only ~1\%
-of collected statuses were associated with places. Moreover, out of
-this geotagged subset, only 4\% were associated with the city where
-the event took place, i.e. Baltimore.
-
-It is important to highlight how geotagging works in Twitter. The
-`place' entity included in a Twitter status does not necessarily
-indicate precisely where the actual posting was made, as stated in the
-Twitter documentation:
-
-\begin{quotation}
-``{\emph{Tweets associated with places are not necessarily issued from that
-location but could also potentially be about that location.}}'' [12]
-\end{quotation}
-
-An alternative location-based option to consider is based on profile
-location, but it still does not serve the need for location clustering
-for a multitude of reasons. Firstly, we found that less than 45\% of
-users have set their profile location, which is in line with other
-studies [13]. Secondly, although Twitter suggests certain presets for
-setting profile location, users are given the option to enter any text
-they wish; this results in a considerable amount of noise.
+Despite the widespread adoption of Twitter globally, little research
+has investigated the differences amongst users of different languages;
+the natural tendency has been to assume that the behaviours of English
+users generalise to other language
+users~\cite{hong-et-al:2011}. Language has featured as a facet of
+research on the geographies of Twitter
+networks~\cite{takhteyev-et-al:2012}, especially whether offline
+geography still matter in online social
+networks~\cite{kulshrestha-et-al:2012}. Linguistic-inspired studies
+have been done on hashtags~\cite{cunha-et-al:2011}, as well as the
+volume and proportional of tweets in English and Arabic, as part of an
+analysis of the Arab Spring~\cite{bruns-et-al:2013}. Nevertheless,
+language is clearly a vital component of affiliation and discourse on
+the web~\cite{zappavigna+martin:2012}, with the creation and curation
+of emerging multi-lingual networks and communities, representing
+well-established creative, cultural and socio-economic norms,
+including for minority languages such as Welsh~\cite{gj+uj:2013}.
 
 The techniques we present in this paper are based on language settings
 in users' profiles and those for statuses\footnote{The term `status'
 is a generic term used to refer to any Twitter post (tweet, retweet,
 reply, or quote).}. The remainder of this paper is organised as
-follows: Section II introduces the context of the real world situation
-and the development of events in alignment with activity on
-Twitter. Then in Section III we present the techniques we used and
-their results and discussion. Finally, Section IV concludes with
-highlights on the potential application of our approach.
+follows: Section~\ref{context} introduces the context of the real
+world situation and the development of events in alignment with
+activity on Twitter. Section~\ref{location} discusses the challenges
+of identifying location of users and tweets. In Section~\ref{langcomm}
+we present the techniques we used and their results and
+discussion. Finally, Section~\ref{conclusions} concludes the paper
+with highlights on the potential application of our approach.
 
 
 \section{Context and Events Timeline}\label{context}
@@ -163,11 +219,12 @@ morning of Monday 27 April 2015 in Baltimore, Maryland, USA, a protest
 hit the city. According to the timeline published on the CNN website
 ``{\emph{The city exploded on Monday after the funeral of Freddie
 Gray, a 25-year-old black man who mysteriously died on April 19, a
-week after Baltimore Police arrested him.}}'' [15]. The nature of the
-Baltimore riots is a good representation of a planned event in which a
-sudden escalation of violence hits a geographical area. The event
-manifested itself on Twitter as {\texttt{\#BaltimoreRiots}}, and
-resulted in more than 1,250,000 status updates.
+week after Baltimore Police arrested
+him.}}''~\cite{baltimorewiki:2015}. The nature of the Baltimore riots
+is a good representation of a planned event in which a sudden
+escalation of violence hits a geographical area. The event manifested
+itself on Twitter as {\texttt{\#BaltimoreRiots}}, and resulted in more
+than 1,250,000 status updates.
 
 Figure~\ref{fig:overallactivity} and Figure~\ref{fig:mainevents}
 present how the event manifested itself on Twitter once a ``purge'' was
@@ -193,6 +250,39 @@ hour. Then, it peaked with 98,000 between 22:00 and 23:00.
 \label{fig:mainevents}
 \end{figure}
 
+
+\section{Location}\label{location}
+
+As mentioned in Section~\ref{intro}, for the sake of anonymity many
+users tend not to disclose information about their identity,
+particularly locations; this has also been supported by the literature
+that geotagged tweets are generally low in number. We took the step to
+verify this claim in our datasets; in the best cases, the ratio of
+geotagged tweets did not exceed 2\%. In the case of the
+{\texttt{\#BaltimoreRiots}} dataset, only ~1\% of collected statuses
+were associated with places. Moreover, out of this geotagged subset,
+only 4\% were associated with the city where the event took place
+(Baltimore).
+
+It is important to understand how geotagging works in Twitter. The
+`place' entity included in a Twitter status does not necessarily
+indicate precisely where the actual posting was made, as stated in the
+Twitter API
+documentation\footnote{\url{https://dev.twitter.com/overview/api/places}}:
+
+\begin{quotation}
+``{\emph{Tweets associated with places are not necessarily issued from that
+location but could also potentially be about that location.}}
+\end{quotation}
+
+An alternative location-based option to consider is based on profile
+location, but it still does not serve the need for location clustering
+for a multitude of reasons. Firstly, we found that less than 45\% of
+users have set their profile location, which is in line with other
+studies~\cite{graham-et-al:2014}. Secondly, although Twitter suggests
+certain presets for setting profile location, users are given the
+option to enter any text they wish; this results in a considerable
+amount of noise.
 
 \section{Language Communities}\label{langcomm}
 
@@ -276,7 +366,7 @@ outdegree. The graph confirms the domination pattern we highlighted
 earlier; furthermore, it shows the relationships between the profile and
 posting communities. 
 
-\begin{figure*}[!htb]
+\begin{figure*}[!h]
 \centering
 \includegraphics[width=\textwidth]{images/profilepostinggraph.png}
 \caption{Profile-posting network graph}
@@ -338,7 +428,7 @@ more effective. Also, we might want to direct the message to certain
 language community, be that to influence a very active or re-activate
 a quiet one.
 
-\begin{figure*}[!htb]
+\begin{figure*}[!h]
 \centering
 \includegraphics[width=\textwidth]{images/heatmap.png}
 \caption{Temporal activity of profile communities}
@@ -358,7 +448,7 @@ nodes (retweeter, or replier) to the original acting node
 itself, we eliminated self-loop edges from the graph. Node size
 represents weighted indegree.
 
-\begin{figure*}[!htb]
+\begin{figure*}[!h]
 \centering
 \includegraphics[width=\textwidth]{images/profileprofilegraph.png}
 \caption{Profile-profile network graph}
@@ -391,7 +481,7 @@ defined profile language with their posting language. Some event might
 be termed as `partially scheduled' as their end was different to how
 they were planned in the first place. In such tense situation, we
 noticed that diversity of languages and communities are very low, and
-there always be a dominating community and language. 
+there always be a dominating community and language.
 
 The method we presented here can be used in identifying how
 communities interact with one another, which ones are most active,
@@ -401,15 +491,17 @@ API\footnote{\url{https://dev.twitter.com/streaming/overview}} would
 be applicable to a wide number of domains. For example, these methods
 can be used in social network marketing and publicity to increase the
 probability of influential posts. In practice, for a given
-{\texttt{\#<Brand>}}, by monitoring the activity of different
-language community, one can decide the time to post well-tailored
-tweets targeting certain communities. This can be fine-tuned further
-by mentioning key players in that community, e.g. users with high
+{\texttt{\#<Brand>}}, by monitoring the activity of different language
+community, one can decide the time to post well-tailored tweets
+targeting certain communities. This can be fine-tuned further by
+mentioning key players in that community, e.g. users with high
 closeness scores.
 
 
+\section*{Acknowledgment}
+\addcontentsline{toc}{section}{Acknowledgment}
 
-
+Add acknowledgments here -- funding for Nabeel?
 
 
 %\newpage
@@ -418,7 +510,7 @@ closeness scores.
 % number - used to balance the columns on the last page
 % adjust value as needed - may need to be readjusted if
 % the document is modified later
-%\IEEEtriggeratref{28}
+%\IEEEtriggeratref{13}
 % The "triggered" command can be changed if desired:
 %\IEEEtriggercmd{\enlargethispage{-5in}}
 
