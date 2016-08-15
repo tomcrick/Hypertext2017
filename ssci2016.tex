@@ -7,6 +7,7 @@
 \usepackage[hyphens]{url}
 \usepackage{paralist}
 \usepackage{booktabs}
+\usepackage{float}
 \usepackage[pdftex,colorlinks=true]{hyperref}
 
 % reduce indent on all paralist environments
@@ -58,7 +59,7 @@ following significant events, such as rioting and terrorism, this
 paper evaluates the extent to which different language communities
 engage and interact. We present our analysis of online interactions in
 various languages that took place on the social networking site
-Twitter during the Baltimore protests in April 2015.
+Twitter during the Baltimore protests in April 2015 in the USA.
 
 By utilising language information from user profiles
 ({\emph{N}}=716,494) and status updates ({\emph{N}}=1,257,065)
@@ -235,7 +236,7 @@ Section~\ref{locations}).
 
 \subsection{Overview of Paper}
 
-The techniques we present in this paper are based on language settings
+The techniques we introduce in this paper are based on language settings
 in users' profiles and those for statuses\footnote{The term `status'
 is a generic term used to refer to any Twitter post (tweet, retweet,
 reply, or quote).}. The remainder of this paper is organised as
@@ -291,7 +292,7 @@ hour. Then, it peaked with 98,000 between 22:00 and 23:00.
 
 Analysis of language communities begins with two basic techniques. The
 first is to classify statuses based on their languages. The status
-language is extracted from the `lang' entity inside status
+language is extracted from the `{\emph{lang}}' entity inside status
 objects. Language used in posting defines which community the status
 was meant for; a tweet written in Turkish, for example, is meant for
 the Turkish-speaking community. Output from this will be referred to
@@ -344,10 +345,12 @@ be involved, it is beyond this study and will not be covered here.
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=\columnwidth]{images/langfreq.png}
-\caption{Most frequently used languages in {\texttt{\#BaltimoreRiots}}
-  (en: English, es: Spanish, tr: Turkish, fr: French, en-gb: English
-  United Kingdom, ar: Arabic, de: German, ru: Russian, it: Italian,
-  pt: Portuguese)}
+\caption{Most frequently used languages in
+  {\texttt{\#BaltimoreRiots}}: 
+({\emph{en:}} English; {\emph{es:}} Spanish; {\emph{tr:}} Turkish;
+  {\emph{fr:}} French; {\emph{en-gb:}} British English; {\emph{ar:}}
+  Arabic; {\emph{de:}} German; {\emph{ru:}} Russian; {\emph{it:}}
+  Italian; {\emph{pt:}} Portuguese)}
 \label{fig:langfreq}
 \end{figure}
 
@@ -358,10 +361,10 @@ In the majority of cases, users choose to pick a language for their
 Twitter profile settings. In our dataset we found that out of 716,494
 users, only 45 had not chosen any language. However, the language
 entity returned by the API for those cases is the initial placeholder
-text ``Select Language...'' or a translated version that might provide
+text ``{\emph{Select Language...}}'' or a translated version that might provide
 hints regarding the user language
 community. Figure~\ref{fig:activecomm} shows that about 94\% of the
-users came from `en' profile community.
+users came from `{\emph{en}}' profile community.
 
 \begin{figure}[!htb]
 \centering
@@ -379,7 +382,7 @@ attacks.
 
 \subsection{Profile-Posting Graph}
 
-To investigate whether the `en' posting community is linked to
+To investigate whether the `{\emph{en}}' posting community is linked to
 particular profile communities, we constructed a bipartite graph as
 presented in Figure~\ref{fig:profilepostinggraph}, representing the
 profile-posting language network. In this graph, nodes that are
@@ -398,15 +401,23 @@ posting communities.
 \label{fig:profilepostinggraph}
 \end{figure*}
 
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=\textwidth]{images/profileprofilegraph.png}
+\caption{Profile-profile network graph}
+\label{fig:profileprofilegraph}
+\end{figure*}
+
 For an extreme case of one dominating posting language, we wanted to
 investigate participation of different communities. We thus filtered
-out all non-`en' statuses, and then identified different profile
-communities with the resultant set. For each community, we classified
-statuses into two sets: {\emph{actions}} and {\emph{reactions}}; this
-result is shown in Table~\ref{tbl:mostactive}. This shows the highest
-scoring communities, where the first column represents the category of
-status (action or reaction), community column represents profile
-language community, and last one shows percentage of `en’ posts by
+out all non-`{\emph{en}}' statuses, and then identified different
+profile communities with the resultant set. For each community, we
+classified statuses into two sets: {\emph{actions}} and
+{\emph{reactions}}; this result is shown in
+Table~\ref{tbl:mostactive}. This shows the highest scoring
+communities, where the first column represents the category of status
+(action or reaction), community column represents profile language
+community, and last one shows percentage of `{\emph{en}}' posts by
 that community.
 
 \begin{table}[!htb]
@@ -414,14 +425,14 @@ that community.
 \begin{tabular}{@{}lcr@{}}
 \toprule
 \textbf{Category} & \textbf{Community} & \textbf{\%} \\ \midrule
-Reaction & en & 81.08 \\
-Action & en & 15.43 \\
-Reaction & es & 0.68 \\
-Reaction & fr & 0.59 \\
-Reaction & en-gb & 0.47 \\
-Reaction & tr & 0.19 \\
-Reaction & de & 0.18 \\
-Reaction & pt & 0.13 \\ \bottomrule
+Reaction & {\emph{en}} & 81.08 \\
+Action & {\emph{en}} & 15.43 \\
+Reaction & {\emph{es}} & 0.68 \\
+Reaction & {\emph{fr}} & 0.59 \\
+Reaction & {\emph{en-gb}} & 0.47 \\
+Reaction & {\emph{tr}} & 0.19 \\
+Reaction & {\emph{de}} & 0.18 \\
+Reaction & {\emph{pt}} & 0.13 \\ \bottomrule
 \end{tabular}
 \caption{Activity and categories of most active profile language
   communities}
@@ -461,7 +472,7 @@ a quiet one.
 \end{figure*}
 
 
-\subsection{Reaction Networks}
+\subsection{Reaction Networks}\label{reactionnetworks}
 
 Another important perspective to identify and capture is how different
 profile communities relate to each other in terms of
@@ -482,13 +493,6 @@ Figure~\ref{fig:inoutdegree}.
 \label{fig:inoutdegree}
 \end{figure}
 
-\begin{figure*}[!h]
-\centering
-\includegraphics[width=\textwidth]{images/profileprofilegraph.png}
-\caption{Profile-profile network graph}
-\label{fig:profileprofilegraph}
-\end{figure*}
-
 
 \section{Conclusions}\label{conclusions}
 
@@ -507,9 +511,11 @@ community. Although most of topic activity comes from that main
 community, we noticed that, with local events, other communities work,
 mostly, as information spreaders.
 
-We also presented a network graph (using Gephi and the Networkx Python
-package) showing how language communities relate to each other in the
-form of action-reaction (action: tweet, reaction: retweet, reply,
+We also presented a network graph (using
+Gephi\footnote{\url{https://gephi.org/}} and the Networkx Python
+package\footnote{\url{https://networkx.github.io/}}) showing how
+language communities relate to each other in the form of
+action-reaction (action: tweet, reaction: retweet, reply,
 quote). Another interesting graph that we produced to show relations
 between profile and posting communities. We find that this graph is
 important to facilitate comparing users defined profile language with
@@ -533,11 +539,43 @@ targeting certain communities. This can be fine-tuned further by
 mentioning key players in that community, e.g. users with high
 closeness scores.
 
+Moreover, within certain contexts, the order of applying these two
+classifications (posting and profile) will generate different results.
+For example, taking one profile community and dividing it into
+different posting communities shows the number of languages this
+community may use, and hence degree of openness and reachability. A
+possible scenario for governments, politicians or campaigners would be
+to use this method to measure to what extent other languages are used
+within a profile community. It may also show how users associate
+themselves with one community in their profile while using other
+languages. Monitoring unusual activity for secondary languages may
+help to uncover important messages or opinions that could not be
+openly expressed, for a variety of reasons, to the rest of the profile
+community.
 
-% \section*{Acknowledgment}
-% \addcontentsline{toc}{section}{Acknowledgment}
+For the social network analysis domain, this method provides a
+different perspective for influence analysis. Endorsement from
+different profile communities cannot be measured similar to those
+coming from the same community. For example, in a controversial Arabic
+topic, we noticed that high support came from other profile
+communities.
 
-% Add acknowledgments here -- funding for Nabeel?
+For future work, we plan to add further classifications to the
+reaction network (as presented in Section~\ref{reactionnetworks}). We
+believe that differentiation between endorsements (e.g. retweets) and other
+reactions may provide further insight into the networks and
+communities. Furthermore, we will apply the methods presented in this
+paper on other high-profile event/discussion datasets in different
+domains or contexts, such as for sports, music contests and
+humanitarian actions.
+
+
+\section*{Acknowledgment}
+\addcontentsline{toc}{section}{Acknowledgment}
+
+This work has been supported by a doctoral research scholarship for
+Nabeel Albishry from King Abdulaziz University, Kingdom of Saudi
+Arabia.
 
 
 %\newpage
@@ -546,7 +584,7 @@ closeness scores.
 % number - used to balance the columns on the last page
 % adjust value as needed - may need to be readjusted if
 % the document is modified later
-%\IEEEtriggeratref{13}
+\IEEEtriggeratref{39}
 % The "triggered" command can be changed if desired:
 %\IEEEtriggercmd{\enlargethispage{-5in}}
 
