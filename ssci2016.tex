@@ -286,6 +286,27 @@ hour. Then, it peaked with 98,000 between 22:00 and 23:00.
 \label{fig:mainevents}
 \end{figure}
 
+
+\section{Language Communities}\label{langcomm}
+
+Analysis of language communities begins with two basic techniques. The
+first is to classify statuses based on their languages. The status
+language is extracted from the `lang' entity inside status
+objects. Language used in posting defines which community the status
+was meant for; a tweet written in Turkish, for example, is meant for
+the Turkish-speaking community. Output from this will be referred to
+as `posting communities'. The second analysis is to classify users
+into different communities based on their profile languages,
+regardless of the posting language they used. Output from this
+technique will be referred to as `profile communities'. As we will see
+in the following sections, a posting community does not necessarily
+indicate the profile community for a user. Therefore, the second step
+is to examine the relationship between profile and posting
+communities. We will also explore relationships amongst profile
+communities, in term of action-reaction. We will investigate the
+intra- and inter-profile communities interactions by constructing
+network graphs and generate a visual representation.
+
 \subsection{Locations}\label{locations}
 
 As mentioned in Section~\ref{intro}, for the sake of anonymity many
@@ -307,26 +328,6 @@ studies~\cite{graham-et-al:2014}. Secondly, although Twitter suggests
 certain presets for setting profile location, users are given the
 option to enter any text they wish; this results in a considerable
 amount of noise.
-
-\section{Language Communities}\label{langcomm}
-
-Analysis of language communities begins with two basic techniques. The
-first is to classify statuses based on their languages. The status
-language is extracted from the `lang' entity inside status
-objects. Language used in posting defines which community the status
-was meant for; a tweet written in Turkish, for example, is meant for
-the Turkish-speaking community. Output from this will be referred to
-as `posting communities'. The second analysis is to classify users
-into different communities based on their profile languages,
-regardless of the posting language they used. Output from this
-technique will be referred to as `profile communities'. As we will see
-in the following sections, a posting community does not necessarily
-indicate the profile community for a user. Therefore, the second step
-is to examine the relationship between profile and posting
-communities. We will also explore relationships amongst profile
-communities, in term of action-reaction. We will investigate the
-intra- and inter-profile communities interactions by constructing
-network graphs and generate a visual representation.
 
 \subsection{Posting Communities}
 
@@ -493,7 +494,8 @@ Figure~\ref{fig:inoutdegree}.
 
 This paper presented a study in identifying languages used, language
 communities and their engagement and interactions on the Twitter
-platform with respect to real world events. As we discussed in
+platform with respect to real world events, in this instance using the
+Baltimore protests in the USA in April 2015. As we discussed in
 Section~\ref{langcomm}, the nature of the event (e.g. being a local or
 global) may be reflected on community conversations on Twitter. We
 found that most of posting activity comes from the main community (the
@@ -505,7 +507,7 @@ community. Although most of topic activity comes from that main
 community, we noticed that, with local events, other communities work,
 mostly, as information spreaders.
 
-We also presented a network graph (using Gephi and the networkx Python
+We also presented a network graph (using Gephi and the Networkx Python
 package) showing how language communities relate to each other in the
 form of action-reaction (action: tweet, reaction: retweet, reply,
 quote). Another interesting graph that we produced to show relations
