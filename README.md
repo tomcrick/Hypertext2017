@@ -1,2 +1,2 @@
-# SSCI2016
-Paper for 2016 IEEE Symposium Series on Computational Intelligence (IEEE SSCI 2016)
+# IEEEICC2017
+Paper for IEEE International Conferece on Communications (ICC 2017)
