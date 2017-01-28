@@ -16,7 +16,7 @@
 \begin{document}
 
 % paper title
-\title{Engagement and Interactions of Language Communities on Twitter}
+\title{Interactions of Language and Multilingual Communities on Twitter}
 
 
 % author names and affiliations
@@ -55,22 +55,25 @@ Email: tcrick@cardiffmet.ac.uk}}
 \begin{abstract}
 Whilst emerging research is providing insight into the factors that
 promote the propagation of information in online social networks
-following significant events, such as rioting and terrorism, this
-paper evaluates the extent to which different language communities
-engage and interact. We present our analysis of online interactions in
-various languages that took place on the social networking site
-Twitter during the Baltimore protests in April 2015 in the USA.
+following significant events, such as high-profile international
+social events. This paper evaluates the extent to which different
+language communities engage and interact. We present our analysis of
+online interactions in various languages that took place on the social
+networking site Twitter during the Eurovision Song Contest in May
+2016.
 
 By utilising language information from user profiles
-({\emph{N}}=716,494) and status updates ({\emph{N}}=1,257,065)
-relating to the Baltimore protests to identify and categorise
-communities, we are able to provide insight into the pattern of their
-interactions, as well as constructing their network graphs. The
-results show that the nature of the event is reflected on the
-engagement degree and wider interaction of communities. This analysis
-of language communities may also help in deciding which group of users
-to engage with, and hence increase the chance of influential action
-when participating on Twitter conversations.
+({\emph{N}}=1,226,959) and status updates ({\emph{N}}=7,926,746)
+relating to the Contest to identify and categorise communities, we are
+able to provide insight into the pattern of their interactions, as
+well as constructing their network graphs to shed light on these
+multilingual community. The results show that the nature of the event
+is reflected on the engagement degree and wider interaction of
+communities, as well as showing the participation pattern of
+multilingual users. This analysis of language communities may also
+help in deciding which group of users to engage with, and hence
+increase the chance of influential action when participating on
+Twitter conversations.
 \end{abstract}
 
 % For peer review papers, you can put extra information on the cover
@@ -85,8 +88,7 @@ when participating on Twitter conversations.
 
 % tweak these at the end
 % \begin{IEEEkeywords}
-% Social network analysis, Twitter, language communities, information
-% flows, information propagation, social media, networks.
+% Language communities; community structure; information propagation; social networks; Twitter
 % \end{IEEEkeywords}
 
 
@@ -177,8 +179,11 @@ analysis of the Arab Spring~\cite{bruns-et-al:2013}. Nevertheless,
 language is clearly a vital component of affiliation and discourse on
 the web~\cite{zappavigna+martin:2012}, with the creation and curation
 of emerging multi-lingual networks and communities, representing
-well-established creative, cultural and socio-economic norms,
-including for minority languages such as Welsh~\cite{gj+uj:2013}.
+well-established creative and cultural norms, including for minority
+languages such as Welsh~\cite{gj+uj:2013}, as well as investigations
+into the economics of linguistic
+diversity~\cite{ginsburgh+weber:2011}.
+
 
 \subsection{Social Network Analysis}
 
@@ -224,6 +229,7 @@ necessarily issued from that location but could also potentially be
 about that location.}}
 \end{quotation}
 
+% *** fix at end ***
 For the sake of anonymity many users tend not to disclose information
 about their identity, particularly locations; this has also been
 supported by the literature that geotagged tweets are generally low in
@@ -234,6 +240,7 @@ significant proportion of Twitter users not setting their profile
 location~\cite{graham-et-al:2014} (discussed in more detail in
 Section~\ref{locations}).
 
+% *** fix at end ***
 \subsection{Overview of Paper}
 
 The techniques we introduce in this paper are based on language settings
@@ -251,41 +258,47 @@ and a summary of the potential application of our approach.
 
 \section{Context and Events Timeline}\label{context}
 
-Following the peaceful funeral of Freddie Gray that took place on the
-morning of Monday 27 April 2015 in Baltimore, Maryland, USA, a protest
-hit the city. According to the timeline published on the CNN website
-``{\emph{The city exploded on Monday after the funeral of Freddie
-Gray, a 25-year-old black man who mysteriously died on April 19, a
-week after Baltimore Police arrested
-him.}}''~\cite{baltimorewiki:2015}. The nature of the Baltimore protests
-is a good representation of a planned event in which a sudden
-escalation of violence hits a geographical area. The event manifested
-itself on Twitter as {\texttt{\#BaltimoreRiots}}, and resulted in more
-than 1,250,000 status updates.
+The Eurovision Song Contest ({\emph{Concours Eurovision de la
+chanson}}) -- sometimes popularly called Eurovision -- is the
+longest-running annual international TV song competition, held,
+primarily, among the member countries of the European Broadcasting
+Union since 1956. Each participating country submits an original
+song to be performed on live television and radio and then casts votes
+for the other countries' songs to determine the most popular song in
+the competition. The contest has been broadcast every year for sixty
+years, and is one of the longest-running television programmes in the
+world. It is also one of the most watched non-sporting events in the
+world, with audience figures varying in recent years from 100 million
+to 600 million globally\footnote{\url{https://www.eurovision.tv}}. The
+emergence of social networking in recent years has dramatically
+changed the range and scope of audience interaction and engagement,
+particularly for different language communities.
 
-Figure~\ref{fig:overallactivity} and Figure~\ref{fig:mainevents}
-present how the event manifested itself on Twitter once a ``purge'' was
-scheduled. We can see that what was happening on the ground was
-quickly reflected on the activity in Twitter, as
-Figure~\ref{fig:mainevents} indicates. More detailed analysis reveals
-that within one hour the topic started to go ``viral''; more
-precisely, at approximately 15:00 at which the ``purge'' was
-scheduled. The topic jumped from roughly 1,200 to 8,000 tweets per
-hour. Then, it peaked with 98,000 between 22:00 and 23:00.
+The 2016 Eurovision Song
+Contest\footnote{\url{https://www.eurovision.tv/page/stockholm-2016/all-participants}}
+took place in May in Stockholm, Sweden. There were 32 countries taking
+part, with two semi-finals taking place on 12 and 14 May. 26 countries
+qualified for the final on 16 May. This year’s contest was perceived
+by many commentators to be tense and politcally motivated [16],
+especially with Ukraine eventually winning the final. Although some
+articles do not see the contest as influenced by political conflicts
+or friendship~\cite{ginsburgh+noury:2008}[18], some recent news articles articulate on the
+possibly biased results[19].  The activity on Twitter was also very
+high throughout the event using Eurovision hashtag as the main
+tag. The size of participation collected exceeded 7,900,000
+statuses. The activity was produced from 1,226,959 users. Figure 1
+below, shows the overall activity on Twitter.
 
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=\columnwidth]{images/overallactivity.png}
-\caption{Overall activity for {\texttt{\#BaltimoreRiots}}.}
-\label{fig:overallactivity}
-\end{figure}
 
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=\columnwidth]{images/mainevents.png}
-\caption{Main events during the lifetime of {\texttt{\#BaltimoreRiots}}.}
-\label{fig:mainevents}
-\end{figure}
+
+
+% \begin{figure}[!htb]
+% \centering
+% \includegraphics[width=\columnwidth]{images/overallactivity.png}
+% \caption{Overall activity for {\texttt{\#BaltimoreRiots}}.}
+% \label{fig:overallactivity}
+% \end{figure}
+
 
 
 \section{Language Communities}\label{langcomm}
@@ -342,17 +355,17 @@ big portion, it came second after English. Although this category
 shows an interesting case in which qualitative content analysis would
 be involved, it is beyond this study and will not be covered here.
 
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=\columnwidth]{images/langfreq.png}
-\caption{Most frequently used languages in
-  {\texttt{\#BaltimoreRiots}}: 
-({\emph{en:}} English; {\emph{es:}} Spanish; {\emph{tr:}} Turkish;
-  {\emph{fr:}} French; {\emph{en-gb:}} British English; {\emph{ar:}}
-  Arabic; {\emph{de:}} German; {\emph{ru:}} Russian; {\emph{it:}}
-  Italian; {\emph{pt:}} Portuguese)}
-\label{fig:langfreq}
-\end{figure}
+% \begin{figure}[!htb]
+% \centering
+% \includegraphics[width=\columnwidth]{images/langfreq.png}
+% \caption{Most frequently used languages in
+%   {\texttt{\#BaltimoreRiots}}: 
+% ({\emph{en:}} English; {\emph{es:}} Spanish; {\emph{tr:}} Turkish;
+%   {\emph{fr:}} French; {\emph{en-gb:}} British English; {\emph{ar:}}
+%   Arabic; {\emph{de:}} German; {\emph{ru:}} Russian; {\emph{it:}}
+%   Italian; {\emph{pt:}} Portuguese)}
+% \label{fig:langfreq}
+% \end{figure}
 
 
 \subsection{Users' Language Communities}
@@ -366,12 +379,12 @@ hints regarding the user language
 community. Figure~\ref{fig:activecomm} shows that about 94\% of the
 users came from `{\emph{en}}' profile community.
 
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=\columnwidth]{images/activecomm.png}
-\caption{Top 10 most active communities in {\texttt{\#BaltimoreRiots}}}
-\label{fig:activecomm}
-\end{figure}
+% \begin{figure}[!htb]
+% \centering
+% \includegraphics[width=\columnwidth]{images/activecomm.png}
+% \caption{Top 10 most active communities in {\texttt{\#BaltimoreRiots}}}
+% \label{fig:activecomm}
+% \end{figure}
 
 From these two outputs, we can see that nearly all of the topic
 activity came from one particular community using one particular
@@ -394,19 +407,19 @@ outdegree. The graph confirms the domination pattern we highlighted
 earlier; furthermore, it shows the relationships between the profile and
 posting communities. 
 
-\begin{figure*}[!h]
-\centering
-\includegraphics[width=\textwidth]{images/profilepostinggraph.png}
-\caption{Profile-posting network graph}
-\label{fig:profilepostinggraph}
-\end{figure*}
+% \begin{figure*}[!h]
+% \centering
+% \includegraphics[width=\textwidth]{images/profilepostinggraph.png}
+% \caption{Profile-posting network graph}
+% \label{fig:profilepostinggraph}
+% \end{figure*}
 
-\begin{figure*}[!h]
-\centering
-\includegraphics[width=\textwidth]{images/profileprofilegraph.png}
-\caption{Profile-profile network graph}
-\label{fig:profileprofilegraph}
-\end{figure*}
+% \begin{figure*}[!h]
+% \centering
+% \includegraphics[width=\textwidth]{images/profileprofilegraph.png}
+% \caption{Profile-profile network graph}
+% \label{fig:profileprofilegraph}
+% \end{figure*}
 
 For an extreme case of one dominating posting language, we wanted to
 investigate participation of different communities. We thus filtered
@@ -464,12 +477,12 @@ more effective. Also, we might want to direct the message to certain
 language community, be that to influence a very active or re-activate
 a quiet one.
 
-\begin{figure*}[!h]
-\centering
-\includegraphics[width=\textwidth]{images/heatmap.png}
-\caption{Temporal activity of profile communities}
-\label{fig:heatmap}
-\end{figure*}
+% \begin{figure*}[!h]
+% \centering
+% \includegraphics[width=\textwidth]{images/heatmap.png}
+% \caption{Temporal activity of profile communities}
+% \label{fig:heatmap}
+% \end{figure*}
 
 
 \subsection{Reaction Networks}\label{reactionnetworks}
@@ -486,12 +499,12 @@ represents weighted indegree; we have also generated the degree
 measures for the various language communities, as shown in
 Figure~\ref{fig:inoutdegree}.
 
-\begin{figure*}[!htb]
-\centering
-\includegraphics[width=\textwidth]{images/indegreeoutdegree.png}
-\caption{Degree measures for the various language communities}
-\label{fig:inoutdegree}
-\end{figure*}
+% \begin{figure*}[!htb]
+% \centering
+% \includegraphics[width=\textwidth]{images/indegreeoutdegree.png}
+% \caption{Degree measures for the various language communities}
+% \label{fig:inoutdegree}
+% \end{figure*}
 
 
 \section{Conclusions}\label{conclusions}
@@ -584,13 +597,13 @@ Arabia.
 % number - used to balance the columns on the last page
 % adjust value as needed - may need to be readjusted if
 % the document is modified later
-\IEEEtriggeratref{29}
+%\IEEEtriggeratref{29}
 % The "triggered" command can be changed if desired:
 %\IEEEtriggercmd{\enlargethispage{-5in}}
 
 % references section
 \bibliographystyle{IEEEtran}
-\bibliography{ssci2016}
+\bibliography{icc2017}
 
 % that's all folks
 \end{document}
