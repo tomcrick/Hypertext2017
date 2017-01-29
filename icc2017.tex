@@ -16,7 +16,8 @@
 \begin{document}
 
 % paper title
-\title{Interactions of Language and Multilingual Communities on Twitter}
+\title{Interactions of Language and Multilingual Communities on
+  Twitter during the 2016 Eurovision Song Contest}
 
 
 % author names and affiliations
@@ -131,7 +132,7 @@ actions~\cite{lazer-et-al:2009,burnap-et-al:2015}.
 % being developed to yield meaningful results.
 
 Recent
-work~\cite{blamey-et-al-2012,schwartz-et-al:2013,blamey-et-al-2013,oatley+crick:2014,oatley-et-al-soccogcomp2015}
+work~\cite{blamey-et-al-2012,schwartz-et-al:2013,blamey-et-al-2013,oatley+crick:2014,mostafa-et-al-ai2016}
 has analysed what people say on social media to identify distinctive
 words, phrases, and topics as functions of known attributes of people
 such as gender, age, location, or psychological characteristics. This
@@ -150,7 +151,7 @@ There are various projects that have used Twitter corpora and related
 datasets to make predictions about
 elections~\cite{tumasjan-et-al:2010}, stock
 markets~\cite{zhang-et-al:2011}, and crimes and
-policing~\cite{gerber:2014,oatley+crick_fosintsi2014,oatley+crick:2015}. Twitter
+policing~\cite{gerber:2014,oatley+crick:2015}. Twitter
 played an important role during what was then known as the ``Arab
 Spring'', which has been extensively examined in the social network
 analysis
@@ -160,7 +161,7 @@ While the use of Twitter data has been demonstrated to provide insight
 into major social and physical events such as
 riots~\cite{procter-et-al:2013} and terror
 attacks~\cite{burnap-et-al:2014}, often all is not what it may seem;
-for instance many tweets may not a crowd make~\cite{liang-et-al:2013}.
+for instance, many tweets may not a crowd make~\cite{liang-et-al:2013}.
 
 \subsection{Languages and Communities}
 
@@ -178,7 +179,7 @@ volume and proportional of tweets in English and Arabic, as part of an
 analysis of the Arab Spring~\cite{bruns-et-al:2013}. Nevertheless,
 language is clearly a vital component of affiliation and discourse on
 the web~\cite{zappavigna+martin:2012}, with the creation and curation
-of emerging multi-lingual networks and communities, representing
+of emerging multilingual networks and communities, representing
 well-established creative and cultural norms, including for minority
 languages such as Welsh~\cite{gj+uj:2013}, as well as investigations
 into the economics of linguistic
@@ -229,7 +230,6 @@ necessarily issued from that location but could also potentially be
 about that location.}}
 \end{quotation}
 
-% *** fix at end ***
 For the sake of anonymity many users tend not to disclose information
 about their identity, particularly locations; this has also been
 supported by the literature that geotagged tweets are generally low in
@@ -240,19 +240,17 @@ significant proportion of Twitter users not setting their profile
 location~\cite{graham-et-al:2014} (discussed in more detail in
 Section~\ref{locations}).
 
-% *** fix at end ***
 \subsection{Overview of Paper}
 
-The techniques we introduce in this paper are based on language settings
-in users' profiles and those for statuses\footnote{The term `status'
-is a generic term used to refer to any Twitter post (tweet, retweet,
-reply, or quote).}. The remainder of this paper is organised as
-follows: Section~\ref{context} introduces the context of the Baltimore
-protest case study and the development of events in alignment with
-activity on Twitter. In Section~\ref{langcomm} we present the
-techniques we have used to identify and analyse language communities
-and networks, along with the results. Finally,
-Section~\ref{conclusions} concludes the paper with a wider discussions
+The techniques we introduce in this paper are based on language
+settings in users' profiles and those for statuses\footnote{The term
+`status' is a generic term used to refer to any Twitter post (tweet,
+retweet, reply, or quote).}. The remainder of this paper is organised
+as follows: Section~\ref{context} introduces the context of the
+Eurovision Song Contest case study; in Section~\ref{langcomm} we
+present the techniques we have used to identify and analyse language
+communities and networks, along with the main results. Finally,
+Section~\ref{conclusions} concludes the paper with a wider discussion
 and a summary of the potential application of our approach.
 
 
@@ -279,47 +277,51 @@ Contest\footnote{\url{https://www.eurovision.tv/page/stockholm-2016/all-particip
 took place in May in Stockholm, Sweden. There were 32 countries taking
 part, with two semi-finals taking place on 12 and 14 May. 26 countries
 qualified for the final on 16 May. This year’s contest was perceived
-by many commentators to be tense and politcally motivated [16],
-especially with Ukraine eventually winning the final. Although some
-articles do not see the contest as influenced by political conflicts
-or friendship~\cite{ginsburgh+noury:2008}[18], some recent news articles articulate on the
-possibly biased results[19].  The activity on Twitter was also very
-high throughout the event using Eurovision hashtag as the main
-tag. The size of participation collected exceeded 7,900,000
-statuses. The activity was produced from 1,226,959 users. Figure 1
-below, shows the overall activity on Twitter.
+by many commentators to be tense and politically motivated, especially
+with Ukraine eventually winning the
+final~\cite{telegrapheuroboycott:2016}. Varying analyses see the
+contest as being influenced by political conflicts, friendships or
+cultural
+bias~\cite{ginsburgh+noury:2008,charron:2013,blangiardo+baio:2014,budzinski+pannicke:2016},
+with a range of news articles explicitly discussing the possibly
+biased results~\cite{telegrapheurobias:2016}.  Twitter activity was
+very high throughout the event on the main {\texttt{\#Eurovision}}
+hashtag. The participation exceeded 7,900,000 statuses, produced by
+1,226,959 users; Figure~\ref{fig:overallactivity} shows the overall
+Twitter activity.
 
 
-
-
-% \begin{figure}[!htb]
-% \centering
-% \includegraphics[width=\columnwidth]{images/overallactivity.png}
-% \caption{Overall activity for {\texttt{\#BaltimoreRiots}}.}
-% \label{fig:overallactivity}
-% \end{figure}
-
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\columnwidth]{images/overallactivity.png}
+\caption{Overall activity for {\texttt{\#Eurovision}}.}
+\label{fig:overallactivity}
+\end{figure}
 
 
 \section{Language Communities}\label{langcomm}
+
+Preliminary analysis shows that tweets and retweets together account
+for c.97\% from the total activity, as shown in
+Figure~\ref{fig:overallactivity}. These two subsets can be
+representative on their own, without the need to include other
+interaction sets, such as replies and quoted tweets. It is important
+to note that tweets and retweets are used to measure actions, and
+reactions, respectively. However, our analysis will be focusing on
+original tweets only and the usage of different languages in this set.
 
 Analysis of language communities begins with two basic techniques. The
 first is to classify statuses based on their languages. The status
 language is extracted from the `{\emph{lang}}' entity inside status
 objects. Language used in posting defines which community the status
-was meant for; a tweet written in Turkish, for example, is meant for
-the Turkish-speaking community. Output from this will be referred to
-as `posting communities'. The second analysis is to classify users
-into different communities based on their profile languages,
-regardless of the posting language they used. Output from this
-technique will be referred to as `profile communities'. As we will see
-in the following sections, a posting community does not necessarily
-indicate the profile community for a user. Therefore, the second step
-is to examine the relationship between profile and posting
-communities. We will also explore relationships amongst profile
-communities, in term of action-reaction. We will investigate the
-intra- and inter-profile communities interactions by constructing
-network graphs and generate a visual representation.
+was meant for; a tweet written in Turkish, for example, is generally
+meant for the Turkish-speaking community. Output from this will be
+referred to as `posting communities'. The second approach is to
+classify users into different communities based on their profile
+languages, regardless of the posting language they used. Output from
+this technique will be referred to as `profile communities'. As we
+will see in the following sections, a posting community does not
+necessarily indicate the profile community for a user.
 
 \subsection{Locations}\label{locations}
 
@@ -329,218 +331,271 @@ particularly locations; this has also been supported by the literature
 that geotagged tweets are generally low in
 number~\cite{kang-et-al:2013}. We took the step to verify this claim
 in our datasets; in the best cases, the ratio of geotagged tweets did
-not exceed 2\%. In the case of the {\texttt{\#BaltimoreRiots}}
-dataset, only ~1\% of collected statuses were associated with
-places. Moreover, out of this geotagged subset, only 4\% were
-associated with the city where the event took place (Baltimore).
+not exceed 2\%. An alternative location-based option to consider is
+based on profile location, but it still does not serve the need for
+location clustering for a multitude of reasons. Firstly, we found that
+less than 45\% of users have set their profile location, which is in
+line with other studies~\cite{graham-et-al:2014}. Secondly, although
+Twitter suggests certain presets for setting profile location, users
+are given the option to enter any text they wish; this results in a
+considerable amount of noise.
 
-An alternative location-based option to consider is based on profile
-location, but it still does not serve the need for location clustering
-for a multitude of reasons. Firstly, we found that less than 45\% of
-users have set their profile location, which is in line with other
-studies~\cite{graham-et-al:2014}. Secondly, although Twitter suggests
-certain presets for setting profile location, users are given the
-option to enter any text they wish; this results in a considerable
-amount of noise.
+\subsection{Profile and Posting Communities}\label{ppcomm}
 
-\subsection{Posting Communities}
+In the {\texttt{\#Eurovision}} case, there were 49 posting
+languages. Table~\ref{tbl:activelangs} shows the top posting languages
+accounted for 90\% of original posts (tweets), out of 3,834,937. As
+might be expected, the English was the most used posting
+language. Interestingly, the results show that the language of 142,721
+(3.72\%) statuses could not be identified. When investigated further,
+c.40\% of these statuses did not contain much text other than
+hashtags, user mentions or URLs. Although this category shows an
+interesting case in which qualitative content analysis could be
+involved, it is beyond the scope of this study and will not be
+addressed here.
 
-In the {\texttt{\#BaltimoreRiots}} case, there were 38 posting
-languages. As we can see in Figure~\ref{fig:langfreq}, English was the
-dominating language by far. Interestingly, results also show that
-language of more than 41,000 (~3\%) statuses could not be
-identified. When investigated, those statuses mostly do not contain
-text other than hashtags, pictures or URLs. Although, this is not a
-big portion, it came second after English. Although this category
-shows an interesting case in which qualitative content analysis would
-be involved, it is beyond this study and will not be covered here.
-
-% \begin{figure}[!htb]
-% \centering
-% \includegraphics[width=\columnwidth]{images/langfreq.png}
-% \caption{Most frequently used languages in
-%   {\texttt{\#BaltimoreRiots}}: 
-% ({\emph{en:}} English; {\emph{es:}} Spanish; {\emph{tr:}} Turkish;
-%   {\emph{fr:}} French; {\emph{en-gb:}} British English; {\emph{ar:}}
-%   Arabic; {\emph{de:}} German; {\emph{ru:}} Russian; {\emph{it:}}
-%   Italian; {\emph{pt:}} Portuguese)}
-% \label{fig:langfreq}
-% \end{figure}
-
-
-\subsection{Users' Language Communities}
-
-In the majority of cases, users choose to pick a language for their
-Twitter profile settings. In our dataset we found that out of 716,494
-users, only 45 had not chosen any language. However, the language
-entity returned by the API for those cases is the initial placeholder
-text ``{\emph{Select Language...}}'' or a translated version that might provide
-hints regarding the user language
-community. Figure~\ref{fig:activecomm} shows that about 94\% of the
-users came from `{\emph{en}}' profile community.
-
-% \begin{figure}[!htb]
-% \centering
-% \includegraphics[width=\columnwidth]{images/activecomm.png}
-% \caption{Top 10 most active communities in {\texttt{\#BaltimoreRiots}}}
-% \label{fig:activecomm}
-% \end{figure}
-
-From these two outputs, we can see that nearly all of the topic
-activity came from one particular community using one particular
-language. This extreme pattern may accompany extreme and
-geographically constrained real world events such as riots and terror
-attacks.
-
-
-\subsection{Profile-Posting Graph}
-
-To investigate whether the `{\emph{en}}' posting community is linked to
-particular profile communities, we constructed a bipartite graph as
-presented in Figure~\ref{fig:profilepostinggraph}, representing the
-profile-posting language network. In this graph, nodes that are
-prefixed by ``{\emph{p\_}}'' represent profile language community, and
-nodes that are prefixed by ``{\emph{s\_}}'' represent status language
-community. Size of node represents the weighted degree, whereas colour
-represents the outdegree; the darker the colour, the higher
-outdegree. The graph confirms the domination pattern we highlighted
-earlier; furthermore, it shows the relationships between the profile and
-posting communities. 
-
-% \begin{figure*}[!h]
-% \centering
-% \includegraphics[width=\textwidth]{images/profilepostinggraph.png}
-% \caption{Profile-posting network graph}
-% \label{fig:profilepostinggraph}
-% \end{figure*}
-
-% \begin{figure*}[!h]
-% \centering
-% \includegraphics[width=\textwidth]{images/profileprofilegraph.png}
-% \caption{Profile-profile network graph}
-% \label{fig:profileprofilegraph}
-% \end{figure*}
-
-For an extreme case of one dominating posting language, we wanted to
-investigate participation of different communities. We thus filtered
-out all non-`{\emph{en}}' statuses, and then identified different
-profile communities with the resultant set. For each community, we
-classified statuses into two sets: {\emph{actions}} and
-{\emph{reactions}}; this result is shown in
-Table~\ref{tbl:mostactive}. This shows the highest scoring
-communities, where the first column represents the category of status
-(action or reaction), community column represents profile language
-community, and last one shows percentage of `{\emph{en}}' posts by
-that community.
 
 \begin{table}[!htb]
 \centering
-\begin{tabular}{@{}lcr@{}}
+\begin{tabular}{@{}lc}
 \toprule
-\textbf{Category} & \textbf{Community} & \textbf{\%} \\ \midrule
-Reaction & {\emph{en}} & 81.08 \\
-Action & {\emph{en}} & 15.43 \\
-Reaction & {\emph{es}} & 0.68 \\
-Reaction & {\emph{fr}} & 0.59 \\
-Reaction & {\emph{en-gb}} & 0.47 \\
-Reaction & {\emph{tr}} & 0.19 \\
-Reaction & {\emph{de}} & 0.18 \\
-Reaction & {\emph{pt}} & 0.13 \\ \bottomrule
+\textbf{Language} & \textbf{\%} \\ 
+\midrule
+{\emph{en}} & 45.90 \\
+{\emph{es}} & 17.24 \\
+{\emph{ru}} & 8.99 \\
+{\emph{fr}} & 6.20 \\
+{\emph{und}} & 3.72 \\
+{\emph{nl}} & 3.71 \\
+{\emph{de}} & 3.19 \\
+{\emph{it}} & 2.85 \\ 
+\bottomrule
 \end{tabular}
-\caption{Activity and categories of most active profile language
-  communities}
-\label{tbl:mostactive}
+\caption{Most active profile language
+  communities, accounting for 90\% of original tweets}
+\label{tbl:activelangs}
 \end{table}
 
-From the results above we can infer that there is a dominating player
-in both domains: posting languages and profile communities. Therefore,
-for the case of {\texttt{\#BaltimoreRiots}}, we can conclude that the case was
-substantially localised.
+
+In total, 1,226,959 users interacted with the {\texttt{\#Eurovision}}
+hashtag. In terms of their profile languages, they formed 50
+communities. Table~\ref{tbl:profcomms} shows the profile communities
+from the top 90\% of all users. Unlike status language, profile
+language relies on the user to pick a language for their Twitter
+profile settings. In general, the default value of this option is the
+initial placeholder text ``{\emph{Select Language...}}'' or a
+translated version that might provide hints regarding the user
+language community. In our dataset, we found that all users had
+selected a language and no users with the default value.
 
 
-\subsection{Temporal Communities Activity}
-
-We wished to explore communities' activity over time, apart from the
-overall activity. Figure~\ref{fig:heatmap} represents a heat map for
-posts per hour for each profile community over the lifetime of
-{\texttt{\#BaltimoreRiots}}. This sort of mapping would help in
-identifying times at which communities are active.
-
-When refined with posting language, this technique would be useful in
-identifying when to engage into conversations, which language
-community to target, and by which language. For example, presuming
-that we want to participate in a trending topic hashtag that we are
-interested in; this analysis technique could help us make our post
-more direct and focused. By finding which language is mostly used in
-posting, we will be able to know in which language the tweet would be
-more effective. Also, we might want to direct the message to certain
-language community, be that to influence a very active or re-activate
-a quiet one.
-
-% \begin{figure*}[!h]
-% \centering
-% \includegraphics[width=\textwidth]{images/heatmap.png}
-% \caption{Temporal activity of profile communities}
-% \label{fig:heatmap}
-% \end{figure*}
+\begin{table}[!htb]
+\centering
+\begin{tabular}{@{}lc}
+\toprule
+\textbf{Community} & \textbf{\%} \\ 
+\midrule
+{\emph{en}} & 47.06 \\
+{\emph{es}} & 20.37 \\
+{\emph{fr}} & 8.00 \\
+{\emph{ru}} & 7.07 \\
+{\emph{de}} & 3.539 \\
+{\emph{nl}} & 3.31 \\
+{\emph{it}} & 2.25 \\ 
+\bottomrule
+\end{tabular}
+\caption{Profile communities, for top 90\% of users}
+\label{tbl:profcomms}
+\end{table}
 
 
-\subsection{Reaction Networks}\label{reactionnetworks}
+\subsection{Profile-Posting Analysis}
 
-Another important perspective to identify and capture is how different
-profile communities relate to each other in terms of
-reactions. Therefore, we constructed the graph in
-Figure~\ref{fig:profileprofilegraph} to show interactions amongst
-language communities. Edges are directed and are drawn from reacting
-nodes (retweeter, or replier) to the original acting node
-(tweeter). As we are not interested in reactions from community to
-itself, we eliminated self-loop edges from the graph. Node size
-represents weighted indegree; we have also generated the degree
-measures for the various language communities, as shown in
-Figure~\ref{fig:inoutdegree}.
+From the previous two tables, we can see some similarities between the
+posting and profile communities. Taking an exceptional case as an
+example, we can see that although the French profile community had
+more presence, the Russian posting community is larger by 2.79\%. A
+simple explanation would be that the Russian profile community was
+relatively more active than French due to the focus on related
+countries; another reason could be the participation of non-Russian
+profiles using the Russian language for posting. To investigate this,
+we investigated the contribution of profile communities to the Russian
+posting community. The result in Table~\ref{tbl:russian} shows profile
+communities that resulted in more than 95\% of activity in this
+posting community.
 
-% \begin{figure*}[!htb]
-% \centering
-% \includegraphics[width=\textwidth]{images/indegreeoutdegree.png}
-% \caption{Degree measures for the various language communities}
-% \label{fig:inoutdegree}
-% \end{figure*}
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{@{}lc}
+\toprule
+\textbf{Community} & \textbf{\%} \\ 
+\midrule
+{\emph{ru}} & 91.25 \\
+{\emph{en}} & 7.26 \\
+\bottomrule
+\end{tabular}
+\caption{Active profile communities within the Russian posting community}
+\label{tbl:russian}
+\end{table}
+
+
+As we can see in this example, posts in Russian were not merely
+appearing from the Russian profile community. This show one way of
+exploring relationships between profile and posting communities,
+especially if we are interested in particular communities.
+
+Another approach is to explore the posting behaviour of one particular
+community. When considering certain profile communities, there is a
+tendency to assume that communities only post in languages that are
+the same as their profile language. To examine this assumption, we
+investigated participation of `{\emph{en}}' profiles, as they form
+nearly 50\% of users. In total, there were 1,841,205 posts from this
+community, 81\% of which were posted in `{\emph{en}}', 15.4\% in other
+languages, and 3.62\% were not identified. Table~\ref{tbl:enpartlangs}
+lists the top 95\% posting languages used by this profile community.
+
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{@{}lc}
+\toprule
+\textbf{Language} & \textbf{\%} \\ 
+\midrule
+{\emph{en}} & 80.99 \\
+{\emph{und}} & 3.62 \\
+{\emph{es}} & 2.69 \\
+{\emph{nl}} & 2.39 \\
+{\emph{fr}} & 1.39 \\
+{\emph{ru}} & 1.36 \\
+{\emph{de}} & 0.97 \\
+{\emph{it}} & 0.87 \\ 
+{\emph{el}} & 0.86 \\ 
+\bottomrule
+\end{tabular}
+\caption{Top 95\% of participation languages from `{\emph{en}}' profiles}
+\label{tbl:enpartlangs}
+\end{table}
+
+
+\subsection{Language Diversity}
+
+By observing the language diversity of profile communities, we aim to
+measure language diversity of the topic in general, as well as
+investigating which community plays a key role in bridging different
+profile communities. Diversity in this context means how many posting
+languages were used from each profile community, and to what extent
+they used their own language, as well as other languages.  The general
+language diversity of the topic is c.17\%, while 3.72\% were not
+identified. All of the 50 profile communities used different languages
+in posting. Interestingly, 16 out of those communities did not use
+their own language, they were low in participation though. Moreover,
+in terms of using different languages, we found that 32 communities
+scored at least 50\% out of their tweets. We noticed that posting from
+small profile communities may affect the overall language diversity of
+the topic. Referring to the top profile communities discussed in
+Section~\ref{ppcomm}, Table~\ref{tbl:diversity} shows their
+diversity by percentage. The Russian profile community is again an
+interesting case, as it scored the least diverse profile amongst all
+the 50 communities although it comes fourth in number of users.
+
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{@{}lc}
+\toprule
+\textbf{Language} & \textbf{\%} \\ 
+\midrule
+{\emph{de}} & 34.27 \\
+{\emph{nl}} & 32.78 \\
+{\emph{it}} & 18.49 \\ 
+{\emph{fr}} & 16.65 \\
+{\emph{en}} & 15.39 \\
+{\emph{es}} & 10.13 \\
+{\emph{ru}} & 7.93 \\
+\bottomrule
+\end{tabular}
+\caption{Diversity of the top profile communities}
+\label{tbl:diversity}
+\end{table}
+
+
+\subsection{Multilingual Communities}
+
+In this section, we group users based on their relationship with
+posting communities, regardless of their profile language. For
+example, a user posting in both `{\emph{en}}' and `{\emph{fr}}' will
+be classified as bilingual, and so on. Based on this grouping
+technique, with the `{\emph{und}}' lang category eliminated, we
+identified 20 sets. The smallest two groups consist of one user each,
+who posted in 22 and 25 different languages.  As we can see in
+Figure~\ref{fig:multilingual}, monolingual users scored about 85\% of
+all users, creating 47\% of the total original posts. The also shows
+that users and their activity decrease as number of languages used
+increase.
+
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\columnwidth]{images/multilingualcommunities.png}
+\caption{Multilingual communities and their associated activities.}
+\label{fig:multilingual}
+\end{figure}
+
+
+A closer look at the behavior of these communities shows that, in
+general, activity per user increases as number of used languages
+increase, as shown in
+Figure~\ref{fig:multilingualpostsperuser}. Although we cannot conclude
+that there is a correlation between high multilingualism and
+illegitimacy of accounts, this would be an interesting further topic
+to investigate.
+
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\columnwidth]{images/multilingualpostsperuser.png}
+\caption{Average number of posts per user for multilingual communities.}
+\label{fig:multilingualpostsperuser}
+\end{figure}
 
 
 \section{Conclusions}\label{conclusions}
 
 This paper presented a study in identifying languages used, language
-communities and their engagement and interactions on the Twitter
-platform with respect to real world events, in this instance using the
-Baltimore protests in the USA in April 2015. As we discussed in
-Section~\ref{langcomm}, the nature of the event (e.g. being a local or
-global) may be reflected on community conversations on Twitter. We
-found that most of posting activity comes from the main community (the
-language community in which the incident has happened or tightly
-related to). This is especially the case when the online conversations
-are triggered by a real world incident. The same for posting
-languages, users mostly to use the language of the main
-community. Although most of topic activity comes from that main
-community, we noticed that, with local events, other communities work,
-mostly, as information spreaders.
+and multilingual communities, and their engagement and interactions on
+the Twitter platform with respect to real world events, in this
+instance using the Eurovision Song Contest in May 2016.  As we
+discussed in Section~\ref{langcomm}, there is a positive relationship
+between size of profile and posting communities. We have also showed
+that a large number in participating profile community does not
+necessarily imply high language diversity, and that diversity may
+results from small profile community.
 
-We also presented a network graph (using
-Gephi\footnote{\url{https://gephi.org/}} and the Networkx Python
-package\footnote{\url{https://networkx.github.io/}}) showing how
-language communities relate to each other in the form of
-action-reaction (action: tweet, reaction: retweet, reply,
-quote). Another interesting graph that we produced to show relations
-between profile and posting communities. We find that this graph is
-important to facilitate comparing users defined profile language with
-their posting language. Some event might be termed as `partially
-scheduled' as their end was different to how they were planned in the
-first place. In such tense situation, we noticed that diversity of
-languages and communities are very low, and there always be a
-dominating community and language.
+We also presented the structure of multilingual communities and their
+activity. Although most users may use their own profile language in
+posting, most of the activity came from multilingual users. In a few
+cases, users may use a significant number of languages, up to 25
+different languages. These extreme cases may be interesting to
+investigate for possible spammer/false account detection or for
+sociolinguistics in more moderate cases.
 
 The method we presented here can be used in identifying how
 communities interact with one another, which ones are most active,
-which languages are mostly used, and at what time. Applying these
+which languages are mostly used, and at what time. Moreover, within
+certain contexts, the order of applying these two classifications
+(posting and profile) will generate results in different
+perspectives. For example, taking one profile community and dividing
+it into different posting communities shows the number of languages
+this community may use, and hence degree of openness and
+reachability. A possible scenario for governments, politicians or
+campaigners would be to use this method to measure to what extent
+other languages are used within a profile community. It may also show
+how users associate themselves with one community in their profile
+while using other languages. Monitoring unusual activity for secondary
+languages, in multilingual communities, may help to uncover important
+messages or opinions that could not be openly expressed, for a variety
+of reasons, to the rest of the profile community. Applying these
 techniques on data pouring from the Twitter Stream
 API\footnote{\url{https://dev.twitter.com/streaming/overview}} would
 be applicable to a wide number of domains. For example, these methods
@@ -548,39 +603,16 @@ can be used in social network marketing and publicity to increase the
 probability of influential posts. In practice, for a given
 {\texttt{\#<Brand>}}, by monitoring the activity of different language
 community, one can decide the time to post well-tailored tweets
-targeting certain communities. This can be fine-tuned further by
-mentioning key players in that community, e.g. users with high
-closeness scores.
+targeting certain communities.
 
-Moreover, within certain contexts, the order of applying these two
-classifications (posting and profile) will generate different results.
-For example, taking one profile community and dividing it into
-different posting communities shows the number of languages this
-community may use, and hence degree of openness and reachability. A
-possible scenario for governments, politicians or campaigners would be
-to use this method to measure to what extent other languages are used
-within a profile community. It may also show how users associate
-themselves with one community in their profile while using other
-languages. Monitoring unusual activity for secondary languages may
-help to uncover important messages or opinions that could not be
-openly expressed, for a variety of reasons, to the rest of the profile
-community.
-
-For the social network analysis domain, this method provides a
-different perspective for influence analysis. Endorsement from
-different profile communities cannot be measured similar to those
-coming from the same community. For example, in a controversial Arabic
-topic, we noticed that high support came from other profile
-communities.
-
-For future work, we plan to add further classifications to the
-reaction network (as presented in Section~\ref{reactionnetworks}). We
-believe that differentiation between endorsements (e.g. retweets) and other
+For future work, we plan to have a deeper look at how multilingual
+communities participate and their reaction networks. We believe that
+differentiation between endorsements (e.g. retweets) and other
 reactions may provide further insight into the networks and
 communities. Furthermore, we will apply the methods presented in this
 paper on other high-profile event/discussion datasets in different
-domains or contexts, such as for sports, music contests and
-humanitarian actions.
+domains or contexts, such as for sports and humanitarian/civil rights
+actions.
 
 
 \section*{Acknowledgment}
@@ -597,7 +629,7 @@ Arabia.
 % number - used to balance the columns on the last page
 % adjust value as needed - may need to be readjusted if
 % the document is modified later
-%\IEEEtriggeratref{29}
+\IEEEtriggeratref{32}
 % The "triggered" command can be changed if desired:
 %\IEEEtriggercmd{\enlargethispage{-5in}}
 
