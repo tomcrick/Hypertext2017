@@ -1,10 +1,10 @@
-targets = icc2017.pdf
+targets = hypertext2017.pdf
 
 all: $(targets)
 
 pdflatex = pdflatex -interaction=errorstopmode -halt-on-error
 
-%.pdf: %.tex icc2017.bib
+%.pdf: %.tex hypertext2017.bib
 	$(pdflatex) $<
 	bibtex $*
 	$(pdflatex) $<

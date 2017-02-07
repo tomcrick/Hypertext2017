@@ -1,2 +1,2 @@
-# IEEEICC2017
-Paper for IEEE International Conference on Communications (ICC 2017)
+# Hypertext2017
+Paper for 28th ACM Conference on Hypertext and Social Media (Hypertext 2017)
