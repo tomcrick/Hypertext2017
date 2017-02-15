@@ -235,10 +235,10 @@ amount of noise.
 
 \subsection{Posting Communities}
 
-In the {\texttt{\#BaltimoreRiots}} case, there were 38 posting
-languages. As we can see in Figure~\ref{fig:langfreq}, English was the
+In the {\texttt{\#BaltimoreRiots}} case, for original posts, there were 39 posting
+languages, including und. As we can see in Figure~\ref{fig:baltimore_langfreq}, English was the
 dominating language by far. Interestingly, results also show that
-language of more than 41,000 (~3\%) statuses could not be
+language of more than ~7\% statuses could not be
 identified. When investigated, those statuses mostly do not contain
 text other than hashtags, pictures or URLs. Although, this is not a
 big portion, it came second after English. Although this category
@@ -247,14 +247,14 @@ be involved, it is beyond this study and will not be covered here.
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=\columnwidth]{images/langfreq.png}
+\includegraphics[width=\columnwidth]{images/baltimore_langfreq.png}
 \caption{Most frequently used languages in
   {\texttt{\#BaltimoreRiots}}: 
 ({\emph{en:}} English; {\emph{es:}} Spanish; {\emph{tr:}} Turkish;
   {\emph{fr:}} French; {\emph{en-gb:}} British English; {\emph{ar:}}
   Arabic; {\emph{de:}} German; {\emph{ru:}} Russian; {\emph{it:}}
   Italian; {\emph{pt:}} Portuguese)}
-\label{fig:langfreq}
+\label{fig:baltimore_langfreq}
 \end{figure}
 
 \subsection{Users' Language Communities}
@@ -265,17 +265,26 @@ users, only 45 had not chosen any language. However, the language
 entity returned by the API for those cases is the initial placeholder
 text ``{\emph{Select Language...}}'' or a translated version that might provide
 hints regarding the user language
-community. Figure~\ref{fig:activecomm} shows that about 94\% of the
+community. Figure~\ref{fig:baltimore_profile_size} shows that about 94\% of the
 users came from `{\emph{en}}' profile community.
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=\columnwidth]{images/activecomm.png}
-\caption{Top 10 most active communities in {\texttt{\#BaltimoreRiots}}}
-\label{fig:activecomm}
+\includegraphics[width=\columnwidth]{images/baltimore_profile_size.png}
+\caption{Top 10 profile language communities in {\texttt{\#BaltimoreRiots}}}
+\label{fig:baltimore_profile_size}
 \end{figure}
 
-From these two outputs, we can see that nearly all of the topic
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\columnwidth]{images/baltimore_profile_activity.png}
+\caption{Profile language communities casuig \%99 of activity in {\texttt{\#BaltimoreRiots}}}
+\label{fig:baltimore_profile_activity}
+\end{figure}
+
+As we can see in figure ~\ref{fig:baltimore_profile_activity}, 
+activity from profile communities is not far from their sizes.
+Also, from these two outputs, we can see that nearly all of the topic
 activity came from one particular community using one particular
 language. This extreme pattern may accompany extreme and
 geographically constrained real world events such as riots and terror
@@ -283,32 +292,61 @@ attacks.
 
 
 \subsection{Profile-Posting Graph}
-
 To investigate whether the `{\emph{en}}' posting community is linked to
 particular profile communities, we constructed a bipartite graph as
-presented in Figure~\ref{fig:profilepostinggraph}, representing the
+presented in figure~\ref{fig:baltimore_p_s_lang_sl}, representing the
 profile-posting language network. In this graph, nodes that are
 prefixed by ``{\emph{p\_}}'' represent profile language community, and
-nodes that are prefixed by ``{\emph{s\_}}'' represent status language
-community. Size of node represents the weighted degree, whereas colour
+nodes that are prefixed by ``{\emph{s\_}}'' represent posting language
+community. Size of node represents the weighted indegree, whereas colour
 represents the outdegree; the darker the colour, the higher
-outdegree. The graph confirms the domination pattern we highlighted
+outdegree, hence, totally white nodes have no out degree and help to easly distinguish posting communities from profile ones.
+The graph confirms the domination pattern we highlighted
 earlier; furthermore, it shows the relationships between the profile and
 posting communities. 
 
-\begin{figure*}[htb]
+\begin{figure}[htb]
 \centering
-\includegraphics[width=\textwidth]{images/profilepostinggraph.png}
-\caption{Profile-posting network graph}
-\label{fig:profilepostinggraph}
-\end{figure*}
+\includegraphics[width=\columnwidth]{images/baltimore_p_s_lang_sl.png}
+\caption{Profile-Posting network graph, selfloop included}
+\label{fig:baltimore_p_s_lang_sl}
+\end{figure}
 
-\begin{figure*}[htb]
+\begin{figure}[htb]
 \centering
-\includegraphics[width=\textwidth]{images/profileprofilegraph.png}
+\includegraphics[width=\columnwidth]{images/baltimore_p_s_lang_nsl.png}
+\caption{Profile-Posting network graph, no selfloop}
+\label{fig:baltimore_p_s_lang_nsl}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\columnwidth]{images/baltimoreprofileprofile.png}
 \caption{Profile-profile network graph}
-\label{fig:profileprofilegraph}
-\end{figure*}
+\label{fig:baltimoreprofileprofilegraph}
+\end{figure}
+
+
+Furthermore, to examine users behaviour in using languages other than their own (profile language), while same-language 
+communities are filtered out for clarity, the result is shown in figure ~\ref{fig:baltimore_p_s_lang_nsl}. 
+In this figure, relationships can be easly observed by looking at weight of their edges. As we can see in Table~\ref{tbl:baltimoredifflang}, in this context,  
+English profile users have mostly been posting in Arabic, followed by Espanish profiles posting in English. This observation shed the light on those relatioships, and could be of use for further analysis, such as highly dissiminated message that fall into these relationships and thier contents. 
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{@{}lcr@{}}
+\toprule
+\textbf{Profile-Posting Edge} & \textbf{Weight} \\ \midrule
+{\emph{en-ar}} & 1791 \\
+{\emph{es-en}} & 727 \\
+{\emph{ar-en}} & 697\\ 
+{\emph{fr-en}} & 571 \\
+{\emph{tr-en}} & 558 \\
+{\emph{en-tr}} & 550 \\ \bottomrule
+\end{tabular}
+\caption{Users behaviour in using languages different to their profile}
+\label{tbl:baltimoredifflang}
+\end{table}
 
 For an extreme case of one dominating posting language, we wanted to
 investigate participation of different communities. We thus filtered
@@ -346,53 +384,17 @@ in both domains: posting languages and profile communities. Therefore,
 for the case of {\texttt{\#BaltimoreRiots}}, we can conclude that the case was
 substantially localised.
 
-\subsection{Temporal Communities Activity}
-
-We wished to explore communities' activity over time, apart from the
-overall activity. Figure~\ref{fig:heatmap} represents a heat map for
-posts per hour for each profile community over the lifetime of
-{\texttt{\#BaltimoreRiots}}. This sort of mapping would help in
-identifying times at which communities are active.
-
-When refined with posting language, this technique would be useful in
-identifying when to engage into conversations, which language
-community to target, and by which language. For example, presuming
-that we want to participate in a trending topic hashtag that we are
-interested in; this analysis technique could help us make our post
-more direct and focused. By finding which language is mostly used in
-posting, we will be able to know in which language the tweet would be
-more effective. Also, we might want to direct the message to certain
-language community, be that to influence a very active or re-activate
-a quiet one.
-
-\begin{figure*}[htb]
-\centering
-\includegraphics[width=\textwidth]{images/heatmap.png}
-\caption{Temporal activity of profile communities}
-\label{fig:heatmap}
-\end{figure*}
-
 
 \subsection{Reaction Networks}\label{reactionnetworks}
 
 Another important perspective to identify and capture is how different
 profile communities relate to each other in terms of
 reactions. Therefore, we constructed the graph in
-Figure~\ref{fig:profileprofilegraph} to show interactions amongst
+Figure~\ref{fig:baltimoreprofileprofilegraph} to show interactions amongst
 language communities. Edges are directed and are drawn from reacting
 nodes (retweeter, or replier) to the original acting node
-(tweeter). As we are not interested in reactions from community to
-itself, we eliminated self-loop edges from the graph. Node size
-represents weighted indegree; we have also generated the degree
-measures for the various language communities, as shown in
-Figure~\ref{fig:inoutdegree}.
-
-\begin{figure}[htb]
-\centering
-\includegraphics[width=\columnwidth]{images/indegreeoutdegree.png}
-\caption{Degree measures for the various language communities}
-\label{fig:inoutdegree}
-\end{figure}
+(tweeter). Node size represents weighted indegree; darkness of colour shows oudegree. The figure clearly shows that communities 
+are most reactive to their own than to others.
 
 
 \section{Case Study: 2016 Eurovision Song
