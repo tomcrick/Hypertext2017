@@ -396,13 +396,6 @@ nodes (retweeter, or replier) to the original acting node
 (tweeter). Node size represents weighted indegree; darkness of colour indicates oudegree. The figure clearly shows that communities 
 are most reactive to their own than to others.
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=\columnwidth]{images/baltimore_multilingual.png}
-\caption{Multilingual communities and their activity in {\texttt{\#BaltimoreRiots}}}
-\label{fig:baltimore_multilingual}
-\end{figure}
-
 \subsection{Multilingual Communities}
 In this section, we group users based on their relationship with
 posting communities, regardless of their profile language. For
@@ -411,6 +404,13 @@ be classified as bilingual, and so on. Based on this grouping
 technique, with the `{\emph{und}}' lang category eliminated, we
 identified 9 sets. As we can see in Figure~\ref{fig:baltimore_multilingual}, monolingual group contain most users, nearly \%99 of users, and about \%94 
 of the topic activity came from this group too.
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{images/baltimore_multilingual.png}
+\caption{Multilingual communities and their activity in {\texttt{\#BaltimoreRiots}}}
+\label{fig:baltimore_multilingual}
+\end{figure}
+
 
 \section{Case Study: 2016 Eurovision Song Contest}\label{eurovisioncasestudy}
 
@@ -485,16 +485,19 @@ considerable amount of noise.
 
 In the {\texttt{\#Eurovision}} case, there were 49 posting
 languages. Table~\ref{tbl:activelangs} shows the top posting languages
-accounted for 90\% of original posts (tweets), out of 3,834,937. As
+(tweets), out of 3,834,937. As
 might be expected, the English was the most used posting
 language. Interestingly, the results show that the language of 142,721
 (3.72\%) statuses could not be identified. When investigated further,
-c.40\% of these statuses did not contain much text other than
-hashtags, user mentions or URLs. Although this category shows an
-interesting case in which qualitative content analysis could be
-involved, it is beyond the scope of this study and will not be
-addressed here.
+4\% of these statuses did not contain much text other than
+hashtags, user mentions or URLs.
 
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\columnwidth]{images/eurovision_langfreq.png}
+\caption{Most frequently used languages in {\texttt{\#Eurovision}}.}
+\label{fig:eurovisionlangfreq}
+\end{figure}
 
 \begin{table}[!htb]
 \centering
@@ -529,6 +532,19 @@ translated version that might provide hints regarding the user
 language community. In our dataset, we found that all users had
 selected a language and no users with the default value.
 
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\columnwidth]{images/eurovision_profile_size.png}
+\caption{Profile communities by size in {\texttt{\#Eurovision}}.}
+\label{fig:eurovisionprofilesize}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\columnwidth]{images/eurovision_profile_activity.png}
+\caption{Profile communities by size in {\texttt{\#Eurovision}}.}
+\label{fig:eurovisionprofileactivity}
+\end{figure}
 
 \begin{table}[!htb]
 \centering
@@ -669,6 +685,12 @@ the 50 communities although it comes fourth in number of users.
 \label{tbl:diversity}
 \end{table}
 
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\columnwidth]{images/euro_pslang_nsl.png}
+\caption{Profile-Posting network amongst differing communities in {\texttt{\#Eurovision}}}
+\label{fig:eurovisionpslangnsl}
+\end{figure}
 
 \subsection{Multilingual Communities}
 
