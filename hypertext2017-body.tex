@@ -133,11 +133,21 @@ about that location.}}
 For the sake of anonymity many users tend not to disclose information
 about their identity, particularly locations; this has also been
 supported by the literature that geotagged tweets are generally low in
-number~\cite{kang-et-al:2013}. An alternative location-based option to
-consider is based on profile location, but this may not serve the need
-for location clustering for a multitude of reasons, especially with a
-significant proportion of Twitter users not setting their profile
-location~\cite{graham-et-al:2014}.
+number~\cite{kang-et-al:2013}. We took the step to verify this claim in 
+our datasets; in the best cases, the ratio of geotagged tweets did
+not exceed 2\%. In the case of the {\texttt{\#BaltimoreRiots}}
+dataset, only ~1\% of collected statuses were associated with
+places. Moreover, out of this geotagged subset, only 4\% were
+associated with the city where the event took place (Baltimore).
+
+An alternative location-based option to consider is based on profile
+location, but it still does not serve the need for location clustering
+for a multitude of reasons. Firstly, we found that less than 45\% of
+users have set their profile location, which is in line with other
+studies~\cite{graham-et-al:2014}. Secondly, although Twitter suggests
+certain presets for setting profile location, users are given the
+option to enter any text they wish; this results in a considerable
+amount of noise.
 
 \subsection{Language Communities}\label{langcomm}
 
@@ -210,28 +220,6 @@ hour. Then, it peaked with 98,000 between 22:00 and 23:00.
 \caption{Main events during the lifetime of {\texttt{\#BaltimoreRiots}}.}
 \label{fig:mainevents}
 \end{figure}
-
-\subsection{Locations}\label{baltimorelocations}
-
-As mentioned in Section~\ref{intro}, for the sake of anonymity many
-users tend not to disclose information about their identity,
-particularly locations; this has also been supported by the literature
-that geotagged tweets are generally low in
-number~\cite{kang-et-al:2013}. We took the step to verify this claim
-in our datasets; in the best cases, the ratio of geotagged tweets did
-not exceed 2\%. In the case of the {\texttt{\#BaltimoreRiots}}
-dataset, only ~1\% of collected statuses were associated with
-places. Moreover, out of this geotagged subset, only 4\% were
-associated with the city where the event took place (Baltimore).
-
-An alternative location-based option to consider is based on profile
-location, but it still does not serve the need for location clustering
-for a multitude of reasons. Firstly, we found that less than 45\% of
-users have set their profile location, which is in line with other
-studies~\cite{graham-et-al:2014}. Secondly, although Twitter suggests
-certain presets for setting profile location, users are given the
-option to enter any text they wish; this results in a considerable
-amount of noise.
 
 \subsection{Posting Communities}
 
@@ -443,23 +431,6 @@ interaction sets, such as replies and quoted tweets. It is important
 to note that tweets and retweets are used to measure actions, and
 reactions, respectively. However, our analysis will be focusing on
 original tweets only and the usage of different languages in this set.
-
-\subsection{Locations}\label{eurovisionlocations}
-
-As mentioned in Section~\ref{intro}, for the sake of anonymity many
-users tend not to disclose information about their identity,
-particularly locations; this has also been supported by the literature
-that geotagged tweets are generally low in
-number~\cite{kang-et-al:2013}. We took the step to verify this claim
-in our datasets; in the best cases, the ratio of geotagged tweets did
-not exceed 2\%. An alternative location-based option to consider is
-based on profile location, but it still does not serve the need for
-location clustering for a multitude of reasons. Firstly, we found that
-less than 45\% of users have set their profile location, which is in
-line with other studies~\cite{graham-et-al:2014}. Secondly, although
-Twitter suggests certain presets for setting profile location, users
-are given the option to enter any text they wish; this results in a
-considerable amount of noise.
 
 \subsection{Profile and Posting Communities}\label{ppcomm}
 
