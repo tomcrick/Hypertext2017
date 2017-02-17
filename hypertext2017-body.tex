@@ -191,7 +191,7 @@ not necessarily indicate the profile community for a user.
 
 In this section, we present two language diversity measurements. The
 first, which we call `diversity', is to measure uses of languages
-different to the profile's i.e. we are refering to `non-selfloop'
+different to the profile's i.e. we are referring to `non-selfloop'
 edges in the generated network graphs. The second one is to measure
 the magnitude of this diversity, which can be calculated as the total
 weight of `non-selfloop' over total edge weights in the
@@ -296,14 +296,14 @@ attacks.
 
 This section explore the network graph we built from profile-posting relationships.
 Constructing this graph is an essential step for our core analysis of language 
-diveristy, as well as it different analyses. For example, to investigate whether 
+diversity, as well as it different analyses. For example, to investigate whether 
 the `{\emph{en}}' posting community is linked to particular profile communities, 
 we used the bipartite graph as presented in figure~\ref{fig:baltimore_p_s_lang_sl}. 
 In this graph, nodes that are prefixed by ``{\emph{p\_}}'' represent profile language 
 community, and nodes that are prefixed by ``{\emph{s\_}}'' represent posting language
 community. Size of node represents the weighted indegree, whereas colour
 represents the outdegree; the darker the colour, the higher
-outdegree, hence, totally white nodes have no out degree and help to easly 
+outdegree, hence, totally white nodes have no out degree and help to easily 
 distinguish posting communities from profile ones. From the graph 
 we can infer that there is a dominating player in both domains: posting languages and profile communities.
 Therefore,for the case of {\texttt{\#BaltimoreRiots}}, we can conclude that the case was
@@ -319,14 +319,16 @@ substantially localised.
 
 \subsection{Diversity and Multilingual Communities}
 
-To examine users behaviour in using languages other than their 
-own (profile language), same-language communities are filtered out.
-We found that English profile users have mostly been posting in Arabic, as a 
-different posting language. This sort of activity could be obtained from edge 
-wieghts in the profile-posting graph. Table~\ref{tbl:baltimoredifflang} shows 
-the top portion of these communities. This observation shed the light on those 
-relatioships, and could be of use for further analysis, such as identifying highly dissiminated 
-message that fall into these relationships and thier contents. 
+To examine users behaviour in using languages other than their own
+(profile language), same-language communities are filtered out.  We
+found that English profile users have mostly been posting in Arabic,
+as a different posting language. This sort of activity could be
+obtained from edge weights in the profile-posting
+graph. Table~\ref{tbl:baltimoredifflang} shows the top portion of
+these communities. This observation shed the light on those
+relationships, and could be of use for further analysis, such as
+identifying highly disseminated message that fall into these
+relationships and their contents.
 
 \begin{table}[!htb]
 \centering
@@ -340,13 +342,13 @@ message that fall into these relationships and thier contents.
 {\emph{tr-en}} & 0.37 \\
 {\emph{en-tr}} & 0.36 \\ \bottomrule
 \end{tabular}
-\caption{Users behaviour in using languages different to their profile (normalized)}
+\caption{Users behaviour in using languages different to their profile (normalised)}
 \label{tbl:baltimoredifflang}
 \end{table}
 
 
 The topic diversity in  {\texttt{\#BaltimoreRiots}} is 0.91, which not surprising 
-when we recall that there were 38 langauges used in original tweets, as mentioned in 
+when we recall that there were 38 languages used in original tweets, as mentioned in 
 ~\ref{baltimoreposting}. However, when magnitude of diversity was measured, 
 it shows the score of 0.04, which indicate a generally low score. This will be of use
 when compared to other data set as we will see in Section ~\ref{eurovisioncasestudy}.
@@ -453,7 +455,7 @@ initial placeholder text ``{\emph{Select Language...}}'' or a
 translated version that might provide hints regarding the user
 language community. In  {\texttt{\#Eurovision}} dataset, we found that 
 all users had selected a language and no users with the default value.
-For completeness, we also show profile communities grouped by their acitivity 
+For completeness, we also show profile communities grouped by their activity 
 in ~\ref{fig:eurovisionprofileactivity}.
 
 \begin{figure}[htb]
@@ -471,8 +473,8 @@ in ~\ref{fig:eurovisionprofileactivity}.
 \end{figure}
 
 From the previous three figures, we can see tight similarities between the
-posting and profile communities. Also, statistically, we found that these three meausres 
-(i.e. profile community size, profile activity, and frequencey of language uses) are 
+posting and profile communities. Also, statistically, we found that these three measures 
+(i.e. profile community size, profile activity, and frequency of language uses) are 
 highly correlated, for both case studies. An interesting example to explore here is 
 the comparison between two profile communities, 'fr' and 'ru' . 
 We can see that although the French community had more presence, the 
@@ -492,12 +494,16 @@ in the next section.
 \subsection{Profile-Posting Analysis}\label{eurovisionppanalysis}
 
 
-To explore the posting behaviour from profile communities, we constructd the graph shown
-in figure ~\ref{fig:eurovisionpslang}. Ustilising this graph, we could continue slicing the '{\emph{fr}}' and '{\emph{ru}}' example.
-The graph helps us to evaluate contributions of profile communities to the Russian posting community.
-The result in Table~\ref{tbl:russian} shows profile communities that resulted 
-in more than 95\% of activity in this posting community. The values in this table represent
-the weights from those profile communities to the Russing posting community.
+To explore the posting behaviour from profile communities, we
+constructed the graph shown in
+Figure~\ref{fig:eurovisionpslang}. Utilising this graph, we could
+continue slicing the '{\emph{fr}}' and '{\emph{ru}}' example.  The
+graph helps us to evaluate contributions of profile communities to the
+Russian posting community.  The result in Table~\ref{tbl:russian}
+shows profile communities that resulted in more than 95\% of activity
+in this posting community. The values in this table represent the
+weights from those profile communities to the Russian posting
+community.
 
 \begin{table}[!htb]
 \centering
@@ -559,7 +565,7 @@ scored at least 50\% out of their original tweets.
 
 Also, we wanted to measure the diversity and its magnitude for the topic. 
 We found that the language diversity of the topic as a whole is 0.96. Although 
-the diveristy here is not far from  {\texttt{\#BaltimoreRiots}} case, when we compare 
+the diversity here is not far from  {\texttt{\#BaltimoreRiots}} case, when we compare 
 magnitude of diversities, it scored 0.22, which is relatively high.
 
 In terms of multilingual communities, we group users based on their relationship with
@@ -649,7 +655,7 @@ from different profile communities cannot be measured similar to those
 coming from the same community.
 
 As we saw in the comparison between the two case studies, we can conclude that 
-nature of the event is mostly reflected on the "language diversity magnitude" than any other measurement. 
+nature of the event is mostly reflected on the ``language diversity magnitude'' than any other measurement. 
 For future work, we plan to have a deeper look at how multilingual
 communities participate and their reaction networks. We believe that
 differentiation between endorsements (e.g. retweets) and other
