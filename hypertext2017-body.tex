@@ -149,6 +149,14 @@ certain presets for setting profile location, users are given the
 option to enter any text they wish; this results in a considerable
 amount of noise.
 
+\section{Methodology}\label{method}
+
+The main purpose of this study is to examine if the nature of event is
+reflected on language uses, communities, and diversity on Twitter.
+The first step is to explore language settings of users, languages used in 
+original posts (tweets), and explore realtionships between them. Then, we 
+will present language diveristy and how it is affected by the nature of topic. 
+
 \subsection{Language Communities}\label{langcomm}
 
 Analysis of language communities begins with two basic techniques. The
@@ -158,16 +166,28 @@ objects. Language used in posting defines which community the status
 was meant for; a tweet written in Turkish, for example, is meant for
 the Turkish-speaking community. Output from this will be referred to
 as `posting communities'. The second analysis is to classify users
-into different communities based on their profile languages,
-regardless of the posting language they used. Output from this
-technique will be referred to as `profile communities'. As we will see
-in the following two case studies, a posting community does not
-necessarily indicate the profile community for a user. Therefore, the
-second step is to examine the relationship between profile and posting
-communities. We will also explore relationships amongst profile
-communities, in term of action-reaction. We will investigate the
-intra- and inter-profile communities interactions by constructing
-network graphs and generate a visual representation.
+into different communities based on their profile languages. Output from this
+technique will be referred to as `profile communities'. Then, we will create 
+network graphs to present relationships between profile and posting communities.  
+As we will see in the following two case studies, a posting community does not
+necessarily indicate the profile community for a user. 
+
+\subsection{Language Diveristy}\label{diversity}
+
+In this section, we present two langugae diversity measurements. The first, 
+which we call 'Diversity', is to measure uses of languages different to the 
+profile's. In other terms, we are refering to 'non-selfloop' edges in the graphs we 
+presented earlier. The second one is to measure the magnitude of this diveristy, which
+can be calculated as the total weight of 'non-selfloop' over total edge wieghts in the 
+profile-posting graph. We will make observation of these two measurements for 
+the both cases.
+
+By observing the language diversity of profile communities, we aim to
+measure language diversity of the topic in general. The same technique
+can be applied on individual communities within the topic. By do so, it will
+help identifying communities that play as bridges between different
+profile communities. Moreover, the techniuqe can be 
+narrowed down to individual users. 
 
 \subsection{Overview of Paper}
 
@@ -192,17 +212,15 @@ hit the city. According to the timeline published on the CNN website
 Gray, a 25-year-old black man who mysteriously died on April 19, a
 week after Baltimore Police arrested
 him.}}''~\cite{baltimorewiki:2015}. The nature of the Baltimore protests
-is a good representation of a planned event in which a sudden
+is a good representation of a partially planned event in which a sudden
 escalation of violence hits a geographical area. The event manifested
 itself on Twitter as {\texttt{\#BaltimoreRiots}}, and resulted in more
 than 1,250,000 status updates.
 
-Figure~\ref{fig:overallbaltimoreactivity} and Figure~\ref{fig:mainevents}
-present how the event manifested itself on Twitter once a ``purge'' was
-scheduled. We can see that what was happening on the ground was
-quickly reflected on the activity in Twitter, as
-Figure~\ref{fig:mainevents} indicates. More detailed analysis reveals
-that within one hour the topic started to go ``viral''; more
+Figure~\ref{fig:overallbaltimoreactivity} presents how the event manifested 
+itself on Twitter once a ``purge'' was scheduled. We can see that what was 
+happening on the ground was quickly reflected on the activity in Twitter. More detailed 
+analysis reveals that within one hour the topic started to go ``viral''; more
 precisely, at approximately 15:00 at which the ``purge'' was
 scheduled. The topic jumped from roughly 1,200 to 8,000 tweets per
 hour. Then, it peaked with 98,000 between 22:00 and 23:00.
@@ -212,13 +230,6 @@ hour. Then, it peaked with 98,000 between 22:00 and 23:00.
 \includegraphics[width=\columnwidth]{images/overallbaltimoreactivity.png}
 \caption{Overall activity for {\texttt{\#BaltimoreRiots}}.}
 \label{fig:overallbaltimoreactivity}
-\end{figure}
-
-\begin{figure}[htb]
-\centering
-\includegraphics[width=\columnwidth]{images/mainevents.png}
-\caption{Main events during the lifetime of {\texttt{\#BaltimoreRiots}}.}
-\label{fig:mainevents}
 \end{figure}
 
 \subsection{Posting Communities}
@@ -295,21 +306,12 @@ relationships between the profile and posting communities.
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\columnwidth]{images/baltimore_p_s_lang_sl.png}
-\caption{Profile-Posting network graph, selfloop included}
+\caption{Profile-Posting network graph}
 \label{fig:baltimore_p_s_lang_sl}
 \end{figure}
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=\columnwidth]{images/baltimore_p_s_lang_nsl.png}
-\caption{Profile-Posting network graph, no selfloop}
-\label{fig:baltimore_p_s_lang_nsl}
-\end{figure}
-
 Furthermore, to examine users behaviour in using languages other than their 
-own (profile language), same-language communities are filtered out. This resulted 
-in the graph shown in figure ~\ref{fig:baltimore_p_s_lang_nsl}. In this figure, 
-relationships can be easly observed by looking at weight of their edges. As we can see 
+own (profile language), same-language communities are filtered out. As we can see 
 in Table~\ref{tbl:baltimoredifflang}, in this context, English profile users 
 have mostly been posting in Arabic, followed by Espanish profiles posting in English. 
 This observation shed the light on those relatioships, and could be of use for further 
@@ -527,7 +529,7 @@ selected a language and no users with the default value.
 \label{fig:eurovisionpslang}
 \end{figure}
 
-\subsection{Profile-Posting Analysis}
+\subsection{Profile-Posting Analysis}\label{eurovisionppanalysis}
 To explore the posting behaviour from profile communities, we constructd the graph shown
 in figure ~\ref{fig:eurovisionpslang}.
 
@@ -596,12 +598,7 @@ lists the top 95\% posting languages used by this profile community.
 
 \subsection{Diversity and Multilingual Communities}
 
-By observing the language diversity of profile communities, we aim to
-measure language diversity of the topic in general, as well as
-investigating which community plays a key role in bridging different
-profile communities. Diversity in this context means how many posting
-languages were used from each profile community, and to what extent
-they used their own language, as well as other languages.  The general
+  The general
 language diversity of the topic is 17\%, while 3.72\% were not
 identified. All of the 50 profile communities used different languages
 in posting. Interestingly, 16 out of those communities did not use
