@@ -118,7 +118,31 @@ theme~\cite{liang-et-al:2013} of how users engage with online
 information services and, more importantly, with each
 other~\cite{cheng-et-al:2010,caverlee-et-al:2013}.
 
-\subsection{Users and Location}
+\subsection{Overview of Paper}
+
+The remainder of this paper is organised as follows: in
+Section~red\label{method} we introduce the methodology and key
+language themes.  Sections~\ref{baltimorecasestudy}
+and~\ref{eurovisioncasestudy} presents the 2015 Baltimore protests and
+2016 Eurovision Song Context case studies, along with an analysis of
+the key data and results. Section~\ref{conclusions} concludes the
+paper with a wider discussion and a summary of the potential
+application of our approach.
+
+\section{Methodology}\label{method}
+
+The primary purpose of this study is to examine if the nature of event
+is reflected in language uses, communities, and diversity on
+Twitter. The techniques we introduce in this paper through two
+real-world case studies are based on language settings in users'
+profiles and those for statuses\footnote{The term `status' is a
+generic term used to refer to any Twitter post (tweet, retweet, reply,
+or quote).}.  The first step is to identify relationships between
+language settings of users and languages used in original posts
+(tweets). Then, we will discuss language diversity and how it is
+affected by the nature of topic.
+
+\subsection{Users and Locations}
 
 It is important to understand how geotagging works in Twitter. The
 `{\emph{place}}' entity included in a Twitter status does not
@@ -147,58 +171,39 @@ certain presets for setting profile location, users are given the
 option to enter any text they wish; this results in a considerable
 amount of noise.
 
-\section{Methodology}\label{method}
-
-The main purpose of this study is to examine if the nature of event is
-reflected on language uses, communities, and diversity on Twitter.
-The first step is to explore language settings of users, languages used in 
-original posts (tweets), and explore realtionships between them. Then, we 
-will present language diveristy and how it is affected by the nature of topic. 
-
 \subsection{Language Communities}\label{langcomm}
 
 Analysis of language communities begins with two basic techniques. The
-first is to classify statuses based on their languages. The status
-language is extracted from the `{\emph{lang}}' entity inside status
-objects. Language used in posting defines which community the status
-was meant for; a tweet written in Turkish, for example, is meant for
-the Turkish-speaking community. Output from this will be referred to
-as `posting communities'. The second analysis is to classify users
-into different communities based on their profile languages. Output from this
-technique will be referred to as `profile communities'. Then, we will create 
-network graphs to present relationships between profile and posting communities.  
-As we will see in the following two case studies, a posting community does not
-necessarily indicate the profile community for a user. 
+first is to classify statuses based on their languages, with the
+status language extracted from the `{\emph{lang}}' entity inside
+status objects. Language used in posting defines which community the
+status was meant for; a tweet written in Turkish, for example, is
+meant for the Turkish-speaking community. Output from this will be
+referred to as `{\emph{posting communities}}'. The second analysis is
+to classify users into different communities based on their profile
+languages. Output from this technique will be referred to as
+`{\emph{profile communities}}'. We can then create network graphs to
+explore relationships between profile and posting communities.  As we
+will see in the following two case studies, a posting community does
+not necessarily indicate the profile community for a user.
 
-\subsection{Language Diveristy}\label{diversity}
+\subsection{Language Diversity}\label{diversity}
 
-In this section, we present two langugae diversity measurements. The first, 
-which we call 'Diversity', is to measure uses of languages different to the 
-profile's. In other terms, we are refering to 'non-selfloop' edges in the graphs we 
-presented earlier. The second one is to measure the magnitude of this diveristy, which
-can be calculated as the total weight of 'non-selfloop' over total edge wieghts in the 
-profile-posting graph. We will make observation of these two measurements for 
-both cases.
+In this section, we present two language diversity measurements. The
+first, which we call `diversity', is to measure uses of languages
+different to the profile's i.e. we are refering to `non-selfloop'
+edges in the generated network graphs. The second one is to measure
+the magnitude of this diversity, which can be calculated as the total
+weight of `non-selfloop' over total edge weights in the
+profile-posting graph. We will make observation on these two
+measurements for both cases.
 
 By observing the language diversity of profile communities, we aim to
 measure language diversity of the topic in general. The same technique
-can be applied on individual communities within the topic. By do so, it will
-help identifying communities that play as bridges between different
-profile communities. Moreover, the techniuqe can be even
-applied to measure diversity at individual users level.
-
-\subsection{Overview of Paper}
-
-The techniques we introduce in this paper through two real-world case
-studies are based on language settings in users' profiles and those
-for statuses\footnote{The term `status' is a generic term used to
-refer to any Twitter post (tweet, retweet, reply, or quote).}. The
-remainder of this paper is organised as follows:
-Sections~\ref{baltimorecasestudy} and~\ref{eurovisioncasestudy}
-presents the 2015 Baltimore protests and 2016 Eurovision Song Context
-case studies, along with an analysis of the key data and
-results. Section~\ref{conclusions} concludes the paper with a wider
-discussion and a summary of the potential application of our approach.
+can be applied on individual communities within the topic. By doing
+so, it can help identify communities that act as bridges between
+different profile communities. Moreover, the technique can be applied
+to measure diversity at individual users level.
 
 
 \section{Case Study: 2015 Baltimore Protests}\label{baltimorecasestudy}
