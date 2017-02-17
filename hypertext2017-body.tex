@@ -337,17 +337,6 @@ message that fall into these relationships and thier contents.
 \label{tbl:baltimoredifflang}
 \end{table}
 
-For an extreme case of one dominating posting language, we wanted to
-investigate participation of different communities. We thus filtered
-out all non-`{\emph{en}}' statuses, and then identified different
-profile communities with the resultant set. For each community, we
-classified statuses into two sets: {\emph{actions}} and
-{\emph{reactions}}; this result is shown in
-Table~\ref{tbl:mostactive}. This shows the highest scoring
-communities, where the first column represents the category of status
-(action or reaction), community column represents profile language
-community, and last one shows percentage of `{\emph{en}}' posts by
-that community.
 
 The topic diversity in  {\texttt{\#BaltimoreRiots}} is 0.91, which not surprising 
 when we recall that there were 38 langauges used in original tweets, as mentioned in 
@@ -446,6 +435,7 @@ in {\texttt{\#Baltimoreriots}} (~0.87).
 
 \subsection{Profile Communities}\label{ppcomm}
 
+
 In total, 1,226,959 users interacted with the {\texttt{\#Eurovision}}
 hashtag. In terms of their profile languages, they formed 50
 communities. Figure ~\ref{fig:eurovisionprofilesize} shows some of the top profile communities
@@ -494,8 +484,9 @@ in the next section.
 
 \subsection{Profile-Posting Analysis}\label{eurovisionppanalysis}
 
+
 To explore the posting behaviour from profile communities, we constructd the graph shown
-in figure ~\ref{fig:eurovisionpslang}. Ustilising this graph, we could continue slicing the (fr-ru) example.
+in figure ~\ref{fig:eurovisionpslang}. Ustilising this graph, we could continue slicing the '{\emph{fr}}' and '{\emph{ru}}' example.
 The graph helps us to evaluate contributions of profile communities to the Russian posting community.
 The result in Table~\ref{tbl:russian} shows profile communities that resulted 
 in more than 95\% of activity in this posting community. The values in this table represent
@@ -553,51 +544,27 @@ lists the top 95\% posting languages used by this profile community.
 
 \subsection{Diversity and Multilingual Communities}
 
-  The general
-language diversity of the topic is 17\%, while 3.72\% were not
-identified. All of the 50 profile communities used different languages
+All of the 49 profile communities have used different languages
 in posting. Interestingly, 16 out of those communities did not use
 their own language, they were low in participation though. Moreover,
 in terms of using different languages, we found that 32 communities
-scored at least 50\% out of their tweets. We noticed that posting from
-small profile communities may affect the overall language diversity of
-the topic. Referring to the top profile communities discussed in
-Section~\ref{ppcomm}, Table~\ref{tbl:diversity} shows their
-diversity by percentage. The Russian profile community is again an
-interesting case, as it scored the least diverse profile amongst all
-the 50 communities although it comes fourth in number of users.
+scored at least 50\% out of their original tweets. 
 
-\begin{table}[!htb]
-\centering
-\begin{tabular}{@{}lc}
-\toprule
-\textbf{Language} & \textbf{\%} \\ 
-\midrule
-{\emph{de}} & 34.27 \\
-{\emph{nl}} & 32.78 \\
-{\emph{it}} & 18.49 \\ 
-{\emph{fr}} & 16.65 \\
-{\emph{en}} & 15.39 \\
-{\emph{es}} & 10.13 \\
-{\emph{ru}} & 7.93 \\
-\bottomrule
-\end{tabular}
-\caption{Diversity of the top profile communities}
-\label{tbl:diversity}
-\end{table}
+Also, we wanted to measure the diversity and its magnitude for the topic. 
+We found that the language diversity of the topic as a whole is 0.96. Although 
+the diveristy here is not far from  {\texttt{\#BaltimoreRiots}} case, when we compare 
+magnitude of diversities, it scored 0.22, which is relatively high.
 
-
-In terms of multilinguism, we group users based on their relationship with
-posting communities, regardless of their profile language. For
-example, a user posting in both `{\emph{en}}' and `{\emph{fr}}' will
-be classified as bilingual, and so on. Based on this grouping
-technique, with the `{\emph{und}}' lang category eliminated, we
+In terms of multilingual communities, we group users based on their relationship with
+posting communities, as we did in the {\texttt{\#BaltimoreRiots}} case.
+Based on this grouping technique, with the `{\emph{und}}' lang category eliminated, we
 identified 20 sets. The smallest two groups consist of one user each,
 who posted in 22 and 25 different languages.  As we can see in
 Figure~\ref{fig:multilingual}, monolingual users scored about 85\% of
-all users, creating 47\% of the total original posts. The also shows
-that users and their activity decrease as number of languages used
-increase.
+all users, creating 47\% of the total original posts. Although we cannot conclude
+that there is a correlation between high multilingualism and
+illegitimacy of accounts, this would be an interesting further topic
+to investigate.
 
 \begin{figure}[htb]
 \centering
@@ -606,12 +573,6 @@ increase.
 \label{fig:multilingual}
 \end{figure}
 
-A closer look at the behavior of these communities shows that, in
-general, activity per user increases as number of used languages
-increase. Although we cannot conclude
-that there is a correlation between high multilingualism and
-illegitimacy of accounts, this would be an interesting further topic
-to investigate.
 
 \section{Conclusions}\label{conclusions}
 
@@ -626,17 +587,15 @@ from the main community (the language community in which the incident
 has happened or tightly related to). This is especially the case when
 the online conversations are triggered by a real world incident. The
 same for posting languages, users mostly to use the language of the
-main community. Although most of topic activity comes from that main
-community, we noticed that, with local events, other communities work,
-mostly, as information spreaders. Furthermore, there is a positive
+main community. Furthermore, there is a positive
 relationship between size of profile and posting communities; we have
 also showed that a large number in participating profile community
-does not necessarily imply high language diversity, and that diversity
-may results from small profile community. We also presented the
-structure of multilingual communities and their activity. Although
-most users may use their own profile language in posting, most of the
-activity came from multilingual users. In a few cases, users may use a
-significant number of languages, up to 25 different languages. These
+does not necessarily imply high language diversity, as single posts from many 
+profile communities are enough to highly affect diversity of the topic. We 
+also presented the diversity magnitude measurement, and showed that it is highly effective in
+eliminating, or at least minimising, the noise caused by those odd posts.
+We also presented the structure of multilingual communities and their activity. 
+In a few cases, users may use a significant number of languages, up to 25 different languages. These
 extreme cases may be interesting to investigate for possible
 spammer/false account detection or for sociolinguistics in more
 moderate cases.
@@ -644,15 +603,13 @@ moderate cases.
 We also presented a network graph (using
 Gephi\footnote{\url{https://gephi.org/}} and the Networkx Python
 package\footnote{\url{https://networkx.github.io/}}) showing how
-language communities relate to each other in the form of
-action-reaction (action: tweet, reaction: retweet, reply,
-quote). Another interesting graph that we produced to show relations
-between profile and posting communities. We find that this graph is
+language communities relate to each other. Another interesting graph 
+that we produced, with illustrative examples, to show relations between 
+profile and posting communities. We find that this graph is
 important to facilitate comparing users defined profile language with
 their posting language. Some event might be termed as `partially
 scheduled' as their end was different to how they were planned in the
-first place. In such tense situation, we noticed that diversity of
-languages and communities are very low, and there always be a
+first place. In such tense situation, we noticed that there always be a
 dominating community and language.
 
 The method we presented here can be used in identifying how
@@ -682,10 +639,10 @@ openly expressed, for a variety of reasons, to the rest of the profile
 community. For the social network analysis domain, this method
 provides a different perspective for influence analysis. Endorsement
 from different profile communities cannot be measured similar to those
-coming from the same community. For example, in a controversial Arabic
-topic, we noticed that high support came from other profile
-communities.
+coming from the same community.
 
+As we saw in the comparison between the two case studies, we can conclude that 
+nature of the event is mostly reflected on the "language diversity magnitude" than any other measurement. 
 For future work, we plan to have a deeper look at how multilingual
 communities participate and their reaction networks. We believe that
 differentiation between endorsements (e.g. retweets) and other
@@ -694,8 +651,6 @@ communities. Furthermore, we will apply the methods presented in this
 paper on other high-profile event/discussion datasets in different
 domains or contexts, such as for sports, music contests and civil
 rights/humanitarian actions.
-
-
 
 % \subsection{References}
 % Generated by bibtex from your \texttt{.bib} file.  Run latex,
