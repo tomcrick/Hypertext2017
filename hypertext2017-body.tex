@@ -252,7 +252,7 @@ be involved, it is beyond this study and will not be covered here.
 \label{fig:baltimore_langfreq}
 \end{figure}
 
-\subsection{Profile Communities}
+\subsection{Profile Communities}\label{baltimoreprofile}
 
 In the majority of cases, users choose to pick a language for their
 Twitter profile settings. In our dataset we found that out of 716,494
@@ -318,7 +318,7 @@ We found that English profile users have mostly been posting in Arabic, as a
 different posting language. This sort of activity could be obtained from edge 
 wieghts in the profile-posting graph. Table~\ref{tbl:baltimoredifflang} shows 
 the top portion of these communities. This observation shed the light on those 
-relatioships, and could be of use for further analysis, such as highly dissiminated 
+relatioships, and could be of use for further analysis, such as identifying highly dissiminated 
 message that fall into these relationships and thier contents. 
 
 \begin{table}[!htb]
@@ -355,7 +355,7 @@ when we recall that there were 38 langauges used in original tweets, as mentione
 it shows the score of 0.04, which indicate a generally low score. This will be of use
 when compared to other data set as we will see in Section ~\ref{eurovisioncasestudy}.
 
-Additionally, measuring multilingualism is another use of profile-posting network 
+Additionally, measuring multilingual communities is another use of profile-posting network 
 graph at individual users level. We grouped users based on their relationship with
 posting communities, regardless of their profile language. For
 example, a user posting in both `{\emph{en}}' and `{\emph{fr}}' will
@@ -429,13 +429,13 @@ original tweets only and the usage of different languages in this set.
 \subsection{Posting Communities}\label{eurovisionpostingcomm}
 
 In the {\texttt{\#Eurovision}} case, there were 49 posting
-languages. Table~\ref{tbl:activelangs} shows the top posting languages
-(tweets), out of 3,834,937. As
-might be expected, the English was the most used posting
-language. Interestingly, the results show that the language of 142,721
-(3.72\%) statuses could not be identified. When investigated further,
-4\% of these statuses did not contain much text other than
-hashtags, user mentions or URLs.
+languages. Fig~\ref{fig:eurovisionlangfreq} shows the top posting languages
+(tweets), out of 3,834,937. As might be expected, the English 
+was the most used posting language, and 3.72\% statuses could 
+not be identified. However, as we can see, it is not as dominating as in case 
+of {\texttt{\#Baltimoreriots}}. Interestingly, it took participation from 8 
+posting communities to match the activity ratio of 'en' posting community 
+in {\texttt{\#Baltimoreriots}} (~0.87).
 
 \begin{figure}[htb]
 \centering
@@ -448,35 +448,16 @@ hashtags, user mentions or URLs.
 
 In total, 1,226,959 users interacted with the {\texttt{\#Eurovision}}
 hashtag. In terms of their profile languages, they formed 50
-communities. Table~\ref{tbl:profcomms} shows the profile communities
-from the top 90\% of all users. Unlike status language, profile
+communities. Figure ~\ref{fig:eurovisionprofilesize} shows some of the top profile communities
+from of all users, by size. Unlike status language, profile
 language relies on the user to pick a language for their Twitter
 profile settings. In general, the default value of this option is the
 initial placeholder text ``{\emph{Select Language...}}'' or a
 translated version that might provide hints regarding the user
-language community. In our dataset, we found that all users had
-selected a language and no users with the default value.
-
-\begin{table}[!htb]
-\centering
-\begin{tabular}{@{}lc}
-\toprule
-\textbf{Language} & \textbf{\%} \\ 
-\midrule
-{\emph{en}} & 45.90 \\
-{\emph{es}} & 17.24 \\
-{\emph{ru}} & 8.99 \\
-{\emph{fr}} & 6.20 \\
-{\emph{und}} & 3.72 \\
-{\emph{nl}} & 3.71 \\
-{\emph{de}} & 3.19 \\
-{\emph{it}} & 2.85 \\ 
-\bottomrule
-\end{tabular}
-\caption{Most active profile language
-  communities, accounting for 90\% of original tweets}
-\label{tbl:activelangs}
-\end{table}
+language community. In  {\texttt{\#Eurovision}} dataset, we found that 
+all users had selected a language and no users with the default value.
+For completeness, we also show profile communities grouped by their acitivity 
+in ~\ref{fig:eurovisionprofileactivity}.
 
 \begin{figure}[htb]
 \centering
@@ -491,25 +472,6 @@ selected a language and no users with the default value.
 \caption{Profile communities by activity in {\texttt{\#Eurovision}}.}
 \label{fig:eurovisionprofileactivity}
 \end{figure}
-
-\begin{table}[!htb]
-\centering
-\begin{tabular}{@{}lc}
-\toprule
-\textbf{Community} & \textbf{\%} \\ 
-\midrule
-{\emph{en}} & 47.06 \\
-{\emph{es}} & 20.37 \\
-{\emph{fr}} & 8.00 \\
-{\emph{ru}} & 7.07 \\
-{\emph{de}} & 3.539 \\
-{\emph{nl}} & 3.31 \\
-{\emph{it}} & 2.25 \\ 
-\bottomrule
-\end{tabular}
-\caption{Profile communities, for top 90\% of users}
-\label{tbl:profcomms}
-\end{table}
 
 \begin{figure}[htb]
 \centering
