@@ -224,8 +224,8 @@ hour. Then, it peaked with 98,000 between 22:00 and 23:00.
 \subsection{Posting Communities}
 
 In the {\texttt{\#BaltimoreRiots}} case, for original posts, there were 39 posting
-languages, including und. As we can see in Figure~\ref{fig:baltimore_langfreq}, English was the
-dominating language by far. Interestingly, results also show that
+languages, including und. As we can see in Figure~\ref{fig:baltimore_langfreq}, 
+English was the mostly used language by far. Interestingly, results also show that
 language of more than ~7\% statuses could not be
 identified. When investigated, those statuses mostly do not contain
 text other than hashtags, pictures or URLs. Although, this is not a
@@ -278,8 +278,7 @@ language. This extreme pattern may accompany extreme and
 geographically constrained real world events such as riots and terror
 attacks.
 
-
-\subsection{Profile-Posting Graph}
+\subsection{Profile-Posting Analysis}
 To investigate whether the `{\emph{en}}' posting community is linked to
 particular profile communities, we constructed a bipartite graph as
 presented in figure~\ref{fig:baltimore_p_s_lang_sl}, representing the
@@ -288,10 +287,10 @@ prefixed by ``{\emph{p\_}}'' represent profile language community, and
 nodes that are prefixed by ``{\emph{s\_}}'' represent posting language
 community. Size of node represents the weighted indegree, whereas colour
 represents the outdegree; the darker the colour, the higher
-outdegree, hence, totally white nodes have no out degree and help to easly distinguish posting communities from profile ones.
-The graph confirms the domination pattern we highlighted
-earlier; furthermore, it shows the relationships between the profile and
-posting communities. 
+outdegree, hence, totally white nodes have no out degree and help to easly 
+distinguish posting communities from profile ones. The graph confirms the 
+domination pattern we highlighted earlier; furthermore, it shows the 
+relationships between the profile and posting communities. 
 
 \begin{figure}[htb]
 \centering
@@ -307,10 +306,14 @@ posting communities.
 \label{fig:baltimore_p_s_lang_nsl}
 \end{figure}
 
-Furthermore, to examine users behaviour in using languages other than their own (profile language), while same-language 
-communities are filtered out for clarity, the result is shown in figure ~\ref{fig:baltimore_p_s_lang_nsl}. 
-In this figure, relationships can be easly observed by looking at weight of their edges. As we can see in Table~\ref{tbl:baltimoredifflang}, in this context,  
-English profile users have mostly been posting in Arabic, followed by Espanish profiles posting in English. This observation shed the light on those relatioships, and could be of use for further analysis, such as highly dissiminated message that fall into these relationships and thier contents. 
+Furthermore, to examine users behaviour in using languages other than their 
+own (profile language), same-language communities are filtered out. This resulted 
+in the graph shown in figure ~\ref{fig:baltimore_p_s_lang_nsl}. In this figure, 
+relationships can be easly observed by looking at weight of their edges. As we can see 
+in Table~\ref{tbl:baltimoredifflang}, in this context, English profile users 
+have mostly been posting in Arabic, followed by Espanish profiles posting in English. 
+This observation shed the light on those relatioships, and could be of use for further 
+analysis, such as highly dissiminated message that fall into these relationships and thier contents. 
 
 \begin{table}[!htb]
 \centering
@@ -364,14 +367,14 @@ in both domains: posting languages and profile communities. Therefore,
 for the case of {\texttt{\#BaltimoreRiots}}, we can conclude that the case was
 substantially localised.
 
-\subsection{Multilingual Communities}
+\subsection{Diversity and Multilingual Communities}
 In this section, we group users based on their relationship with
 posting communities, regardless of their profile language. For
 example, a user posting in both `{\emph{en}}' and `{\emph{fr}}' will
 be classified as bilingual, and so on. Based on this grouping
 technique, with the `{\emph{und}}' lang category eliminated, we
-identified 9 sets. As we can see in Figure~\ref{fig:baltimore_multilingual}, monolingual group contain most users, nearly \%99 of users, and about \%94 
-of the topic activity came from this group too.
+identified 9 sets. As we can see in Figure~\ref{fig:baltimore_multilingual}, monolingual group contain most users, 
+nearly \%99 of users, and about \%94 of the topic activity came from this group too.
 \begin{figure}
 \centering
 \includegraphics[width=\columnwidth]{images/baltimore_multilingual.png}
@@ -432,7 +435,7 @@ to note that tweets and retweets are used to measure actions, and
 reactions, respectively. However, our analysis will be focusing on
 original tweets only and the usage of different languages in this set.
 
-\subsection{Profile and Posting Communities}\label{ppcomm}
+\subsection{Posting Communities}\label{eurovisionpostingcomm}
 
 In the {\texttt{\#Eurovision}} case, there were 49 posting
 languages. Table~\ref{tbl:activelangs} shows the top posting languages
@@ -449,6 +452,19 @@ hashtags, user mentions or URLs.
 \caption{Most frequently used languages in {\texttt{\#Eurovision}}.}
 \label{fig:eurovisionlangfreq}
 \end{figure}
+
+\subsection{Profile Communities}\label{ppcomm}
+
+In total, 1,226,959 users interacted with the {\texttt{\#Eurovision}}
+hashtag. In terms of their profile languages, they formed 50
+communities. Table~\ref{tbl:profcomms} shows the profile communities
+from the top 90\% of all users. Unlike status language, profile
+language relies on the user to pick a language for their Twitter
+profile settings. In general, the default value of this option is the
+initial placeholder text ``{\emph{Select Language...}}'' or a
+translated version that might provide hints regarding the user
+language community. In our dataset, we found that all users had
+selected a language and no users with the default value.
 
 \begin{table}[!htb]
 \centering
@@ -471,18 +487,6 @@ hashtags, user mentions or URLs.
 \label{tbl:activelangs}
 \end{table}
 
-
-In total, 1,226,959 users interacted with the {\texttt{\#Eurovision}}
-hashtag. In terms of their profile languages, they formed 50
-communities. Table~\ref{tbl:profcomms} shows the profile communities
-from the top 90\% of all users. Unlike status language, profile
-language relies on the user to pick a language for their Twitter
-profile settings. In general, the default value of this option is the
-initial placeholder text ``{\emph{Select Language...}}'' or a
-translated version that might provide hints regarding the user
-language community. In our dataset, we found that all users had
-selected a language and no users with the default value.
-
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\columnwidth]{images/eurovision_profile_size.png}
@@ -493,7 +497,7 @@ selected a language and no users with the default value.
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\columnwidth]{images/eurovision_profile_activity.png}
-\caption{Profile communities by size in {\texttt{\#Eurovision}}.}
+\caption{Profile communities by activity in {\texttt{\#Eurovision}}.}
 \label{fig:eurovisionprofileactivity}
 \end{figure}
 
@@ -515,7 +519,6 @@ selected a language and no users with the default value.
 \caption{Profile communities, for top 90\% of users}
 \label{tbl:profcomms}
 \end{table}
-
 
 \begin{figure}[htb]
 \centering
@@ -541,7 +544,6 @@ posting community. The result in Table~\ref{tbl:russian} shows profile
 communities that resulted in more than 95\% of activity in this
 posting community.
 
-
 \begin{table}[!htb]
 \centering
 \begin{tabular}{@{}lc}
@@ -555,7 +557,6 @@ posting community.
 \caption{Active profile communities within the Russian posting community}
 \label{tbl:russian}
 \end{table}
-
 
 As we can see in this example, posts in Russian were not merely
 appearing from the Russian profile community. This show one way of
@@ -571,7 +572,6 @@ nearly 50\% of users. In total, there were 1,841,205 posts from this
 community, 81\% of which were posted in `{\emph{en}}', 15.4\% in other
 languages, and 3.62\% were not identified. Table~\ref{tbl:enpartlangs}
 lists the top 95\% posting languages used by this profile community.
-
 
 \begin{table}[!htb]
 \centering
@@ -594,8 +594,7 @@ lists the top 95\% posting languages used by this profile community.
 \label{tbl:enpartlangs}
 \end{table}
 
-
-\subsection{Language Diversity}
+\subsection{Diversity and Multilingual Communities}
 
 By observing the language diversity of profile communities, we aim to
 measure language diversity of the topic in general, as well as
@@ -603,7 +602,7 @@ investigating which community plays a key role in bridging different
 profile communities. Diversity in this context means how many posting
 languages were used from each profile community, and to what extent
 they used their own language, as well as other languages.  The general
-language diversity of the topic is c.17\%, while 3.72\% were not
+language diversity of the topic is 17\%, while 3.72\% were not
 identified. All of the 50 profile communities used different languages
 in posting. Interestingly, 16 out of those communities did not use
 their own language, they were low in participation though. Moreover,
@@ -615,7 +614,6 @@ Section~\ref{ppcomm}, Table~\ref{tbl:diversity} shows their
 diversity by percentage. The Russian profile community is again an
 interesting case, as it scored the least diverse profile amongst all
 the 50 communities although it comes fourth in number of users.
-
 
 \begin{table}[!htb]
 \centering
@@ -643,9 +641,8 @@ the 50 communities although it comes fourth in number of users.
 \label{fig:eurovisionpslangnsl}
 \end{figure}
 
-\subsection{Multilingual Communities}
 
-In this section, we group users based on their relationship with
+In terms of multilinguism, we group users based on their relationship with
 posting communities, regardless of their profile language. For
 example, a user posting in both `{\emph{en}}' and `{\emph{fr}}' will
 be classified as bilingual, and so on. Based on this grouping
@@ -657,14 +654,12 @@ all users, creating 47\% of the total original posts. The also shows
 that users and their activity decrease as number of languages used
 increase.
 
-
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\columnwidth]{images/multilingualcommunities.png}
 \caption{Multilingual communities and their associated activities.}
 \label{fig:multilingual}
 \end{figure}
-
 
 A closer look at the behavior of these communities shows that, in
 general, activity per user increases as number of used languages
@@ -673,7 +668,6 @@ Figure~\ref{fig:multilingualpostsperuser}. Although we cannot conclude
 that there is a correlation between high multilingualism and
 illegitimacy of accounts, this would be an interesting further topic
 to investigate.
-
 
 \begin{figure}[htb]
 \centering
