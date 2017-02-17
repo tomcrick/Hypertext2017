@@ -2,11 +2,11 @@
 
 \subsection{Online Social Networks}
  
-In recent years, online social networks (OSNs) have been utilised as
-means to express ideas and opinions, spread information about events,
+In recent years, online social networks have been utilised as
+means to express ideas and opinions, share information about events,
 or even stimulate and propagate calls for civic engagement and
 societal action. Social networking sites such as Twitter, Facebook,
-LinkedIn and YouTube have also empowered individuals to promote their
+YouTube and Instagram have also empowered individuals to promote their
 viewpoints and interests -- professional or otherwise -- to a broad
 and diverse global audience. The engagement of certain demographics
 with social networks offers the opportunity for researchers interested
@@ -14,39 +14,40 @@ in observing and interpreting society to apply established theory and
 methods to an emerging digital culture.
 
 To satisfy the demand for various types of communities, interactions
-and engagement, there are now vast numbers of social media sites and
-platforms\footnote{This list is by no means exhaustive:
-\url{http://en.wikipedia.org/wiki/List of social networking
-websites}}, along with a number of attempted categorisations. By 2018,
-there will be an estimated 2.5 billion active social network users (up
-from 1.9 billion in 2014); they are producing massive amounts of data
-(volume) on a real-time basis (velocity) with implicit sociological
-attributes such as beliefs, opinions, sentiments, behaviours,
-structures and influences (variety)~\cite{burnap-et-al:2015}. These
-data exhibit the key traits of what is now referred to as big data:
-volume, velocity and variety~\cite{postsm:2014}. In this age of big
-data and an increasingly interconnected digital society, there is a
-new challenge -- the application of robust and scalable methods and
-tools that can be applied to digitised social behaviour generated via
-social networks so as to be able to efficiently analyse big social
-data to provide insight into real-world events and
+and engagement, there are now vast numbers of specialist and
+generalist social media sites and platforms\footnote{This list is by
+no means exhaustive: \url{http://en.wikipedia.org/wiki/List of social
+networking websites}}, along with a number of attempted
+categorisations. By 2018, there will be an estimated 2.5 billion
+active social network users (up from 1.9 billion in 2014); they are
+producing massive amounts of data (volume) on a real-time basis
+(velocity) with implicit sociological attributes such as beliefs,
+opinions, sentiments, behaviours, structures and influences
+(variety)~\cite{burnap-et-al:2015}. These data exhibit the key traits
+of what is referred to as big data: volume, velocity and
+variety~\cite{postsm:2014}. In this age of big social data and an
+increasingly interconnected digital society, there is a new challenge
+-- the application of robust and scalable methods and tools that can
+be applied to digitised social behaviour generated via social networks
+so as to be able to efficiently analyse these big social data to
+provide insight into real-world events and
 actions~\cite{lazer-et-al:2009,burnap-et-al:2015}.
 
 Recent
 work~\cite{blamey-et-al-2012,schwartz-et-al:2013,blamey-et-al-2013,oatley+crick:2014,mostafa-et-al-ai2016}
-has analysed what people say on social media to identify distinctive
-words, phrases, and topics as functions of known attributes of people
-such as gender, age, location, or psychological characteristics. This
-can thus be collated and aggregated, inferring gender, age, location
-and sentiments, from social media data. Potential negative
-implications of these approaches include the fact that they can be
-easily applied to large numbers of people or groups in society without
-obtaining their explicit consent or even being aware it is being
-done. Data-driven commercial companies, governmental entities, or
-even one's followers or friends are able to use software to infer
-personality and other attributes -- such as sexual orientation or
-political affiliations -- that an individual may have decided not to
-share~\cite{lambiotte+kosinski:2014,postsm:2014}.
+has analysed what people say and do on social media to identify
+distinctive words, phrases, and topics as functions of known
+attributes of people such as gender, age, location, or psychological
+characteristics. This can thus be collated and aggregated, inferring
+gender, age, location and sentiments, from social media
+data. Potential negative implications of these approaches include the
+fact that they can be easily applied to large numbers of people or
+groups in society without obtaining their explicit consent or even
+being aware it is being done. Data-driven commercial companies,
+governmental entities, or even one's followers or friends are able to
+use software to infer personality and other attributes -- such as
+sexual orientation or political affiliations -- that an individual may
+have decided not to share~\cite{lambiotte+kosinski:2014,postsm:2014}.
 
 There are various projects that have used Twitter corpora and related
 datasets to make predictions about
@@ -64,7 +65,7 @@ attacks~\cite{burnap-et-al:2014}, often all is not what it may seem;
 for instance, many tweets may not a crowd
 make~\cite{liang-et-al:2013}.
 
-\subsection{Languages and Communities}
+\subsection{Languages}
 
 Despite the widespread engagement with Twitter globally, little
 research has investigated the differences amongst users of various
@@ -88,14 +89,14 @@ diversity~\cite{ginsburgh+weber:2011}.
 
 \subsection{Social Network Analysis}
 
-In the social network analysis (SNA) domain, centrality measures
+In the social network analysis domain, centrality measures
 provide the ability to assess network graphs that are constructed from
 collected data (for example, tweets). Selection of these centrality
 measures is dependent on the goal of the analysis; for example, the
 degree of node helps to identify nodes with high number of connections
 within the
 network~\cite{borgatti+everett:2000,rombach-et-al:2014,liu-et-al:2014}.
-In a representation of a real world network, this metric may help to
+In a representation of a real-world network, this metric may help to
 identify highly connected persons, such as political leaders, sports
 stars or celebrities, who are potential ``information
 spreaders''~\cite{cha-et-al:2012,borge-holthoefer-et-al:2012,zhang-et-al:2016}.
@@ -120,21 +121,22 @@ other~\cite{cheng-et-al:2010,caverlee-et-al:2013}.
 \subsection{Users and Location}
 
 It is important to understand how geotagging works in Twitter. The
-`place' entity included in a Twitter status does not necessarily
-indicate precisely where the actual posting was made, as stated in the
-Twitter API
+`{\emph{place}}' entity included in a Twitter status does not
+necessarily indicate precisely where the actual posting was made, as
+stated in the Twitter API
 documentation\footnote{\url{https://dev.twitter.com/overview/api/places}}:
 ``{\emph{Tweets associated with places are not necessarily issued from
-that location but could also potentially be about that location}}''. For
-the sake of anonymity many users tend not to disclose information
-about their identity, particularly locations; this has also been
-supported by the literature that geotagged tweets are generally low in
-number~\cite{kang-et-al:2013}. We took the step to verify this claim
-in our datasets; in the best cases, the ratio of geotagged tweets did
-not exceed 2\%. In the case of the {\texttt{\#BaltimoreRiots}}
-dataset, only ~1\% of collected statuses were associated with
-places. Moreover, out of this geotagged subset, only 4\% were
-associated with the city where the event took place (Baltimore).
+that location but could also potentially be about that
+location}}''. For the sake of anonymity, many users tend not to
+disclose information about their identity, particularly locations;
+this has also been supported by the literature that geotagged tweets
+are generally low in number~\cite{kang-et-al:2013}. We took the step
+to verify this claim in our datasets; in the best cases, the ratio of
+geotagged tweets did not exceed 2\%. In the case of the
+{\texttt{\#BaltimoreRiots}} dataset, only ~1\% of collected statuses
+were associated with places. Moreover, out of this geotagged subset,
+only 4\% were associated with the city where the event took place
+(Baltimore).
 
 An alternative location-based option to consider is based on profile
 location, but it still does not serve the need for location clustering
@@ -282,7 +284,7 @@ activity from profile communities is not far from their sizes.
 Also, from these two outputs, we can see that nearly all of the topic
 activity came from one particular community using one particular
 language. This extreme pattern may accompany extreme and
-geographically constrained real world events such as riots and terror
+geographically constrained real-world events such as riots and terror
 attacks.
 
 \subsection{Profile-Posting Network}
