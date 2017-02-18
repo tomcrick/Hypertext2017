@@ -34,7 +34,7 @@ provide insight into real-world events and
 actions~\cite{lazer-et-al:2009,burnap-et-al:2015}.
 
 Recent
-work~\cite{blamey-et-al-2012,schwartz-et-al:2013,blamey-et-al-2013,oatley+crick:2014,mostafa-et-al-ai2016}
+work~\cite{blamey-et-al-2012,schwartz-et-al:2013,blamey-et-al-2013,oatley+crick:2014,oatley-et-al-soccogcomp2015,mostafa-et-al-ai2016}
 has analysed what people say and do on social media to identify
 distinctive words, phrases, and topics as functions of known
 attributes of people such as gender, age, location, or psychological
@@ -125,7 +125,7 @@ other~\cite{cheng-et-al:2010,caverlee-et-al:2013}.
 The remainder of this paper is organised as follows: in
 Section~\ref{method} we introduce the methodology and key
 language themes.  Sections~\ref{baltimorecasestudy}
-and~\ref{eurovisioncasestudy} presents the 2015 Baltimore protests and
+and~\ref{eurovisioncasestudy} present the 2015 Baltimore protests and
 2016 Eurovision Song Context case studies, along with an analysis of
 the key data and results. Section~\ref{conclusions} concludes the
 paper with a wider discussion and a summary of the potential
@@ -210,23 +210,24 @@ to measure diversity at individual users level.
 
 \section{Case Study: 2015 Baltimore Protests}\label{baltimorecasestudy}
 
-Following the peaceful funeral of Freddie Gray that took place on the
-morning of Monday 27 April 2015 in Baltimore, Maryland, USA, a protest
-hit the city. According to the timeline published on the CNN website
+Following a peaceful funeral that took place on the morning of Monday
+27 April 2015 in Baltimore, Maryland, USA, a protest hit the
+city. According to the timeline published on the CNN website
 ``{\emph{The city exploded on Monday after the funeral of Freddie
 Gray, a 25-year-old black man who mysteriously died on April 19, a
 week after Baltimore Police arrested
-him.}}''~\cite{baltimorewiki:2015}. The nature of the Baltimore protests
-is a good representation of a partially planned event in which a sudden
-escalation of violence hits a geographical area. The event manifested
-itself on Twitter as {\texttt{\#BaltimoreRiots}}, and resulted in more
-than 1,250,000 status updates.
+him.}}''~\cite{baltimorewiki:2015}. The nature of the Baltimore
+protests is a good representation of a partially planned event in
+which a sudden escalation of civil unrest hits a geographical area. The
+event manifested itself on Twitter as {\texttt{\#BaltimoreRiots}}, and
+resulted in more than 1,250,000 status updates.
 
-Figure~\ref{fig:overallbaltimoreactivity} presents how the event manifested 
-itself on Twitter once a ``purge'' was scheduled. We can see that what was 
-happening on the ground was quickly reflected on the activity in Twitter. More detailed 
-analysis reveals that within one hour the topic started to go ``viral''; more
-precisely, at approximately 15:00 at which the ``purge'' was
+Figure~\ref{fig:overallbaltimoreactivity} shows how the event
+manifested itself on Twitter once a ``purge'' was scheduled. We can
+see that what was happening on the ground was quickly reflected in the
+online activity on Twitter. More detailed analysis reveals that within
+one hour the topic started to go ``viral''; more precisely, at
+approximately 15:00 on 27 April at which the ``purge'' was
 scheduled. The topic jumped from roughly 1,200 to 8,000 tweets per
 hour. Then, it peaked with 98,000 between 22:00 and 23:00.
 
@@ -239,15 +240,17 @@ hour. Then, it peaked with 98,000 between 22:00 and 23:00.
 
 \subsection{Posting Communities}\label{baltimoreposting}
 
-In the {\texttt{\#BaltimoreRiots}} case, for original posts, there were 38 posting
-languages. As we can see in Figure~\ref{fig:baltimore_langfreq}, 
-English was the mostly used language by far. Interestingly, results also show that
-language of more than ~7\% statuses could not be
-identified. When investigated, those statuses mostly do not contain
-text other than hashtags, pictures or URLs. Although, this is not a
-big portion, it came second after English. Although this category
-shows an interesting case in which qualitative content analysis would
-be involved, it is beyond this study and will not be covered here.
+In the {\texttt{\#BaltimoreRiots}} case, 38 posting languages were
+used for original posts. As we can see in
+Figure~\ref{fig:baltimore_langfreq}, English was the mostly
+frequently-used language by far. Interestingly, results also show that
+language of more than c.7\% statuses could not be identified. When
+investigated, those statuses mostly did not contain text other than
+hashtags, pictures or URLs. Although, this is not a big proportion of
+the overall sample, it came second after English. This category shows
+an interesting case in which qualitative content analysis could
+potentially be used, but it is beyond the scope of this study and will
+not be covered here.
 
 \begin{figure}[htb]
 \centering
@@ -264,13 +267,13 @@ be involved, it is beyond this study and will not be covered here.
 \subsection{Profile Communities}\label{baltimoreprofile}
 
 In the majority of cases, users choose to pick a language for their
-Twitter profile settings. In our dataset we found that out of 716,494
-users, only 45 had not chosen any language. However, the language
-entity returned by the API for those cases is the initial placeholder
-text ``{\emph{Select Language...}}'' or a translated version that might provide
-hints regarding the user language
-community. Figure~\ref{fig:baltimore_profile_size} shows that about 94\% of the
-users came from `{\emph{en}}' profile community.
+Twitter profile settings. In our dataset, we found that out of 716,494
+users, only 45 had not opted to select a language. However, the
+language entity returned by the API for those cases is the initial
+placeholder text ``{\emph{Select Language...}}'' or a translated
+version that may provide hints to the user language
+community. Figure~\ref{fig:baltimore_profile_size} shows that about
+94\% of the users came from `{\emph{en}}' profile community.
 
 \begin{figure}[htb]
 \centering
@@ -282,52 +285,54 @@ users came from `{\emph{en}}' profile community.
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\columnwidth]{images/baltimore_profile_activity.png}
-\caption{Profile language communities casuig \%99 of activity in {\texttt{\#BaltimoreRiots}}}
+\caption{Profile language communities causing \%99 of activity in {\texttt{\#BaltimoreRiots}}}
 \label{fig:baltimore_profile_activity}
 \end{figure}
 
-As we can see in figure ~\ref{fig:baltimore_profile_activity}, 
-activity from profile communities is not far from their sizes.
-Also, from these two outputs, we can see that nearly all of the topic
+As we can see in Figure~\ref{fig:baltimore_profile_activity}, activity
+from profile communities is not far from their relative sizes.  Also,
+from these two outputs, we can see that nearly all of the topic
 activity came from one particular community using one particular
 language. This extreme pattern may accompany extreme and
-geographically constrained real-world events such as riots and terror
-attacks.
+geographically constrained real-world events such as civil unrest and
+terrorist attacks.
 
 \subsection{Profile-Posting Network}
 
-This section explore the network graph we built from profile-posting relationships.
-Constructing this graph is an essential step for our core analysis of language 
-diversity, as well as it different analyses. For example, to investigate whether 
-the `{\emph{en}}' posting community is linked to particular profile communities, 
-we used the bipartite graph as presented in figure~\ref{fig:baltimore_p_s_lang_sl}. 
-In this graph, nodes that are prefixed by ``{\emph{p\_}}'' represent profile language 
-community, and nodes that are prefixed by ``{\emph{s\_}}'' represent posting language
-community. Size of node represents the weighted indegree, whereas colour
-represents the outdegree; the darker the colour, the higher
-outdegree, hence, totally white nodes have no out degree and help to easily 
-distinguish posting communities from profile ones. From the graph 
-we can infer that there is a dominating player in both domains: posting languages and profile communities.
-Therefore,for the case of {\texttt{\#BaltimoreRiots}}, we can conclude that the case was
-substantially localised.
+This section explores the network graph we are able to build from
+profile-posting relationships; constructing this graph is an essential
+step for our core analysis of language diversity. For example, to
+investigate whether the `{\emph{en}}' posting community is linked to
+particular profile communities, we used the bipartite graph as
+presented in figure~\ref{fig:baltimore_p_s_lang_sl}.  In this graph,
+nodes that are prefixed by ``{\emph{p\_}}'' represent profile language
+community, and nodes that are prefixed by ``{\emph{s\_}}'' represent
+posting language community. The size of node represents the weighted
+indegree, whereas colour represents the outdegree: the darker the
+colour, the higher outdegree; hence, completely white nodes have no
+outdegree and help to easily distinguish posting communities from
+profile ones. From the graph we can infer that there is a dominating
+player in both domains: posting languages and profile communities.
+Therefore, for the case of {\texttt{\#BaltimoreRiots}}, we can
+conclude that the case was substantially localised.
 
 \begin{figure}[htb]
 \centering
 \includegraphics[width=\columnwidth]{images/baltimore_p_s_lang_sl.png}
-\caption{Profile-Posting network graph}
+\caption{Profile-posting network graph}
 \label{fig:baltimore_p_s_lang_sl}
 \end{figure}
 
 
 \subsection{Diversity and Multilingual Communities}
 
-To examine users behaviour in using languages other than their own
+To examine users' behaviour in using languages other than their own
 (profile language), same-language communities are filtered out.  We
-found that English profile users have mostly been posting in Arabic,
-as a different posting language. This sort of activity could be
-obtained from edge weights in the profile-posting
+found that English profile users frequently posted in Arabic, as a
+secondary posting language. This sort of activity could be obtained
+from edge weights in the profile-posting
 graph. Table~\ref{tbl:baltimoredifflang} shows the top portion of
-these communities. This observation shed the light on those
+these communities. This observation sheds light on those
 relationships, and could be of use for further analysis, such as
 identifying highly disseminated message that fall into these
 relationships and their contents.
@@ -344,27 +349,27 @@ relationships and their contents.
 {\emph{tr-en}} & 0.37 \\
 {\emph{en-tr}} & 0.36 \\ \bottomrule
 \end{tabular}
-\caption{Users behaviour in using languages different to their profile (normalised)}
+\caption{Users' behaviour in using languages different to their profile (normalised)}
 \label{tbl:baltimoredifflang}
 \end{table}
 
+The topic diversity in {\texttt{\#BaltimoreRiots}} is 0.91, which is
+not surprising when we recall that there were 38 languages used in
+original tweets. However, when the magnitude of diversity was
+measured, it gave a score of 0.04, a generally low score. This will be
+of use when compared to the data from our second case study in Section
+~\ref{eurovisioncasestudy}.
 
-The topic diversity in  {\texttt{\#BaltimoreRiots}} is 0.91, which not surprising 
-when we recall that there were 38 languages used in original tweets, as mentioned in 
-~\ref{baltimoreposting}. However, when magnitude of diversity was measured, 
-it shows the score of 0.04, which indicate a generally low score. This will be of use
-when compared to other data set as we will see in Section ~\ref{eurovisioncasestudy}.
-
-Additionally, measuring multilingual communities is another use of profile-posting network 
-graph at individual users level. We grouped users based on their relationship with
-posting communities, regardless of their profile language. For
-example, a user posting in both `{\emph{en}}' and `{\emph{fr}}' will
-be classified as bilingual, and so on. Based on this grouping
-technique, with the `{\emph{und}}' lang category eliminated, we
-identified 9 sets. As we can see in Figure~\ref{fig:baltimore_multilingual}, 
-monolingual group contain most users, nearly \%99 of users, and about 
-\%94 of the topic activity came from this group too.
-
+Additionally, measuring multilingual communities is another use of
+profile-posting network graph at individual users' level. We grouped
+users based on their relationship with posting communities, regardless
+of their profile language. For example, a user posting in both
+`{\emph{en}}' and `{\emph{fr}}' will be classified as bilingual, and
+so on. Based on this grouping technique, with the `{\emph{und}}' lang
+category eliminated, we identified nine sets. As we can see in
+Figure~\ref{fig:baltimore_multilingual}, monolingual group contain the
+overwhelming majority of users (nearly 99\%), contributing
+approximately 94\% of the topic activity too.
 
 \begin{figure}
 \centering
