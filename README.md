@@ -1,2 +1,2 @@
-# Hypertext2017
-Paper for 28th ACM Conference on Hypertext and Social Media (Hypertext 2017)
+# ICCI2017
+Paper for 9th International Conference on Computational Collective Intelligence (ICCI 2017)
