@@ -185,32 +185,32 @@ discussion and a summary of the potential application of our approach.
 
 \section{Methodology}\label{method}
 
-The primary purpose of this study is to examine if the nature of event
-is reflected in language uses, communities, and diversity on
-Twitter. The techniques we introduce in this paper through two
-real-world case studies are based on language settings in users'
-profiles and those for statuses\footnote{The term `status' is a
-generic term used to refer to any Twitter post (tweet, retweet, reply,
-or quote).}.  The first step is to identify relationships between
-language settings of users and languages used in original posts
-(tweets). Then, we will discuss language diversity and how it is
-affected by the nature of topic.
+The primary purpose of this study is to present an analytical approach for 
+examining language uses, communities, and diversity on Twitter. The approach 
+is based on network graphs and their properties, such as indegree, outdegree, 
+and edge weights. Graphs are generated from language settings in users' 
+profiles and those for statuses.The first step is to construct two graphs to depict
+relationships between language of users and languages used in posts. 
+Then, using graphs properties, we will conduct the analysis of language 
+communities and their diversity and if it is effected by the nature of topic. The 
+study will use only original statuses (tweet) as the basic entity as we are not 
+measuring reactions.
 
-\subsection{Users and Locations}
 
-It is important to understand how geotagging works in Twitter. The
-`{\emph{place}}' entity included in a Twitter status does not
-necessarily indicate precisely where the actual posting was made, as
-stated in the Twitter API
-documentation\footnote{\url{https://dev.twitter.com/overview/api/places}}:
-``{\emph{Tweets associated with places are not necessarily issued from
-that location but could also potentially be about that
-location}}''. For the sake of anonymity, many users tend not to
-disclose information about their identity, particularly locations;
-this has also been supported by the literature that geotagged tweets
-are generally low in number~\cite{kang-et-al:2013}. We took the step
-to verify this claim in our datasets; in the best cases, the ratio of
-geotagged tweets did not exceed 2\%.
+% \subsection{Users and Locations}
+% It is important to understand how geotagging works in Twitter. The
+% `{\emph{place}}' entity included in a Twitter status does not
+% necessarily indicate precisely where the actual posting was made, as
+% stated in the Twitter API
+% documentation\footnote{\url{https://dev.twitter.com/overview/api/places}}:
+% ``{\emph{Tweets associated with places are not necessarily issued from
+% that location but could also potentially be about that
+% location}}''. For the sake of anonymity, many users tend not to
+% disclose information about their identity, particularly locations;
+% this has also been supported by the literature that geotagged tweets
+% are generally low in number~\cite{kang-et-al:2013}. We took the step
+% to verify this claim in our datasets; in the best cases, the ratio of
+% geotagged tweets did not exceed 2\%.
 
 % In the case of the
 % {\texttt{\#BaltimoreRiots}} dataset, only ~1\% of collected statuses
@@ -218,21 +218,45 @@ geotagged tweets did not exceed 2\%.
 % only 4\% were associated with the city where the event took place
 % (Baltimore).
 
-An alternative location-based option to consider is based on profile
-location, but it still does not serve the need for location clustering
-for a multitude of reasons. Firstly, we found that less than 45\% of
-users have set their profile location, which is in line with other
-studies~\cite{graham-et-al:2014}. Secondly, although Twitter suggests
-certain presets for setting profile location, users are given the
-option to enter any text they wish; this results in a considerable
-amount of noise.
+% An alternative location-based option to consider is based on profile
+% location, but it still does not serve the need for location clustering
+% for a multitude of reasons. Firstly, we found that less than 45\% of
+% users have set their profile location, which is in line with other
+% studies~\cite{graham-et-al:2014}. Secondly, although Twitter suggests
+% certain presets for setting profile location, users are given the
+% option to enter any text they wish; this results in a considerable
+% amount of noise.
 
-\subsection{Language Communities}\label{langcomm}
+\subsection{Network Graphs}\label{netgraphs}
 
-Analysis of language communities begins with two basic techniques. The
-first is to classify statuses based on their languages, with the
-status language extracted from the `{\emph{lang}}' entity inside
-status objects. Language used in posting defines which community the
+To serve the purpos of this study, we will need two different graphs;
+one is based on individual users and their posting activity, while the other is 
+based on language communities. For generating necessary graphs, we only 
+need three entities from each status, '\emph{user id}', '\emph{user language setting}', 
+and '\emph{status language}'. Those values can be extracted from [status]['user']['id'], 
+[status]['user']['lang'], and [status]['lang'], respectively. In the context of this study, 
+all graphs must be directed to provide correct measurements.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\columnwidth]{images/graphstructures.png}
+\caption{Examples of simple models of language graphs}
+\label{fig:graphstructures}
+\end{figure}
+
+\subsubsection{User Languages}
+As shown in Figure~\ref{fig:graphstructures}.a, nodes in this graph are 
+of two types; users and posting language. Each posted tweet results in 
+two nodes, one represents the user with profile language setting 
+added to the node as the attribute '{\emph{\{profile\_lang:xx\}}}'. The other node 
+represents language of the tweet. Edges link user with the posting languages 
+they used, and their weight (thinkness) measures the number of tweets that
+have been posted by the user (the strting node) in the traget language (ending node).
+In the example above, the profile language setting for user '0123' is 'en', posted 3 tweets in 
+'en' and 4 in 'ar'.
+
+In this section, we will present how  of language communities begins with two basic techniques. The
+first is to classify Language used in posting defines which community the
 status was meant for; a tweet written in Turkish, for example, is
 meant for the Turkish-speaking community. Output from this will be
 referred to as `{\emph{posting communities}}'. The second analysis is
@@ -475,40 +499,32 @@ overall Twitter activity.
 \label{fig:overalleurovisionactivity}
 \end{figure}
 
-Preliminary analysis shows that tweets and retweets together account
-for 97\% from the total activity; these two subsets can be
-representative on their own, without the need to include other
-interaction sets, such as replies and quoted tweets. It is important
-to note that tweets and retweets are used to measure actions, and
-reactions, respectively. However, our analysis will be focusing on
-original tweets only and the usage of different languages in this set.
+Preliminary analysis shows that tweets account
+for 48\% from the total activity. However, our analysis will be focusing on
+original tweets only and the usage of different languages in this set. As shown in 
+fig ~\ref{fig:eurovisionlangcommunities} shows a network graph in which nodes and edges 
+represent languages and 
 
-\subsection{Posting Communities}\label{eurovisionpostingcomm}
+\subsection{Posting Languages}\label{eurovisionpostinglangs}
 
-In the {\texttt{\#Eurovision}} case, there were 49 posting
-languages. Fig~\ref{fig:eurovisionlangfreq} shows the top posting
+In the {\texttt{\#Eurovision}} case, there were 50 posting
+languages. Fig
 languages (tweets), out of 3,834,937. As might be expected, English
 was the most frequently-used posting language, while c.4\% statuses
-could not be categorised. However, as we can see, it is not as
-dominating as in the {\texttt{\#Baltimoreriots}} case. Interestingly,
-it took participation from eight posting communities to match the
-activity ratio of the `{\emph{en}}' posting community in
-{\texttt{\#Baltimoreriots}} (~0.87).
+could not be categorised.
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=\columnwidth]{images/eurovision_langfreq.png}
-\caption{Most frequently used languages in {\texttt{\#Eurovision}}.}
-\label{fig:eurovisionlangfreq}
+\includegraphics[width=\columnwidth]{images/p_s_nselfloop.png}
+\caption{Language Communities in {\texttt{\#Eurovision}}.}
+\label{fig:eurovisionlangcommunities}
 \end{figure}
 
 \subsection{Profile Communities}\label{ppcomm}
 
 In total, 1,226,959 users interacted with the {\texttt{\#Eurovision}}
-hashtag. In terms of their profile languages, they formed 50
-communities. Figure~\ref{fig:eurovisionprofilesize} shows some of the
-top profile communities from of all users, ordered by size. Unlike
-status language, profile language relies on the user to pick a
+hashtag. In terms of their profile languages, they formed 51
+communities. Unlike status language, profile language relies on the user to pick a
 language for their Twitter profile settings. In general, the default
 value of this option is the initial placeholder text ``{\emph{Select
 Language...}}'' or a translated version that might provide hints
