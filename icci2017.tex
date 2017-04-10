@@ -245,35 +245,52 @@ all graphs must be directed to provide correct measurements.
 \end{figure}
 
 \subsubsection{User Languages}
-As shown in Figure~\ref{fig:graphstructures}.a, nodes in this graph are 
-of two types; users and posting language. Each posted tweet results in 
+This graph is the core graph in analysis. As shown in Figure~\ref{fig:graphstructures}.a, 
+nodes in this graph are of two types; users and posting language. Each posted tweet results in 
 two nodes, one represents the user with profile language setting added 
 to the node as the attribute '{\emph{\{profile\_lang:xx\}}}'. The other node 
 represents language of the tweet. Edges link user with the posting languages 
 they used, and their weight (thinkness) measures the number of tweets that
 have been posted by the user (the strting node) in the traget language (ending node).
-In the example above, the profile language setting for user '0123' is 'en', he 
-posted 3 tweets in 'en' and 4 in 'ar'. It is important to note that user nodes 
+In the example above, the profile language setting for user '03' is 'en', he 
+posted 3 tweets in 'en' and 3 in 'ar'. It is important to note that user nodes 
 have only outgoing edges, while language nodes have only incoming edges. 
-This graph will be used to measure language diversity of users and the topic as a whole
+This graph will be used to measure language diversity of users and the topic as a whole,
+and will be referred to as '\emph{users graph}'.
 
 \subsubsection{Language Communities}
-This graph, as shown in Figure~\ref{fig:graphstructures}.b has one type of nodes, 
-language community nodes. Theorytically, each posted tweet results in two nodes, 
-one for the user profile, and the other for the posting language. In our example above, 
+Derived from the users graph, this graph has one type of nodes, language community,
+as shown in Figure~\ref{fig:graphstructures}.b. Technically, for each user node we 
+generate one node from the '{\emph{\{profile\_lang:xx\}}}' attribute, and another node
+
+attribute we mentioned earlier.
+done b user nodes in the users graph, and create Theorytically, each posted tweet results
+in two nodes, one for the user profile, and the other for the posting language. In our example above, 
 users with 'en' profiles have posted 4 tweets in 'fr' and 3 in 'ar'. In the case of 'ar' 
 node, we can see that it connect to itself, this means that users of the profile language
-as 'ar' have posted 4 tweets in 'ar'. 
+as 'ar' have posted 4 tweets in 'ar'. This graph will be referred to as '\emph{communities graph}'.
 
 By utilising network graph measures, this graph can provide measures about 
-language communities. Further, we can measure what profile languages are
-present, what languages are used for posting, and how
-different language communities are linked to each other, as we will see in the following sections.
+language communities. We can measure what profile languages are present, 
+what languages are used for posting, and how different language communities 
+are linked to each other, as we will see in the following sections.
 
 \subsection{Measures}
 As we are using network graphs in this study, this section presents the measures we use 
-in the analysis for each graphs. It is important to recall that both graphs are directed.
-For each generated graph, we will use 
+in the analysis of each graph. Mainly, we use different mixture of '\emph{indegree}', '\emph{outdegree}', 
+and edge '\emph{weights}' to conduct analyses. 
+
+
+\subsubsection{Profile Communities}
+This is measured from the language communities graph: number of nodes with outdegree \textgreater  0. 
+
+\subsubsection{Posting Languages}
+This is to measure posting languages. Taken from communities graph: number of nodes with indegree \textless 0 .
+
+\subsubsection{Users Multilingualism}
+Applied on the users graph: outdegree of user nodes shows how many languages he used, regardless of the weight.
+To filter users nodes in this graph, we take all nodes with indegree = 0. 
+
 We present two language diversity measurements. The
 first, which we call `diversity', is to measure uses of languages
 different to the profile's i.e. we are referring to `non-selfloop'
