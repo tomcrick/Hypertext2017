@@ -247,29 +247,34 @@ all graphs must be directed to provide correct measurements.
 \subsubsection{User Languages}
 As shown in Figure~\ref{fig:graphstructures}.a, nodes in this graph are 
 of two types; users and posting language. Each posted tweet results in 
-two nodes, one represents the user with profile language setting 
-added to the node as the attribute '{\emph{\{profile\_lang:xx\}}}'. The other node 
+two nodes, one represents the user with profile language setting added 
+to the node as the attribute '{\emph{\{profile\_lang:xx\}}}'. The other node 
 represents language of the tweet. Edges link user with the posting languages 
 they used, and their weight (thinkness) measures the number of tweets that
 have been posted by the user (the strting node) in the traget language (ending node).
-In the example above, the profile language setting for user '0123' is 'en', posted 3 tweets in 
-'en' and 4 in 'ar'.
+In the example above, the profile language setting for user '0123' is 'en', he 
+posted 3 tweets in 'en' and 4 in 'ar'. It is important to note that user nodes 
+have only outgoing edges, while language nodes have only incoming edges. 
+This graph will be used to measure language diversity of users and the topic as a whole
 
-In this section, we will present how  of language communities begins with two basic techniques. The
-first is to classify Language used in posting defines which community the
-status was meant for; a tweet written in Turkish, for example, is
-meant for the Turkish-speaking community. Output from this will be
-referred to as `{\emph{posting communities}}'. The second analysis is
-to classify users into different communities based on their profile
-languages. Output from this technique will be referred to as
-`{\emph{profile communities}}'. We can then create network graphs to
-explore relationships between profile and posting communities.  As we
-will see in the following two case studies, a posting community does
-not necessarily indicate the profile community for a user.
+\subsubsection{Language Communities}
+This graph, as shown in Figure~\ref{fig:graphstructures}.b has one type of nodes, 
+language community nodes. Theorytically, each posted tweet results in two nodes, 
+one for the user profile, and the other for the posting language. In our example above, 
+users with 'en' profiles have posted 4 tweets in 'fr' and 3 in 'ar'. In the case of 'ar' 
+node, we can see that it connect to itself, this means that users of the profile language
+as 'ar' have posted 4 tweets in 'ar'. 
 
-\subsection{Language Diversity}\label{diversity}
+By utilising network graph measures, this graph can provide measures about 
+language communities. Further, we can measure what profile languages are
+present, what languages are used for posting, and how
+different language communities are linked to each other, as we will see in the following sections.
 
-In this section, we present two language diversity measurements. The
+\subsection{Measures}
+As we are using network graphs in this study, this section presents the measures we use 
+in the analysis for each graphs. It is important to recall that both graphs are directed.
+For each generated graph, we will use 
+We present two language diversity measurements. The
 first, which we call `diversity', is to measure uses of languages
 different to the profile's i.e. we are referring to `non-selfloop'
 edges in the generated network graphs. The second one is to measure
@@ -284,7 +289,6 @@ can be applied on individual communities within the topic. By doing
 so, it can help identify communities that act as bridges between
 different profile communities. Moreover, the technique can be applied
 to measure diversity at individual users level.
-
 
 % \section{Case Study: 2015 Baltimore Protests}\label{baltimorecasestudy}
 
