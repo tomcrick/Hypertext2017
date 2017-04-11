@@ -256,7 +256,7 @@ In the example above, the profile language setting for user '03' is 'en', he
 posted 3 tweets in 'en' and 3 in 'ar'. This graph will be referred to as 
 '\emph{users graph}'.
 
-\subsubsection{Communities Graph}
+\subsubsection{Communities Graph} \label{communitiesgraph}
 Derived from the users graph, this graph has one type of nodes, language community,
 as shown in Figure~\ref{fig:graphstructures}.b. For each user node we generate one 
 node from the '{\emph{\{profile\_lang:xx\}}}' attribute, and another node from the posting 
@@ -280,7 +280,7 @@ User nodes have \emph{indegree}=0, and posting languages have
 between nodes. On the other hand, both outdegree of user nodes and indegree of 
 posting languages are not constants and their values must be more than 0. 
 Weight of edge indicate number of tweets associated with both nodes. 
-Refering to the example in Figure~\ref{fig:graphstructures}, we can see that 
+Refering to the example in Figure~\ref{fig:graphstructures}.a, we can see that 
 user '03' has indegree of 0 (users identifier), outdegree of 2 (number of languages 
 he used), and total weight of 6 (tweets he posted in total). Also, in the same figure,
 we can see that for 'en' posting language, it has outdegree of 0 (language nodes 
@@ -300,28 +300,51 @@ properties of this graph.
 \label{tbl:usersgraph}
 \end{table}
 
-\subsubsection{Posting Languages}
-This is to measure posting languages. Taken from communities graph: number of nodes with indegree \textgreater 0 .
+\subsubsection{Communities Graph Properties}
+As mentioned in \ref{communitiesgraph}, this graph is extracted from the users
+graph and contains one type of nodes; language community nodes. Nodes in 
+this graph represent langauges as profile language settings, posting language, or both. 
+However, as the graph is directed, we can identify if a community node is for profile or 
+posts by analysing the \emph{indegree} and \emph{outdegree} properties. 
+Positive indegree implies posting language, and positive outdegree indicates profile 
+language settings. Figure \ref{fig:graphstructures}.b shows three language 
+communities, two nodes show posting and profile nodes, while one node exists 
+as a profile only node. The node 'ar', for example, has outdegree of 1 and indegree of 2. 
+In other words, there at least 1 user has their profile language settings as 'ar', and at 
+least two users have posted in 'ar'. In terms of edge weights, we can say that there are
+7 tweets posted in 'ar' language, originated from two different profile language communities.
+For the 'fr' node, we can see only outdegree, which means this language 
+community exists as a profile only node as no user posted in 'fr'.
+Those measures are summarised in Table \ref{tbl:communitiesgraph}.
 
-\subsubsection{Users Multilingualism}
-Applied on the users graph: outdegree of user nodes shows how many languages he used, regardless of the weight.
-To filter users nodes in this graph, we take all nodes with indegree = 0. 
+\begin{table}[!htb]
+\centering
+\begin{tabular}{@{}lcr@{}}
+\toprule
+\textbf{}& \textbf{Community Node} \\ \midrule
+{\emph{Indegree}} &  posts\\
+{\emph{Outdegree}} & profiles \\ 
+{\emph{Edge Weight}}& \#Tweets\\ \bottomrule
+\end{tabular}
+\caption{Nodes properties in communities graph}
+\label{tbl:communitiesgraph}
+\end{table}
 
-We present two language diversity measurements. The
-first, which we call `diversity', is to measure uses of languages
-different to the profile's i.e. we are referring to `non-selfloop'
-edges in the generated network graphs. The second one is to measure
-the magnitude of this diversity, which can be calculated as the total
-weight of `non-selfloop' over total edge weights in the
-profile-posting graph. We will make observation on these two
-measurements for both cases.
+% We present two language diversity measurements. The
+% first, which we call `diversity', is to measure uses of languages
+% different to the profile's i.e. we are referring to `non-selfloop'
+% edges in the generated network graphs. The second one is to measure
+% the magnitude of this diversity, which can be calculated as the total
+% weight of `non-selfloop' over total edge weights in the
+% profile-posting graph. We will make observation on these two
+% measurements for both cases.
 
-By observing the language diversity of profile communities, we aim to
-measure language diversity of the topic in general. The same technique
-can be applied on individual communities within the topic. By doing
-so, it can help identify communities that act as bridges between
-different profile communities. Moreover, the technique can be applied
-to measure diversity at individual users level.
+% By observing the language diversity of profile communities, we aim to
+% measure language diversity of the topic in general. The same technique
+% can be applied on individual communities within the topic. By doing
+% so, it can help identify communities that act as bridges between
+% different profile communities. Moreover, the technique can be applied
+% to measure diversity at individual users level.
 
 % \section{Case Study: 2015 Baltimore Protests}\label{baltimorecasestudy}
 
