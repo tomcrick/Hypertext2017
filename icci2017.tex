@@ -239,7 +239,7 @@ all graphs must be directed to provide correct measurements.
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=\columnwidth]{images/graphstructures.png}
+\includegraphics[width=0.6\columnwidth]{images/graphstructures.png}
 \caption{Examples of simple models of language graphs}
 \label{fig:graphstructures}
 \end{figure}
@@ -263,8 +263,8 @@ node from the '{\emph{\{profile\_lang:xx\}}}' attribute, and another node from t
 language it connects to. Theorytically, each posted tweet results in two nodes, one for 
 the user profile, and the other for the posting language. In our example above, users 
 with 'fr' profiles have generated 6 tweets in 'en'. In the case of 'ar' node, we can see that 
-users of the profile language as 'ar' have posted 4 tweets in 'ar' only, hence it connects to itself,
-This graph will be referred to as '\emph{communities graph}'.
+users of the profile language as 'ar' have posted 4 tweets in 'ar' only, in graph terminology
+this is referred to as 'self-loop'. We will refer to this graph as '\emph{communities graph}'.
 
 \subsection{Measures}
 In this section, we will present how graph measures can be used to 
@@ -554,7 +554,7 @@ overall Twitter activity.
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=\columnwidth]{images/overalleurovisionactivity.png}
+\includegraphics[width=0.8\columnwidth]{images/overalleurovisionactivity.png}
 \caption{Overall activity for {\texttt{\#Eurovision}}.}
 \label{fig:overalleurovisionactivity}
 \end{figure}
@@ -575,7 +575,7 @@ could not be categorised.
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=\columnwidth]{images/p_s_nselfloop.png}
+\includegraphics[width=0.8\textwidth]{images/p_s_nselfloop.png}
 \caption{Language Communities in {\texttt{\#Eurovision}}.}
 \label{fig:eurovisionlangcommunities}
 \end{figure}
@@ -594,19 +594,19 @@ with the default value.  For completeness, we also show profile
 communities grouped by their activity in
 ~\ref{fig:eurovisionprofileactivity}.
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=\columnwidth]{images/eurovision_profile_size.png}
-\caption{Profile communities by size in {\texttt{\#Eurovision}}.}
-\label{fig:eurovisionprofilesize}
-\end{figure}
+%\begin{figure}[htb]
+%\centering
+%\includegraphics[width=\columnwidth]{images/eurovision_profile_size.png}
+%\caption{Profile communities by size in {\texttt{\#Eurovision}}.}
+%\label{fig:eurovisionprofilesize}
+%\end{figure}
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=\columnwidth]{images/eurovision_profile_activity.png}
-\caption{Profile communities by activity in {\texttt{\#Eurovision}}.}
-\label{fig:eurovisionprofileactivity}
-\end{figure}
+%\begin{figure}[htb]
+%\centering
+%\includegraphics[width=\columnwidth]{images/eurovision_profile_activity.png}
+%\caption{Profile communities by activity in {\texttt{\#Eurovision}}.}
+%\label{fig:eurovisionprofileactivity}
+%\end{figure}
 
 From the previous three figures, we can see clear similarities between
 the posting and profile communities. Statistically, we found that
@@ -622,12 +622,12 @@ the participation of non-Russian profiles using the Russian language
 for posting; further discussion of this example follows in the next
 section.
 
-\begin{figure*}[!htb]
-\centering
-\includegraphics[width=0.8\textwidth]{images/euro_pslang.png}
-\caption{Profile-posting network graph for {\texttt{\#Eurovision}}}
-\label{fig:eurovisionpslang}
-\end{figure*}
+% \begin{figure*}[!htb]
+% \centering
+% \includegraphics[width=0.8\textwidth]{images/euro_pslang.png}
+% \caption{Profile-posting network graph for {\texttt{\#Eurovision}}}
+%\label{fig:eurovisionpslang}
+%\end{figure*}
 
 \subsection{Profile-Posting Analysis}\label{eurovisionppanalysis}
 
