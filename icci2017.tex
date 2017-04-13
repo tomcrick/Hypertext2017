@@ -183,7 +183,7 @@ results. Section~\ref{conclusions} concludes the paper with a wider
 discussion and a summary of the potential application of our approach.
 
 
-\section{Methodology}\label{method}
+\section{Methodology}\label{methodology}
 
 The primary purpose of this study is to present an analytical approach for 
 examining language uses, communities, and diversity on Twitter. The approach 
@@ -239,7 +239,7 @@ all graphs must be directed to provide correct measurements.
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.6\columnwidth]{images/graphstructures.png}
+\includegraphics[width=0.8\columnwidth]{images/graphstructures.png}
 \caption{Examples of simple models of language graphs}
 \label{fig:graphstructures}
 \end{figure}
@@ -278,8 +278,8 @@ of each graph. Namely, we use '\emph{indegree}', '\emph{outdegree}', and edge
 User nodes have \emph{indegree}=0, and posting languages have 
 \emph{outdegree}=0. Therefore, these two properties will be used to distinguish 
 between nodes. On the other hand, both outdegree of user nodes and indegree of 
-posting languages are not constants and their values must be more than 0. 
-Weight of edge indicate number of tweets associated with both nodes. 
+posting languages must be greater than 0. 
+Weight of edge indicates number of tweets associated with both end nodes. 
 Refering to the example in Figure~\ref{fig:graphstructures}.a, we can see that 
 user '03' has indegree of 0 (users identifier), outdegree of 2 (number of languages 
 he used), and total weight of 6 (tweets he posted in total). Also, in the same figure,
@@ -517,7 +517,7 @@ Those measures are summarised in Table \ref{tbl:communitiesgraph}.
 % \end{figure}
 
 
-\section{Case Study: 2016 Eurovision Song Contest}\label{eurovisioncasestudy}
+\section{Results and Discussion}\label{results}
 
 % The Eurovision Song Contest is the longest-running annual
 % international TV song competition, held, primarily, among the member
@@ -533,7 +533,14 @@ Those measures are summarised in Table \ref{tbl:communitiesgraph}.
 % social networking in recent years has dramatically changed the range
 % and scope of audience interaction and engagement, particularly for
 % different language communities.
-The 2016 Eurovision Song
+
+In this section we will explore the results of analysing {\texttt{\#Eurovision}}
+datasets based on the presented techniques in section~\ref{methodology}. The 
+subsections, multilingualism analysis relate to the users graph, while 
+following sections are based on the communities graph.
+
+\subsection{Context: The 2016 Eurovision Song}\label{context}
+
 Contest\footnote{\url{https://www.eurovision.tv/page/stockholm-2016/all-participants}}
 took place in May in Stockholm, Sweden. There were 32 countries taking
 part, with two semi-finals taking place on 12 and 14 May, with 26
@@ -553,7 +560,7 @@ overall Twitter activity.
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.8\columnwidth]{images/overalleurovisionactivity.png}
+\includegraphics[width=0.6\columnwidth]{images/overalleurovisionactivity.png}
 \caption{Overall activity for {\texttt{\#Eurovision}}.}
 \label{fig:overalleurovisionactivity}
 \end{figure}
@@ -564,22 +571,36 @@ original tweets only and the usage of different languages in this set. As shown 
 fig ~\ref{fig:eurovisionlangcommunities} shows a network graph in which nodes and edges 
 represent languages and 
 
-\subsection{Posting Languages}\label{eurovisionpostinglangs}
-
-In the {\texttt{\#Eurovision}} case, there were 50 posting
-languages. Fig
-languages (tweets), out of 3,834,937. As might be expected, English
-was the most frequently-used posting language, while c.4\% statuses
-could not be categorised.
+\subsection{Multilingualism}
+From the first look at Figure~\ref{fig:multilingual}, we can see that most 
+users are monolingual, from the perspective of this case study. They 
+formed about 85?\% of users who posted tweets, however, in terms 
+of activity, those users achieved less than 50?\%.
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/p_s_nselfloop.png}
-\caption{Language Communities in {\texttt{\#Eurovision}}.}
-\label{fig:eurovisionlangcommunities}
+\includegraphics[width=0.6\columnwidth]{images/multilingualcommunities.png}
+\caption{Multilingual communities and their associated activities.}
+\label{fig:multilingual}
 \end{figure}
 
-\subsection{Profile Communities}\label{ppcomm}
+\subsection{Users groups}
+
+This graph can be generated from user nodes in the Users Graph. As we have 85?\%
+users from monolingual users only, we sat a qualifying threshold of outdegree 1. 
+We generated two communities graphs, one to examine how language communities 
+relate to each other from the view point of "profile language using posting language". 
+We found that language communities have at least scored ?? Of self-looping. In other 
+words, users were more active (tweeting) in the language same as their profile 
+language settings. Hence, the second communities graph is to excludes this relationship 
+and examine activity of users in when using only a language differ to their profile setting.
+
+\subsection{Profile and Posting Communities}\label{eurovisionpostinglangs}
+
+This graph will tell us about community language sizes, multilinguals amongst 
+users and their activity and reactions (retweets). The results show that the 
+topic has 50? Language communities, 49? exist as profile language only, 
+?? As posting language, and ?? featuring both.
 
 In total, 1,226,959 users interacted with the {\texttt{\#Eurovision}}
 hashtag. In terms of their profile languages, they formed 51
@@ -592,6 +613,18 @@ dataset, we found that all users had selected a language and no users
 with the default value.  For completeness, we also show profile
 communities grouped by their activity in
 ~\ref{fig:eurovisionprofileactivity}.
+
+In the {\texttt{\#Eurovision}} case, there were 50 posting
+languages. languages (tweets), out of 3,834,937. As might be expected, English
+was the most frequently-used posting language, while c.4\% statuses
+could not be categorised.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.5\textwidth]{images/p_s_nselfloop.png}
+\caption{Language Communities in {\texttt{\#Eurovision}}.}
+\label{fig:eurovisionlangcommunities}
+\end{figure}
 
 %\begin{figure}[htb]
 %\centering
@@ -621,24 +654,48 @@ the participation of non-Russian profiles using the Russian language
 for posting; further discussion of this example follows in the next
 section.
 
+\subsection{Diversity}
+
+All of the 49 profile communities have used different languages in
+posting. 16 out of those communities did not use their own language,
+although they were low in numbers of tweets and engagement. Moreover,
+in terms of using different languages, we found that 32 communities
+scored at least 50\% out of their original tweets.
+% We also wanted to measure the diversity and its magnitude for the
+% topic.  We found that the language diversity of the topic as a whole
+% is 0.96. Although the diversity here is not far from
+% {\texttt{\#BaltimoreRiots}} case, when we compare magnitude of
+% diversities, it scored 0.22, which is relatively high.
+In terms of multilingual communities, we group users based on their
+relationship with posting communities, as we did in the
+{\texttt{\#BaltimoreRiots}} case.  Based on this grouping technique,
+with the `{\emph{und}}' lang category eliminated, we identified 20
+sets. The smallest two groups consist of one user each, who posted in
+22 and 25 different languages.  As we can see in
+Figure~\ref{fig:multilingual}, monolingual users scored about 85\% of
+all users, creating 47\% of the total original posts. Although we
+cannot conclude that there is a correlation between high
+multilingualism and illegitimacy of accounts, this would be an
+interesting further topic to investigate.
+
 % \begin{figure*}[!htb]
 % \centering
 % \includegraphics[width=0.8\textwidth]{images/euro_pslang.png}
 % \caption{Profile-posting network graph for {\texttt{\#Eurovision}}}
-%\label{fig:eurovisionpslang}
-%\end{figure*}
+% \label{fig:eurovisionpslang}
+% \end{figure*}
 
-\subsection{Profile-Posting Analysis}\label{eurovisionppanalysis}
+% \subsection{Profile-Posting Analysis}\label{eurovisionppanalysis}
 
-To explore the posting behaviour from profile communities, we
-constructed the graph shown in Figure~\ref{fig:eurovisionpslang},
-allowing us to continue analysing the '{\emph{fr}}' and '{\emph{ru}}'
-example.  The graph helps us to evaluate contributions of profile
-communities to the Russian posting community, with Russian language
-profile communities resulted in more than 95\% of activity in this
-posting community. The relative weights from those profile communities
-to the Russian posting community were {\emph{ru}}: 91.25\% and
-{\emph{en}}: 7.26\%.
+% To explore the posting behaviour from profile communities, we
+% constructed the graph shown in Figure~\ref{fig:eurovisionpslang},
+% allowing us to continue analysing the '{\emph{fr}}' and '{\emph{ru}}'
+% example.  The graph helps us to evaluate contributions of profile
+% communities to the Russian posting community, with Russian language
+% profile communities resulted in more than 95\% of activity in this
+% posting community. The relative weights from those profile communities
+%to the Russian posting community were {\emph{ru}}: 91.25\% and
+%{\emph{en}}: 7.26\%.
 
 % \begin{table}[!htb]
 % \centering
@@ -654,74 +711,40 @@ to the Russian posting community were {\emph{ru}}: 91.25\% and
 % \label{tbl:russian}
 % \end{table}
 
-However, posts in Russian were not just appearing from the Russian profile
-community. This show one way of exploring relationships between
-profile and posting communities, especially if we are interested in
-particular communities. Another approach is to explore the posting
-behaviour of one particular community. When considering certain
-profile communities, there is a tendency to assume that communities
-only post in languages that are the same as their profile language. To
-examine this assumption, we investigated participation of
-`{\emph{en}}' profiles, as they form nearly 50\% of users. In total,
-there were 1,841,205 posts from this community, 81\% of which were
-posted in `{\emph{en}}', 15.4\% in other languages, and 3.62\% were
-not identified. Table~\ref{tbl:enpartlangs} lists the top 95\% posting
-languages used by this profile community.
+% However, posts in Russian were not just appearing from the Russian profile
+% community. This show one way of exploring relationships between
+% profile and posting communities, especially if we are interested in
+% particular communities. Another approach is to explore the posting
+% behaviour of one particular community. When considering certain
+% profile communities, there is a tendency to assume that communities
+% only post in languages that are the same as their profile language. To
+% examine this assumption, we investigated participation of
+% `{\emph{en}}' profiles, as they form nearly 50\% of users. In total,
+% there were 1,841,205 posts from this community, 81\% of which were
+% posted in `{\emph{en}}', 15.4\% in other languages, and 3.62\% were
+% not identified. Table~\ref{tbl:enpartlangs} lists the top 95\% posting
+% languages used by this profile community.
 
-\begin{table}[!htb]
-\centering
-\begin{tabular}{@{}lc}
-\toprule
-\textbf{Language} & \textbf{\%} \\ 
-\midrule
-{\emph{en}} & 80.99 \\
-{\emph{und}} & 3.62 \\
-{\emph{es}} & 2.69 \\
-{\emph{nl}} & 2.39 \\
-{\emph{fr}} & 1.39 \\
-{\emph{ru}} & 1.36 \\
-{\emph{de}} & 0.97 \\
-{\emph{it}} & 0.87 \\ 
-{\emph{el}} & 0.86 \\ 
-\bottomrule
-\end{tabular}
-\caption{Top 95\% of participation languages from `{\emph{en}}' profiles}
-\label{tbl:enpartlangs}
-\end{table}
-
-\subsection{Diversity and Multilingual Communities}
-
-All of the 49 profile communities have used different languages in
-posting. 16 out of those communities did not use their own language,
-although they were low in numbers of tweets and engagement. Moreover,
-in terms of using different languages, we found that 32 communities
-scored at least 50\% out of their original tweets.
-
-We also wanted to measure the diversity and its magnitude for the
-topic.  We found that the language diversity of the topic as a whole
-is 0.96. Although the diversity here is not far from
-{\texttt{\#BaltimoreRiots}} case, when we compare magnitude of
-diversities, it scored 0.22, which is relatively high.
-
-In terms of multilingual communities, we group users based on their
-relationship with posting communities, as we did in the
-{\texttt{\#BaltimoreRiots}} case.  Based on this grouping technique,
-with the `{\emph{und}}' lang category eliminated, we identified 20
-sets. The smallest two groups consist of one user each, who posted in
-22 and 25 different languages.  As we can see in
-Figure~\ref{fig:multilingual}, monolingual users scored about 85\% of
-all users, creating 47\% of the total original posts. Although we
-cannot conclude that there is a correlation between high
-multilingualism and illegitimacy of accounts, this would be an
-interesting further topic to investigate.
-
-\begin{figure}[htb]
-\centering
-\includegraphics[width=\columnwidth]{images/multilingualcommunities.png}
-\caption{Multilingual communities and their associated activities.}
-\label{fig:multilingual}
-\end{figure}
-
+% \begin{table}[!htb]
+% \centering
+% \begin{tabular}{@{}lc}
+% \toprule
+% \textbf{Language} & \textbf{\%} \\ 
+% \midrule
+% {\emph{en}} & 80.99 \\
+% {\emph{und}} & 3.62 \\
+% {\emph{es}} & 2.69 \\
+% {\emph{nl}} & 2.39 \\
+% {\emph{fr}} & 1.39 \\
+% {\emph{ru}} & 1.36 \\
+% {\emph{de}} & 0.97 \\
+% {\emph{it}} & 0.87 \\ 
+% {\emph{el}} & 0.86 \\ 
+% \bottomrule
+% \end{tabular}
+% \caption{Top 95\% of participation languages from `{\emph{en}}' profiles}
+% \label{tbl:enpartlangs}
+% \end{table}
 
 \section{Conclusions}\label{conclusions}
 
