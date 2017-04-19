@@ -558,12 +558,12 @@ hashtag. The participation exceeded 7,900,000 statuses, produced by
 1,226,959 users; Figure~\ref{fig:overalleurovisionactivity} shows the
 overall Twitter activity.
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.6\columnwidth]{images/overalleurovisionactivity.png}
-\caption{Overall activity for {\texttt{\#Eurovision}}.}
-\label{fig:overalleurovisionactivity}
-\end{figure}
+% \begin{figure}[htb]
+% \centering
+% \includegraphics[width=0.6\columnwidth]{images/overalleurovisionactivity.png}
+% \caption{Overall activity for {\texttt{\#Eurovision}}.}
+% \label{fig:overalleurovisionactivity}
+% \end{figure}
 
 As we are measuring language uses and not reactions, analyses are
 base on tweets only. Preliminary analysis shows that they account 
@@ -572,28 +572,39 @@ those tweets were eleminated.
 
 
 \subsection{Multilingualism}
-From the first look at Figure~\ref{fig:multilingual}, we can see that most 
-users are monolingual, from the perspective of this case study. They 
-formed about 85\% of users who posted tweets, however, in terms 
-of activity, those users achieved less than 50\%.
+Outdegree shows the number of languages a user used. 
+Observing outdegree of user nodes in the users graph revealed 
+20 groups of outdegree, ranging from 1 to 25. Figure~\ref{fig:multilingual} 
+shows these groups, their users and activities. As we can see that about 85\% of users are monoglingual,
+and their activity is 47\% of all tweets. Additionally, while the average acitivity of users is 5 posts
+per user, monolingual users were the least active ones, scoring an average of 2 tweets per user.
 
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.6\columnwidth]{images/multilingualcommunities.png}
-\caption{Multilingual communities and their associated activities.}
+\caption{Multilingual communities in {\texttt{\#Eurovision}} and their associated activities.}
 \label{fig:multilingual}
 \end{figure}
 
-\subsection{Users groups}
+\subsection{Language Communities}
 
-This graph can be generated from user nodes in the Users Graph. As we have 85?\%
-users from monolingual users only, we sat a qualifying threshold of outdegree 1. 
-We generated two communities graphs, one to examine how language communities 
+From users graph, we can generate any number of communities graphs. 
+From those 20 multilingual groups, we generated two interesting communities graphs, 
+monolingual and multilingual communities. As we have 85?\% users from monolingual 
+users only, we sat a qualifying threshold of outdegree 1. We generated two 
+communities graphs, one to examine how language communities 
 relate to each other from the view point of "profile language using posting language". 
 We found that language communities have at least scored ?? Of self-looping. In other 
 words, users were more active (tweeting) in the language same as their profile 
 language settings. Hence, the second communities graph is to excludes this relationship 
 and examine activity of users in when using only a language differ to their profile setting.
+
+of these group in terms of their we can see those groups. They formed about 85\% of users, however in terms of activity, those 
+users achieved less than 50\% from all tweets. The overall activity ratio is 5 tweets 
+per user, however, monolingual users scored 2, placing this group
+as the least active group of users. From this we can see that multilingual 
+users are more active than monolingual users. We also found that the correlation
+between outdegree the liklihood of posting in a different language is 0.68.
 
 \subsection{Profile and Posting Communities}\label{eurovisionpostinglangs}
 
