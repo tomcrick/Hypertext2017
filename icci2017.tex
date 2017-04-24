@@ -87,7 +87,7 @@ provide insight into real-world events and
 actions~\cite{lazer-et-al:2009,burnap-et-al:2015}.
 
 Recent
-work~\cite{blamey-et-al-2012,schwartz-et-al:2013,blamey-et-al-2013,oatley+crick:2014,oatley-et-al-soccogcomp2015,mostafa-et-al-ai2016}
+work~\cite{blamey-et-al-2012,schwartz-et-al:2013,blamey-et-al-2013,oatley+crick:2014,mostafa-et-al-ai2016}
 has analysed what people say and do on social media to identify
 distinctive words, phrases, and topics as functions of known
 attributes of people such as gender, age, location, or psychological
@@ -176,25 +176,27 @@ other~\cite{cheng-et-al:2010,caverlee-et-al:2013}.
 \subsection{Overview of Paper}
 
 The remainder of this paper is organised as follows: in
-Section~\ref{method} we introduce the methodology and key language
-themes.  Section~\ref{eurovisioncasestudy} present the 2016 Eurovision
-Song Context case study, along with an analysis of the key data and
-results. Section~\ref{conclusions} concludes the paper with a wider
-discussion and a summary of the potential application of our approach.
+Section~\ref{methodology} we introduce the methodology and key
+language themes.  Section~\ref{results} present the 2016
+Eurovision Song Context case study, along with an analysis of the key
+data and results. Section~\ref{conclusions} concludes the paper with a
+wider discussion and a summary of the potential application of our
+approach.
 
 
 \section{Methodology}\label{methodology}
 
-The primary purpose of this study is to present an analytical approach for 
-examining language uses, communities, and diversity on Twitter. The approach 
-is based on network graphs and their properties, such as indegree, outdegree, 
-and edge weights. Graphs are generated from language settings in users' 
-profiles and those for statuses.The first step is to construct two graphs to depict
-relationships between language of users and languages used in posts. 
-Then, using graphs properties, we will conduct the analysis of language 
-communities and their diversity and if it is effected by the nature of topic. The 
-study will use only original statuses (tweet) as the basic entity as we are not 
-measuring reactions.
+The primary purpose of this study is to present an analytical approach
+for examining language uses, communities, and diversity on
+Twitter. The approach is based on network graphs and their properties,
+such as indegree, outdegree, and edge weights. Graphs are generated
+from language settings in users' profiles and those for statuses.The
+first step is to construct two graphs to depict relationships between
+language of users and languages used in posts.  Then, using graphs
+properties, we will conduct the analysis of language communities and
+their diversity and if it is effected by the nature of topic. The
+study will use only original statuses (tweet) as the basic entity as
+we are not measuring reactions.
 
 
 % \subsection{Users and Locations}
@@ -230,12 +232,14 @@ measuring reactions.
 \subsection{Network Graphs}\label{netgraphs}
 
 To serve the purpos of this study, we will need two different graphs;
-one is based on individual users and their posting activity, while the other is 
-based on language communities. For generating necessary graphs, we only 
-need three entities from each status, '\emph{user id}', '\emph{user language setting}', 
-and '\emph{status language}'. Those values can be extracted from [status]['user']['id'], 
-[status]['user']['lang'], and [status]['lang'], respectively. In the context of this study, 
-all graphs must be directed to provide correct measurements.
+one is based on individual users and their posting activity, while the
+other is based on language communities. For generating necessary
+graphs, we only need three entities from each status, '\emph{user
+id}', '\emph{user language setting}', and '\emph{status
+language}'. Those values can be extracted from [status]['user']['id'],
+[status]['user']['lang'], and [status]['lang'], respectively. In the
+context of this study, all graphs must be directed to provide correct
+measurements.
 
 \begin{figure}[htb]
 \centering
@@ -245,26 +249,34 @@ all graphs must be directed to provide correct measurements.
 \end{figure}
 
 \subsubsection{Users Graph}
-This graph is the core graph in analysis. As shown in Figure~\ref{fig:graphstructures}.a, 
-nodes in this graph are of two types; users and posting language. Each posted tweet results in 
-two nodes, one represents the user with profile language setting added 
-to the node as the attribute '{\emph{\{profile\_lang:xx\}}}'. The other node 
-represents language of the tweet. Edges link user with the posting languages 
-they used, and their weight (thinkness) measures the number of tweets that
-have been posted by the user (the strting node) in the traget language (ending node).
-In the example above, the profile language setting for user '03' is 'en', he 
-posted 3 tweets in 'en' and 3 in 'ar'. This graph will be referred to as 
-'\emph{users graph}'.
 
-\subsubsection{Communities Graph} \label{communitiesgraph}
-Derived from the users graph, this graph has one type of nodes, language community,
-as shown in Figure~\ref{fig:graphstructures}.b. For each user node we generate one 
-node from the '{\emph{\{profile\_lang:xx\}}}' attribute, and another node from the posting 
-language it connects to. Theorytically, each posted tweet results in two nodes, one for 
-the user profile, and the other for the posting language. In our example above, users 
-with 'fr' profiles have generated 6 tweets in 'en'. In the case of 'ar' node, we can see that 
-users of the profile language as 'ar' have posted 4 tweets in 'ar' only, in graph terminology
-this is referred to as 'self-loop'. We will refer to this graph as '\emph{communities graph}'.
+This graph is the core graph in analysis. As shown in
+Figure~\ref{fig:graphstructures}.a, nodes in this graph are of two
+types; users and posting language. Each posted tweet results in two
+nodes, one represents the user with profile language setting added to
+the node as the attribute '{\emph{\{profile\_lang:xx\}}}'. The other
+node represents language of the tweet. Edges link user with the
+posting languages they used, and their weight (thinkness) measures the
+number of tweets that have been posted by the user (the strting node)
+in the traget language (ending node).  In the example above, the
+profile language setting for user `03' is `en', he posted 3 tweets in
+`en' and 3 in `ar'. This graph will be referred to as '\emph{users
+graph}'.
+
+\subsubsection{Communities Graph}\label{communitiesgraph}
+
+Derived from the users graph, this graph has one type of nodes,
+language community, as shown in
+Figure~\ref{fig:graphstructures}.b. For each user node we generate one
+node from the `{\emph{\{profile\_lang:xx\}}}' attribute, and another
+node from the posting language it connects to. Theorytically, each
+posted tweet results in two nodes, one for the user profile, and the
+other for the posting language. In our example above, users with `fr'
+profiles have generated 6 tweets in `en'. In the case of `ar' node, we
+can see that users of the profile language as `ar' have posted 4
+tweets in `ar' only, in graph terminology this is referred to as
+`self-loop'; we will refer to this graph as '\emph{communities
+graph}'.
 
 \subsection{Measures}
 In this section, we will present how graph measures can be used to 
