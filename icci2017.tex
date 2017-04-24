@@ -778,89 +778,55 @@ graph as shown in fig~\ref{fig:communitiesgraphs}.b.
 
 \section{Conclusions}\label{conclusions}
 
-This paper presents work in identifying language interactions within
-multilingual communities using a high-profile real-world case study --
+This paper presents a framework for identifying interactions within
+language communities using a high-profile real-world case study --
 the 2016 Eurovision Song Contest -- and the associated engagement and
-interactions on Twitter. As we discussed in Section~\ref{langcomm},
-the nature of the event (e.g. being a local or global) may be
-reflected on community conversations on Twitter. We found that the
-majority of posting activity comes from the main community (the
-language community in which the incident has happened or closely
-related). This is especially true when the online conversations are
-triggered by a real-world incident. The same is the case for posting
-languages -- users mostly use the language of the main
-community. Furthermore, there is a positive relationship between size
-of profile and posting communities; we have also demonstrated that a
-large number of people in participating profile communities does not
-necessarily imply high language diversity, as single posts from many
-profile communities are enough to dramatically affect the diversity of
-the topic. We also presented the diversity magnitude measurement, and
-showed that it is highly effective in eliminating, or at least
-minimising, the noise caused by those odd posts.  We also discussed
-the structure of multilingual communities and their activity.  In a
-few cases, users may use a significant number of languages, up to 25
+interactions on Twitter. We explored behaviour of monolingual and multilingual 
+users, and examined if multilingualism of users affects their participation in 
+thier own language. We also presented how to measure 
+community language diversity using graph properties. As we saw from the results,
+large number of participants in profile community does not necessarily 
+imply high language diversity, as single posts from many profile communities 
+are enough to dramatically affect the diversity of the topic. 
+We also discussed the structure of multilingual communities and their 
+activity. In a few cases, users may use a significant number of languages, up to 25
 different languages. These extreme cases may be interesting to
 investigate for possible spammer/false account detection or for
-sociolinguistics in more moderate cases.
+sociolinguistics in more moderate cases. This may indicates that profile 
+language settings for those users are most likely meant to be for interface 
+use rather than association to certain language community.
 
-This may indicates that profile language settings for those
-users are most likely meant to be for interface use rather than association to certain
-language community.
+%Although we cannot conclude that there is a correlation between high
+%multilingualism and illegitimacy of accounts, this would be an
+%interesting further topic to investigate.
 
-Although we cannot conclude that there is a correlation between high
-multilingualism and illegitimacy of accounts, this would be an
-interesting further topic to investigate.
-
-We also presented a network graphs showing how language communities
-relate to each other, as well as relations between profile and posting
-communities. We find that this second graph is important to facilitate
-comparing users' defined profile language with their posting
-language. Some events might be termed as `partially scheduled' as
-their end was different to how they were planned in the first place;
-in such situations, we noticed that there always be a dominating
-community and language.
-
-The methods we have presented here can be used in identifying how
-communities interact with one another, which ones are most active,
-which languages are mostly used, and at what time. Applying these
-techniques on data pouring from the Twitter Stream
-API\footnote{\url{https://dev.twitter.com/streaming/overview}} would
-be applicable to a wide number of domains. For example, these methods
-can be used in social network marketing and publicity to increase the
-probability of influential posts. In practice, for a given
-{\texttt{\#<Brand>}}, by monitoring the activity of different language
-community, one can decide the time to post well-tailored tweets
-targeting certain communities.
-
-Moreover, within certain contexts, the order of applying these two
-classifications (posting and profile) will generate different results.
-For example, taking one profile community and dividing it into
-different posting communities shows the number of languages this
-community may use, and hence degree of openness and reachability. A
-possible scenario for governments, politicians or campaigners would be
+%The methods we have presented here can be used in identifying how
+%communities interact with one another, which ones are most active,
+%which languages are mostly used, and at what time. Applying these
+%techniques on data pouring from the Twitter Stream
+%API\footnote{\url{https://dev.twitter.com/streaming/overview}} would
+%be applicable to a wide number of domains. For example, these methods
+%can be used in social network marketing and publicity to increase the
+%probability of influential posts. In practice, for a given
+%{\texttt{\#<Brand>}}, by monitoring the activity of different language
+%community, one can decide the time to post well-tailored tweets
+%targeting certain communities.
+%Moreover, within certain contexts, the order of applying these two
+%classifications (posting and profile) will generate different results.
+%For example, taking one profile community and dividing it into
+%different posting communities shows the number of languages this
+%community may use, and hence degree of openness and reachability. 
+A possible scenario for governments, politicians or campaigners would be
 to use this method to measure to what extent other languages are used
 within a profile community. It may also show how users associate
 themselves with one community in their profile while using other
 languages. Monitoring unusual activity for secondary languages may
 help to uncover important messages or opinions that could not be
 openly expressed, for a variety of reasons, to the rest of the profile
-community. For the social network analysis domain, this method
-provides a different perspective for influence analysis. Endorsement
-from different profile communities cannot be measured similar to those
-coming from the same community.
-
-As we saw in the comparison between the two case studies, we can
-conclude that the nature of the event is mostly reflected on the
-``language diversity magnitude'' than any other measurement.  For
-future work, we will explore in more detail how multilingual
-communities interact and participate, as well as their reaction
-networks. We believe that differentiating between endorsements
-(e.g. retweets) and other reactions may provide further insight into
-the networks and communities. Furthermore, we will apply the methods
-presented in this paper on other high-profile event/discussion
-datasets in different domains or contexts, such as for sports, music
-contests and civil rights/humanitarian actions, to provide further
-insight into the methodology and overall approach.
+community. This framework may be extended to measure reactions,
+such as retweeting and replying, to provide a different perspective 
+for influence analysis. Another important matter is to use a language 
+detection method to obtain more accurate readings.
 
 % \begin{acks}
 % This work has been supported by a doctoral research scholarship for
