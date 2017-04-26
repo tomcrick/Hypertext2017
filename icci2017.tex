@@ -137,21 +137,19 @@ into the economics of linguistic
 diversity~\cite{ginsburgh+weber:2011}.
 
 %\subsection{Social Network Analysis}
-In the social network analysis domain, centrality measures
-provide the ability to assess network graphs that are constructed from
-collected data (for example, tweets). Selection of these centrality
-measures is dependent on the goal of the analysis; for example, the
+In the social network analysis domain, centrality measures such as 
+degrees, betweenness, clustering coefficient, modularity and cliques 
+have been used in many projects to measure influence or detect the 
+emergence of new communities~\cite{willis-et-al:2015,oatley+crick:2015}.
+These measures provide the ability to assess network graphs that are 
+constructed from collected data (for example, tweets). Selection of these 
+centrality measures is dependent on the goal of the analysis; for example, the
 degree of a node helps to identify nodes with high number of connections
-within the
-network~\cite{borgatti+everett:2000,rombach-et-al:2014,liu-et-al:2014}.
+within the network~\cite{borgatti+everett:2000,rombach-et-al:2014,liu-et-al:2014}.
 In a representation of a real-world network, this metric may help to
 identify highly connected persons, such as political leaders, sports
 stars or celebrities, who are potential ``information
 spreaders''~\cite{cha-et-al:2012,borge-holthoefer-et-al:2012,zhang-et-al:2016}.
-Centrality measures such as degrees, betweenness, clustering
-coefficient, modularity and cliques have been used in many projects to
-measure influence or detect the emergence of new
-communities~\cite{willis-et-al:2015,oatley+crick:2015}.
 
 Clustering users in communities has been an important analytic factor
 in social networking analysis; numerous work has focused on clustering
@@ -164,7 +162,10 @@ the exponential growth in social media over the past decade has been
 joined by the rise of location as a central organising
 theme~\cite{liang-et-al:2013} of how users engage with online
 information services and, more importantly, with each
-other~\cite{cheng-et-al:2010,caverlee-et-al:2013}.
+other~\cite{cheng-et-al:2010,caverlee-et-al:2013}. The work here 
+examines the correlation between multilingualism of users and their 
+activity.
+
 
 \subsection{Overview of Paper}
 
@@ -183,14 +184,24 @@ The primary purpose of this study is to present an analytical approach
 for examining language uses, communities, and diversity on
 Twitter. The approach is based on network graphs and their properties,
 such as indegree, outdegree, and edge weights. Graphs are generated
-from language settings in users' profiles and those for statuses.The
-first step is to construct two graphs to depict relationships between
+from language settings in users' profiles and those for statuses. 
+The first step is to construct two graphs to depict relationships between
 language of users and languages used in posts.  Then, using graphs
 properties, we will conduct the analysis of language communities and
-their diversity and if it is effected by the nature of topic. The
-study will use only original statuses (tweet) as the basic entity as
-we are not measuring reactions.
+their diversity and if it is effected by the nature of topic.
 
+\section{Language Entities}
+To generate necessary graphs, we need three essential entities 
+from each status; user id, user profile language, and status language\footnote{
+\emph{status} may also be referred to as \emph{post}, or \emph{tweet}}.
+Those values can be extracted from [status]['user']['id'], [status]['user']['lang'], and 
+[status]['lang'], respectively. It is important to note that the focus of this work is 
+on the analytical approach, not accuracy of language detection, 
+therefore we assume that language of tweets are correctly identified.
+For profiles, users are expected to pick a language for their settings. Nevertheless, 
+their language entity may show as the initial placeholder text 
+\emph{"Select Language..."} or a translated version that may provide hints 
+to the user language community.
 
 % \subsection{Users and Locations}
 % It is important to understand how geotagging works in Twitter. The
@@ -226,11 +237,7 @@ we are not measuring reactions.
 
 To serve the purpos of this study, we will need two different graphs;
 one is based on individual users and their posting activity, while the
-other is based on language communities. For generating necessary
-graphs, we only need three entities from each status, '\emph{user
-id}', '\emph{user language setting}', and '\emph{status
-language}'. Those values can be extracted from [status]['user']['id'],
-[status]['user']['lang'], and [status]['lang'], respectively. In the
+other combines users into language communities. In the
 context of this study, all graphs must be directed to provide correct
 measurements.
 
@@ -245,10 +252,10 @@ measurements.
 
 This graph is the core graph in analysis. As shown in
 Figure~\ref{fig:graphstructures}.a, nodes in this graph are of two
-types; users and posting language. Each posted tweet results in two
+types; users and posting language. Each posted tweet resulted in two
 nodes, one represents the user with profile language setting added to
 the node as the attribute '{\emph{\{profile\_lang:xx\}}}'. The other
-node represents language of the tweet. Edges link user with the
+node represents language of the tweet. Edges link users with the
 posting languages they used, and their weight (thinkness) measures the
 number of tweets that have been posted by the user (the strting node)
 in the traget language (ending node).  In the example above, the
@@ -259,11 +266,13 @@ graph}'.
 \subsubsection{Communities Graph}\label{communitiesgraph}
 
 Derived from the users graph, this graph has one type of nodes,
-language community, as shown in
-Figure~\ref{fig:graphstructures}.b. For each user node we generate one
-node from the `{\emph{\{profile\_lang:xx\}}}' attribute, and another
-node from the posting language it connects to. Theorytically, each
-posted tweet results in two nodes, one for the user profile, and the
+language community, as shown in Figure~\ref{fig:graphstructures}.b. 
+For each user node we generated one node from the 
+`{\emph{\{profile\_lang:xx\}}}' attribute, and another node from the 
+posting language it connects to. This resulted in combining all users of same
+profile language into one node, with edge connecting to posting language and
+its weight measures their activity. Theorytically, each
+tweet results in two language nodes, one for the user profile, and the
 other for the posting language. In our example above, users with `fr'
 profiles have generated 6 tweets in `en'. In the case of `ar' node, we
 can see that users of the profile language as `ar' have posted 4
@@ -292,11 +301,11 @@ posting languages must be greater than 0.
 Weight of edge indicates number of tweets associated with both end nodes. 
 Refering to the example in Figure~\ref{fig:graphstructures}.a, we can see that 
 user '03' has indegree of 0 (users identifier), outdegree of 2 (number of languages 
-he used), and total weight of 6 (tweets he posted in total). Also, in the same figure,
+he used), and weighted outdegree of of 6 (tweets he posted in total). Also, in the same figure,
 we can see that for 'en' posting language, it has outdegree of 0 (language nodes 
-identifier), indegree of 3 (number of users posted in this language), and total weight 
-of 9 (tweets posted in this language). Table~\ref{tbl:usersgraph} presents main 
-properties of this graph.
+identifier), indegree of 3 (number of users posted in this language), and weighted 
+indegree of 9 (tweets posted in this language). Table~\ref{tbl:usersgraph} presents 
+main properties of this graph.
 \begin{table}[!htb]
 \centering
 \begin{tabular}{@{}lcr@{}}
@@ -315,10 +324,10 @@ As mentioned in \ref{communitiesgraph}, this graph is extracted from the users
 graph and contains one type of nodes; language community nodes. Nodes in 
 this graph represent langauges as profile language settings, posting language, or both. 
 However, as the graph is directed, we can identify if a community node is for profile or 
-posts by analysing the \emph{indegree} and \emph{outdegree} properties. 
+posts by measuring the \emph{indegree} and \emph{outdegree} properties. 
 Positive indegree implies posting language, and positive outdegree indicates profile 
 language settings. Figure \ref{fig:graphstructures}.b shows three language 
-communities, two nodes show posting and profile nodes, while one node exists 
+communities, two nodes appear as posting and profile nodes, while one node exists 
 as a profile only node. The node 'ar', for example, has outdegree of 1 and indegree of 2. 
 In other words, there at least 1 user has their profile language settings as 'ar', and at 
 least two users have posted in 'ar'. In terms of edge weights, we can say that there are
@@ -576,10 +585,12 @@ hashtag. The participation exceeded 7,900,000 statuses, produced by
 % \label{fig:overalleurovisionactivity}
 % \end{figure}
 
-As we are measuring language uses and not reactions, analyses are
-base on tweets only. Preliminary analysis shows that they account 
-for 48\% from the total activity, of which 4\% tweets with 'unidentified' language,
-those tweets were eleminated.
+The study will use only original statuses (tweet) as the basic entity as
+we are measuring posting behaviour, not reactions. Preliminary analysis shows 
+that they account for 48\% from the total activity, of which 4\% tweets with 
+'unidentified' language, those tweets were eleminated. As for profiles, all users 
+have chosen language preferences and no profile was found with the default
+language settings.
 
 
 \subsection{Multilingualism}
