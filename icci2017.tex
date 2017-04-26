@@ -186,7 +186,7 @@ Twitter. The approach is based on network graphs and their properties,
 such as indegree, outdegree, and edge weights. Graphs are generated
 from language settings in users' profiles and those for statuses. 
 First, we construct users graph to analyse interactions and multilingualism at
-the individual users level. Then, from the users graph, we produce language 
+the level of individual users. Then, from the users graph, we produce language 
 communities graph that groups users based on common language.
 
 \section{Language Entities}
@@ -794,23 +794,31 @@ from the rest.
 
 \section{Conclusions}\label{conclusions}
 
-This paper presents a framework for identifying interactions within
+This paper presented a framework for identifying interactions within
 language communities using a high-profile real-world case study --
 the 2016 Eurovision Song Contest -- and the associated engagement and
-interactions on Twitter. We explored behaviour of monolingual and multilingual 
-users, and examined if multilingualism of users affects their participation in 
-thier own language. We also presented how to measure 
-community language diversity using graph properties. As we saw from the results,
-large number of participants in profile community does not necessarily 
-imply high language diversity, as single posts from many profile communities 
-are enough to dramatically affect the diversity of the topic. 
-We also discussed the structure of multilingual communities and their 
-activity. In a few cases, users may use a significant number of languages, up to 25
-different languages. These extreme cases may be interesting to
-investigate for possible spammer/false account detection or for
-sociolinguistics in more moderate cases. This may indicates that profile 
-language settings for those users are most likely meant to be for interface 
-use rather than association to certain language community.
+interactions on Twitter. This approach utilises network graph
+properties to explore behaviour of monolingual and multilingual 
+users. Surprisingly, even though monolingual users formed the biggest
+portion of users, they were less active than multilingual users.
+The results also confirmed that higher multilingualism of user implies 
+further distance from thier profile language.
+In profile communitiy, large number of participants does not necessarily 
+imply high language diversity, as a single post in other language 
+is enough to take the community to higher level of multilingualism.
+Therefore, filtering out those users with low activity would improve 
+measurement accuracy.
+
+In a few cases, we witnessed users participating in a significant number 
+of languages, up to 25 different languages. Such extreme cases may be 
+interesting to investigate for possible spammer/false account detection or for
+sociolinguistics in more moderate cases. 
+
+We can say that the graph measures of users may be useful in confirming their 
+association with language communitiy, without the need to crawl their Twitter timeline. 
+Although language settings for user profiles may indicate interface preference only, 
+we found persistent activity in same language across the users, especially with 
+monolingual users.
 
 %Although we cannot conclude that there is a correlation between high
 %multilingualism and illegitimacy of accounts, this would be an
@@ -832,6 +840,7 @@ use rather than association to certain language community.
 %For example, taking one profile community and dividing it into
 %different posting communities shows the number of languages this
 %community may use, and hence degree of openness and reachability. 
+
 A possible scenario for governments, politicians or campaigners would be
 to use this method to measure to what extent other languages are used
 within a profile community. It may also show how users associate
@@ -841,9 +850,7 @@ help to uncover important messages or opinions that could not be
 openly expressed, for a variety of reasons, to the rest of the profile
 community. This framework may be extended to measure reactions,
 such as retweeting and replying, to provide a different perspective 
-for influence analysis. Another important matter is to use a language 
-detection method to obtain more accurate readings.
-
+for influence analysis.
 % \begin{acks}
 % This work has been supported by a doctoral research scholarship for
 % Nabeel Albishry from King Abdulaziz University, Kingdom of Saudi
