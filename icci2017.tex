@@ -273,12 +273,16 @@ posting language it connects to. This resulted in combining all users of same
 profile language into one node, with edge connecting to posting language and
 its weight measures their activity. Theorytically, each
 tweet results in two language nodes, one for the user profile, and the
-other for the posting language. In our example above, users with `fr'
+other for language of the tweet. In our example above, users with `fr'
 profiles have generated 6 tweets in `en'. In the case of `ar' node, we
 can see that users of the profile language as `ar' have posted 4
 tweets in `ar' only, in graph terminology this is referred to as
 `self-loop'; we will refer to this graph as '\emph{communities
-graph}'.
+graph}'. 
+
+Throughout the paper, we refer to language communities in two ways;
+'\emph{profile community}' to perceive the language as user profile settings, whereas 
+'\emph{posting community}' refers to the language as tweeting settings.  
 
 \subsection{Measures}
 In this section, we will present how graph measures can be used to 
@@ -685,13 +689,10 @@ posting language, which is the opposite to the monoligual case.
 
 \subsection{Visualisation}
 
-From the users graph, we generated two communities graphs. 
-Figure \ref{fig:communitiesgraphs}.a depicts all language communities together, 
-while \ref{fig:communitiesgraphs}.b visualises a filtered graph of 
-active multilingual communities only and how they relate to each other. 
+In figure \ref{fig:communitiesgraphs}, we show two communities graphs. 
 Size of node represents weighted indegree of community; how much a language 
 was used in tweeting, and darkness reflects weighted outdegree; participation 
-in other language communities. Edges link between \emph{profile} and 
+from users of language community. Edges link between \emph{profile} and 
 \emph{posting} communities, and thier thickness indicate number of tweets posted.
 
 \begin{figure}[htb]
@@ -701,14 +702,13 @@ in other language communities. Edges link between \emph{profile} and
 \label{fig:communitiesgraphs}
 \end{figure}
 
-The filtered graph, was produced in the following manner.
-First, in the users graph we eleminated users with activiy lower 
-than the overall average (5 tweets/user), and generated communities graph from 
-the rest. Then, for the resulted graph, we removed all 'self-loop' edges. Afterward, 
-we measured the \emph{weighted indegrees} and \emph{weighted outdegrees}, 
-and eleminated those communities scored low in both measures. Finally, we measured 
-the graph again based on interactions amongst those communities, and plotted the 
-graph as shown in fig~\ref{fig:communitiesgraphs}.b.
+While figure \ref{fig:communitiesgraphs}.a shows all language communities together, 
+\ref{fig:communitiesgraphs}.b visualises a filtered graph. The filtered graph was 
+produced to depicts relationships amongst language communities that scored 
+high in weighted indegree and outdegree. Also, we eleminated users with activiy 
+lower than the overall average (5 tweets/user), and generated communities graph 
+from the rest.
+
 
 %\begin{figure}[htb]
 %\centering
