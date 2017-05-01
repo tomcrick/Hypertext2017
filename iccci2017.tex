@@ -3,6 +3,7 @@
 \usepackage{graphicx}
 \usepackage{url}
 \usepackage{booktabs}
+\usepackage{paralist}
 
 % natbib for refs
 \usepackage[numbers,sort]{natbib} 
@@ -194,17 +195,20 @@ users. Then, from the user graphs, we produce language communities
 graph that groups users based on common languages.
 
 \section{Language Entities}
-To generate necessary graphs, we need three essential entities 
-from each status; user id, user profile language, and status language\footnote{
-\emph{status} may also be referred to as \emph{post}, or \emph{tweet}}.
-Those values can be extracted from [status]['user']['id'], [status]['user']['lang'], and 
-[status]['lang'], respectively. It is important to note that the focus of this work is 
-on the analytical approach, not accuracy of language detection, 
-therefore we assume that language of tweets are correctly identified.
-For profiles, users are expected to pick a language for their settings. Nevertheless, 
-their language entity may show as the initial placeholder text 
-\emph{"Select Language..."} or a translated version that may provide hints 
-to the user language community.
+
+To generate the required graphs, we need three essential entities from
+each status; user ID, user profile language, and status
+language\footnote{For Twitter, \emph{status} may also be referred to
+as \emph{post}, or \emph{tweet}.}.  Those values can be extracted from
+{\emph{[status][`user'][`id']}}, {\emph{[status][`user'][`lang']}},
+and {\emph{[status][`lang']}}, respectively. It is important to note
+that the focus of this work is on the analytical approach, not
+necessarily the accuracy of language detection; therefore we assume
+that language of tweets are correctly identified via the user profile.
+For profiles, users are expected to pick a language for their
+settings. Nevertheless, their language entity may show as the initial
+placeholder text ``\emph{Select Language...}'' or a translated version
+that may provide information to the user's native language community.
 
 % \subsection{Users and Locations}
 % It is important to understand how geotagging works in Twitter. The
@@ -238,11 +242,11 @@ to the user language community.
 
 \subsection{Network Graphs}\label{netgraphs}
 
-To serve the purpos of this study, we will need two different graphs;
-one is based on individual users and their posting activity, while the
-other combines users into language communities. In the
-context of this study, all graphs must be directed to provide correct
-measurements.
+For this study, we need to generate two different graphs; one is based
+on individual users and their posting activity, while the other
+combines users into language communities. In the context of this
+study, all graphs must be directed to provide correct measurements, as
+demonstrated in Figure~\ref{fig:graphstructures}.
 
 \begin{figure}[htb]
 \centering
@@ -251,109 +255,122 @@ measurements.
 \label{fig:graphstructures}
 \end{figure}
 
-\subsubsection{Users Graph}
+\subsubsection{User Graph}
 
-This graph is the core graph in analysis. As shown in
-Figure~\ref{fig:graphstructures}.a, nodes in this graph are of two
+This graph represents the core structure for our analysis. As shown in
+Figure~\ref{fig:graphstructures}(a), nodes in this graph are of two
 types; users and posting language. Each posted tweet resulted in two
 nodes, one represents the user with profile language setting added to
-the node as the attribute '{\emph{\{profile\_lang:xx\}}}'. The other
+the node as the attribute `{\emph{\{profile\_lang:xx\}}}'. The other
 node represents language of the tweet. Edges link users with the
-posting languages they used, and their weight (thinkness) measures the
-number of tweets that have been posted by the user (the strting node)
-in the traget language (ending node).  In the example above, the
-profile language setting for user `03' is `en', he posted 3 tweets in
-`en' and 3 in `ar'. This graph will be referred to as '\emph{users
-graph}'.
+posting languages they used, and their weight (thickness) measures the
+number of tweets that have been posted by the user (the starting node)
+in the target language (ending node).  In the example above, the
+profile language setting for user `{\emph{03}}' is `{\emph{en}}', they
+posted three tweets in `{\emph{en}}' and three in `{\emph{ar}}'
+(Arabic). This graph will be referred to as the \emph{user graph}.
 
 \subsubsection{Communities Graph}\label{communitiesgraph}
 
-Derived from the users graph, this graph has one type of nodes,
-language community, as shown in Figure~\ref{fig:graphstructures}.b. 
-For each user node we generated one node from the 
-`{\emph{\{profile\_lang:xx\}}}' attribute, and another node from the 
-posting language it connects to. This resulted in combining all users of same
-profile language into one node, with edge connecting to posting language and
-its weight measures their activity. Theorytically, each
-tweet results in two language nodes, one for the user profile, and the
-other for language of the tweet. In our example above, users with `fr'
-profiles have generated 6 tweets in `en'. In the case of `ar' node, we
-can see that users of the profile language as `ar' have posted 4
-tweets in `ar' only, in graph terminology this is referred to as
-`self-loop'; we will refer to this graph as '\emph{communities
-graph}'. 
+This second graph is derived from the user graph and has one type of
+node to represent language community, as shown in
+Figure~\ref{fig:graphstructures}(b).  For each user node we generate
+one node from the `{\emph{\{profile\_lang:xx\}}}' attribute, and
+another node from the posting language to which it is connected. This
+resulted in combining all users of the same profile language into one
+node, with edge connecting to posting language and its weight
+measuring their activity. Theoretically, each tweet results in two
+language nodes, one for the user profile, and the other for language
+of the tweet. In our example above, users with `{\emph{fr}}' (French)
+profiles have generated six tweets in `{\emph{en}}'. In the case of
+`{\emph{ar}}' node, we can see that users of the profile language as
+`{\emph{ar}}' have posted four tweets in `{\emph{ar}}' only -- in
+graph terminology this is referred to as `self-loop'; we will refer to
+this graph as the {\emph{communities graph}}.
 
 Throughout the paper, we refer to language communities in two ways;
-'\emph{profile community}' to perceive the language as user profile settings, whereas 
-'\emph{posting community}' refers to the language as tweeting settings.  
+{\emph{profile community}} to perceive the language as user profile
+settings, whereas {\emph{posting community}} refers to the language as
+tweeting settings.
 
 \subsection{Measures}
-In this section, we will present how graph measures can be used to 
-make deductions about users, associated community languages, posting language
-activity, and how different language communities are linked to each othe. 
-These measures and their interpretations, in the context of 
-this study follow. 
-\begin{itemize}
-\item \emph{Indegree}: number of incoming edges
-\item \emph{Outdegree}: number of outgoing edges
-\item \emph{Edge Weight}: number of tweets on edge
-\item \emph{Weighted indegree}: total weights of incoming edges
-\item \emph{Weighted outdegree}: total weights of outgoing edges
-\end{itemize}
 
-\subsubsection{Users Graph properties}
-User nodes have \emph{indegree}=0, and posting languages have 
-\emph{outdegree}=0. Therefore, these two properties will be used to distinguish 
-between nodes. On the other hand, both outdegree of user nodes and indegree of 
-posting languages must be greater than 0. 
-Weight of edge indicates number of tweets associated with both end nodes. 
-Refering to the example in Figure~\ref{fig:graphstructures}.a, we can see that 
-user '03' has indegree of 0 (users identifier), outdegree of 2 (number of languages 
-he used), and weighted outdegree of of 6 (tweets he posted in total). Also, in the same figure,
-we can see that for 'en' posting language, it has outdegree of 0 (language nodes 
-identifier), indegree of 3 (number of users posted in this language), and weighted 
-indegree of 9 (tweets posted in this language). Table~\ref{tbl:usersgraph} presents 
-main properties of this graph.
+In this section, we will discuss how graph measures can be used to
+make deductions about users, associated community languages, posting
+language activity, and how different language communities are linked
+to each other.  These measures and their interpretations, in the
+context of this study are as follows:\\
+
+\begin{compactitem}
+\item \emph{Indegree}: number of incoming edges;
+\item \emph{Outdegree}: number of outgoing edges;
+\item \emph{Edge Weight}: number of tweets on edge;
+\item \emph{Weighted indegree}: total weights of incoming edges;
+\item \emph{Weighted outdegree}: total weights of outgoing edges.
+\end{compactitem}
+
+\subsubsection{User Graph Properties}
+
+User nodes have {\emph{indegree}}=0, and posting languages have
+{\emph{outdegree}}=0; these two properties will be used to distinguish
+between nodes. Both outdegree of user nodes and indegree of posting
+languages must be greater than 0. The edge weight indicates the number
+of tweets associated with both end nodes.  Refering to the example in
+Figure~\ref{fig:graphstructures}(a), we can see that user
+`{\emph{03}}' has indegree of 0 (user identifier), outdegree of 2
+(number of languages he used), and weighted outdegree of of 6 (total
+number of tweets posted). Also, in the same figure, we can see that
+for `{\emph{en}}' posting language, it has outdegree of 0 (language
+nodes identifier), indegree of 3 (number of users posted in this
+language), and weighted indegree of 9 (total number of tweets posted);
+Table~\ref{tbl:usersgraph} presents main properties of this graph.
+
 \begin{table}[!htb]
 \centering
-\begin{tabular}{@{}lcr@{}}
+\begin{tabular}{@{}lrr@{}}
 \toprule
-\textbf{}& \textbf{User} & \textbf{Lang.} \\ \midrule
+\textbf{}& \textbf{User} & \textbf{Language} \\ \midrule
 {\emph{Indegree}} & 0 & \textgreater0 \\
 {\emph{Outdegree}} & \textgreater0 & 0 \\ 
 {\emph{Edge Weight}}& \multicolumn{2}{c}{\#Tweets}\\ \bottomrule
 \end{tabular}
-\caption{Nodes properties in users graph}
+\caption{Node properties in user graph}
 \label{tbl:usersgraph}
 \end{table}
 
 \subsubsection{Communities Graph Properties}
-As mentioned in \ref{communitiesgraph}, this graph is extracted from the users
-graph and contains one type of nodes; language community nodes. Nodes in 
-this graph represent langauges as profile language settings, posting language, or both. 
-However, as the graph is directed, we can identify if a community node is for profile or 
-posts by measuring the \emph{indegree} and \emph{outdegree} properties. 
-Positive indegree implies posting language, and positive outdegree indicates profile 
-language settings. Figure \ref{fig:graphstructures}.b shows three language 
-communities, two nodes appear as posting and profile nodes, while one node exists 
-as a profile only node. The node 'ar', for example, has outdegree of 1 and indegree of 2. 
-In other words, there at least 1 user has their profile language settings as 'ar', and at 
-least two users have posted in 'ar'. In terms of edge weights, we can say that there are
-7 tweets posted in 'ar' language, originated from two different profile language communities.
-For the 'fr' node, we can see only outdegree, which means this language 
-community exists as a profile only node as no user posted in 'fr'.
-Those measures are summarised in Table \ref{tbl:communitiesgraph}.
+
+As discussed in Section~\ref{communitiesgraph}, this graph is
+extracted from the user graph and contains one type of node: language
+community nodes. Nodes in this graph represent languages as profile
+language settings, posting language, or both.  However, as the graph
+is directed, we can identify if a community node is for profile or
+posts by measuring the \emph{indegree} and \emph{outdegree}
+properties.  Positive indegree implies posting language, and positive
+outdegree indicates profile language settings. Figure
+\ref{fig:graphstructures}(b) shows three language communities, two
+nodes appear as posting and profile nodes, while one node exists as a
+profile only node. The node `{\emph{ar}}', for example, has outdegree
+of 1 and indegree of 2.  In other words, at least one user has their
+profile language settings as `{\emph{ar}}', and at least two users
+have posted in `{\emph{ar}}'. In terms of edge weights, we can say
+that there are seven tweets posted in `{\emph{ar}}' language,
+originated from two different profile language communities.  For the
+`{\emph{fr}}' node, we can see only outdegree, which means this
+language community exists as a profile-only node as no user posted in
+`{\emph{fr}}'.  These measures are summarised in Table
+\ref{tbl:communitiesgraph}.
 
 \begin{table}[!htb]
 \centering
-\begin{tabular}{@{}lcr@{}}
+\begin{tabular}{@{}lrr@{}}
 \toprule
 \textbf{}& \textbf{Community Node} \\ \midrule
 {\emph{Indegree}} &  posts\\
 {\emph{Outdegree}} & profiles \\ 
 {\emph{Edge Weight}}& \#Tweets\\ \bottomrule
 \end{tabular}
-\caption{Nodes properties in communities graph}
+\caption{Node properties in communities graph}
 \label{tbl:communitiesgraph}
 \end{table}
 
@@ -561,12 +578,13 @@ Those measures are summarised in Table \ref{tbl:communitiesgraph}.
 % and scope of audience interaction and engagement, particularly for
 % different language communities.
 
-In this section we will explore the analysis of {\texttt{\#Eurovision}}
-datasets based on the presented techniques in section~\ref{methodology}. Using
-the \emph{users graph} and \emph{communities graph}, we conduct few analyses on
-multilingualism, activities and users behaviour in posting in different 
-languages\footnote{\emph{different language} refers to tweet's language
-that is different to the user profile language settings}.
+Next we will explore the analysis of {\texttt{\#Eurovision}} datasets
+based on the techniques presented in Section~\ref{methodology}. Using
+the \emph{user graph} and \emph{communities graph}, we conduct
+analyses on multilingualism, activities and user behaviours in posting
+in different languages\footnote{In this context, \emph{different
+language} refers to tweet's language that is different to the user
+profile language settings.}.
 
 \subsection{Context: The 2016 Eurovision Song}\label{context}
 
