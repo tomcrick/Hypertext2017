@@ -34,7 +34,7 @@ Department of Computing, Cardiff Metropolitan University, Cardiff, UK\\\email{tc
 %factors that promote the propagation of information in online social
 %networks following significant activities, such as high-profile
 %international social or societal events; 
-This paper presents an extensive framework for analysing how people
+This paper presents an extensible framework for analysing how people
 are linked by how different language communities engage and interact.
 We present our analysis of the Eurovision Song Contest held in
 Stockholm, Sweden, in May 2016 via interactions on the social
@@ -325,7 +325,7 @@ nodes identifier), indegree of 3 (number of users posted in this
 language), and weighted indegree of 9 (total number of tweets posted);
 Table~\ref{tbl:usersgraph} presents main properties of this graph.
 
-\begin{table}[!htb]
+\begin{table}[htb]
 \centering
 \begin{tabular}{@{}lrr@{}}
 \toprule
@@ -361,7 +361,7 @@ language community exists as a profile-only node as no user posted in
 `{\emph{fr}}'.  These measures are summarised in Table
 \ref{tbl:communitiesgraph}.
 
-\begin{table}[!htb]
+\begin{table}[htb]
 \centering
 \begin{tabular}{@{}lrr@{}}
 \toprule
@@ -560,6 +560,8 @@ language community exists as a profile-only node as no user posted in
 % \label{fig:baltimore_multilingual}
 % \end{figure}
 
+% FUDGE
+\vspace{-3em}
 
 \section{Results and Discussion}\label{results}
 
@@ -651,7 +653,7 @@ users, while the other includes language communities for multilingual
 users only.
 
 %In these graphs we chose to 
-%focus on active users only, therefore we eleminated users with activity lower than the overall 
+%focus on active users only, therefore we eliminated users with activity lower than the overall 
 %average, i.e. 5 tweets per user.
 
 \subsection{Monolingual Communities}
@@ -736,7 +738,7 @@ posted.
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.9\textwidth]{images/communitiesgraphs.png}
+\includegraphics[width=0.8\textwidth]{images/communitiesgraphs.png}
 \caption{Language Communities Graphs for {\texttt{\#Eurovision}}.}
 \label{fig:communitiesgraphs}
 \end{figure}
