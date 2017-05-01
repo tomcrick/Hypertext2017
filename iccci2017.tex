@@ -579,21 +579,25 @@ language community exists as a profile-only node as no user posted in
 % different language communities.
 
 Next we will explore the analysis of {\texttt{\#Eurovision}} datasets
-based on the techniques presented in Section~\ref{methodology}. Using
-the \emph{user graph} and \emph{communities graph}, we conduct
-analyses on multilingualism, activities and user behaviours in posting
-in different languages\footnote{In this context, \emph{different
-language} refers to tweet's language that is different to the user
-profile language settings.}.
+from the 2016 Eurovision Song Contest, based on the techniques
+presented in Section~\ref{methodology}. Using the \emph{user graph}
+and \emph{communities graph}, we conduct analyses on multilingualism,
+activities and user behaviours in posting in different
+languages\footnote{In this context, \emph{different language} refers
+to tweet's language that is different to the user profile language
+settings.}.
 
-\subsection{Context: The 2016 Eurovision Song}\label{context}
+\subsection{Case Study: 2016 Eurovision Song Contest}\label{context}
 
+The 2016 Eurovision Song
 Contest\footnote{\url{https://www.eurovision.tv/page/stockholm-2016/all-participants}}
-took place in May in Stockholm, Sweden. There were 32 countries taking
-part, with two semi-finals taking place on 12 and 14 May, with 26
-countries qualifying for the final on 16 May. This year's contest was
-perceived by many commentators to be tense and politically motivated,
-especially with Ukraine eventually winning the
+took place in May in Stockholm, Sweden, with the motto of
+``{\emph{Come Together!}}'', as referred to in the title of this
+paper. There were 32 countries taking part, with two semi-finals
+taking place on 12 and 14 May, with 26 countries qualifying for the
+final on 16 May. This year's contest was perceived by many
+commentators to be tense and politically motivated, especially with
+Ukraine eventually winning the
 final~\cite{telegrapheuroboycott:2016}. Varying analyses see the
 contest as being influenced by political conflicts, friendships or
 cultural
@@ -601,8 +605,8 @@ bias~\cite{ginsburgh+noury:2008,charron:2013,blangiardo+baio:2014,budzinski+pann
 with a range of news articles explicitly discussing the possibly
 biased results~\cite{telegrapheurobias:2016}.  Twitter activity was
 very high throughout the event on the primary {\texttt{\#Eurovision}}
-hashtag. The participation exceeded 7,900,000 statuses, produced by
-1,226,959 users.
+hashtag, with close to 8 million statuses, produced by nearly 1.25
+million users.
 
 % \begin{figure}[htb]
 % \centering
@@ -611,36 +615,40 @@ hashtag. The participation exceeded 7,900,000 statuses, produced by
 % \label{fig:overalleurovisionactivity}
 % \end{figure}
 
-The study will use only original statuses (tweet) as the basic entity as
-we are measuring posting behaviour, not reactions. Preliminary analysis shows 
-that they account for 48\% from the total activity, of which 4\% tweets with 
-'unidentified' language, those tweets were eleminated. As for profiles, all users 
-have chosen language preferences and no profile was found with the default
-language settings.
+The study focuses on original statuses (tweets) as the basic entity,
+as we wish to measure posting behaviour, not reactions. Preliminary
+analysis shows that they account for 48\% of the total activity, of
+which 4\% tweets with an `{\emph{unidentified}}' language were
+eliminated. As for profiles, all users have chosen language
+preferences and no profile was found with the default language
+settings.
 
 
 \subsection{Multilingualism}
-Outdegree in the users graph shows the number of languages a user used. 
-Observing outdegree of user nodes in the users graph revealed 
-20 groups of outdegree, ranging from 1 to 25. Figure~\ref{fig:multilingual} 
-shows these groups, size of users and activities. Although 85\% of users are monoglingual,
-their activity is 47\% of all tweets. Additionally, while the average acitivity of users is 5 posts
-per user, monolingual users were the least active ones, scoring an average of 2 
-tweets per user. 
 
-As for using different languages, we found that 18\% of tweets were in different languages. 
-We found a strong correlation between multilingualism
-and liklihood of using different languages. 
+Outdegree in the user graph shows the number of languages a user used.
+Observing outdegree of user nodes in the users graph revealed 20
+groups of outdegree, ranging from 1 to
+25. Figure~\ref{fig:multilingual} shows these groups, size of users
+and activities. Although 85\% of users are monoglingual, their
+activity accounts for 47\% of all tweets. Additionally, while the
+average activity of users is five posts per user, monolingual users
+were the least active ones, scoring an average of two tweets per
+user. We found that 18\% of tweets were in different languages, with a
+strong correlation between multilingualism and liklihood of using
+different languages.
+
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.6\columnwidth]{images/multilingualcommunities.png}
-\caption{Multilingual communities in {\texttt{\#Eurovision}} and their associated activities.}
+\includegraphics[width=0.8\columnwidth]{images/multilingualcommunities.png}
+\caption{Multilingual communities on {\texttt{\#Eurovision}} and their associated activities.}
 \label{fig:multilingual}
 \end{figure}
 
-We used the users graph to generate two communities graphs. The first will
-be used to explore language communities amongst monolingual users, while the other
-includes language communities for multilingual users only.
+We used the user graph to generate two communities graphs; the first
+will be used to explore language communities amongst monolingual
+users, while the other includes language communities for multilingual
+users only.
 
 %In these graphs we chose to 
 %focus on active users only, therefore we eleminated users with activity lower than the overall 
@@ -648,21 +656,26 @@ includes language communities for multilingual users only.
 
 \subsection{Monolingual Communities}
 
-This graph includes 63 langauge communities, 15 languages exist as profile only and
-have not been used in any post, while 12 were used in posting but never show as profile
-language. Moreover, about 13\% of monolingual users used different languages
-in posts which form 10\% of tweets in monolingual communities. Hence, strongest
-relationships exist as 'self-loop', which was defined in \ref{communitiesgraph}.
+This graph includes 63 language communities: 15 languages exist as
+profile-only and have not been used in any post, while 12 were used in
+posting but never show as a profile language. Moreover, about 13\% of
+monolingual users used different languages in posts which form 10\% of
+tweets in monolingual communities. Hence, strongest relationships
+exist as a `self-loop', as discussed in
+Section~\ref{communitiesgraph}.
 
-To explore realtionships between language communities, we remove all self-loop 
-edges from the graph. The resulted graph shows that monolingual users with 'en' as 
-profile language have posted in 47 other languages, causing 43\%
-of tweeting activity, and that 48 other profile communities used 'en' language
-in posting 43\%. Also, we found that the strongest realtionship (edge weight),
-9\% of activiy, is when 'en' profiles post in 'es'. Interesting cases to mention are
-\emph{el} and \emph{ru} languages. Although number of profile communities that used \emph{ru}
-is more than twice compared to number of those used \emph{el}, they were lower in
-terms of activity.
+To explore the relationships between language communities, we remove
+all self-loop edges from the graph. The resultant graph shows that
+monolingual users with `{\emph{en}}' as profile language have posted
+in 47 other languages, causing 43\% of tweeting activity, and that 48
+other profile communities used `{\emph{en}}' language in posting
+43\%. Also, we found that the strongest realtionship (edge weight),
+9\% of activity, is when `{\emph{en}}' profiles post in `{\emph{es}}'
+(Spanish). A further interesting case to mention involve the \emph{el}
+(Greek) and \emph{ru} (Russian) languages. Although the number of
+profile communities that used \emph{ru} is more than twice compared to
+the number of those that used \emph{el}, they were significantly lower
+in terms of activity.
 
 %\begin{table}[htb]
 %\centering
@@ -698,24 +711,28 @@ terms of activity.
 % \end{table}
 
 \subsection{Multilingual Communities}
+
 Although multilingual users form 15\% of all users in the dataset,
-they cased 53\% of tweeting activity. There are 48 langauge communities
-in this graph, 13 languages as profile only, and 10 as posting 
-languages. With 'self-loop' edges ignored, activity in different languages 
-measured 24\% of multilingual users tweets. Also, we found that the strongest 
-realtion existed between \emph{es} profile community and \emph{en} 
-posting language, which is the opposite to the monoligual case.
+they generated 53\% of tweeting activity. There are 48 langauge
+communities in this graph, 13 languages as profile-only, and 10 as
+posting languages. With `self-loop' edges excluded, activity in
+different languages measured 24\% of multilingual users tweets. Also,
+we found that the strongest relations existed between the \emph{es}
+profile community and the \emph{en} posting language, which is the
+opposite to the monoligual case.
 %The following table shows top multilingual 
 %communities, ordered by their \emph{weighted indegree}.
 
 
 \subsection{Visualisation}
 
-In figure \ref{fig:communitiesgraphs}, we show two communities graphs. 
-Size of node represents weighted indegree of community; how much a language 
-was used in tweeting, and darkness reflects weighted outdegree; participation 
-from users of language community. Edges link between \emph{profile} and 
-\emph{posting} communities, and thier thickness indicate number of tweets posted.
+In Figure~\ref{fig:communitiesgraphs}, we present two communities
+graphs; the size of the node represents weighted indegree of
+community; how much a language was used in tweeting, and darkness
+reflects weighted outdegree; participation from users of language
+community. Edges link between \emph{profile} and \emph{posting}
+communities, and their thickness indicates the number of tweets
+posted.
 
 \begin{figure}[htb]
 \centering
@@ -724,12 +741,13 @@ from users of language community. Edges link between \emph{profile} and
 \label{fig:communitiesgraphs}
 \end{figure}
 
-While figure \ref{fig:communitiesgraphs}.a shows all language communities together, 
-\ref{fig:communitiesgraphs}.b visualises a filtered graph. The filtered graph was 
-produced to depicts relationships amongst language communities that scored 
-high in weighted indegree and outdegree. Also, we eleminated users with activiy 
-lower than the overall average (5 tweets/user), and generated communities graph 
-from the rest.
+Whilst Figure~\ref{fig:communitiesgraphs}(a) shows all language
+communities together, \ref{fig:communitiesgraphs}(b) presents a
+filtered graph. This filtered graph depicts relationships amongst
+language communities that scored high in weighted indegree and
+outdegree. Also, we eliminated users with activity lower than the
+overall average (five tweets/user), and generated the communities
+graph from the remainder.
 
 
 %\begin{figure}[htb]
