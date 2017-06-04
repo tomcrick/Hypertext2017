@@ -6,7 +6,7 @@
 \usepackage{paralist}
 
 % natbib for refs
-\usepackage[numbers,sort]{natbib} 
+%\usepackage[numbers,sort]{natbib} 
 
 \begin{document}
 
@@ -46,6 +46,11 @@ results show that multilingualism is positively correlated with
 activity whilst negatively correlated with posting in the user's own
 language.
  \end{abstract}
+
+\begin{keywords}
+Language networks, multilingual communities, community discovery,
+network graphs, social networks
+\end{keywords}
 
 \section{Introduction}\label{intro}
 
@@ -249,7 +254,7 @@ demonstrated in Figure~\ref{fig:graphstructures}.
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.8\columnwidth]{images/graphstructures.png}
+\includegraphics[width=0.9\columnwidth]{images/graphstructures.png}
 \caption{Examples of simple models of language graphs}
 \label{fig:graphstructures}
 \vspace{-2em}
@@ -327,6 +332,7 @@ Table~\ref{tbl:usersgraph} presents main properties of this graph.
 
 \begin{table}[htb]
 \centering
+\caption{Node properties in user graph}
 \begin{tabular}{@{}lrr@{}}
 \toprule
 \textbf{}& \textbf{User} & \textbf{Language} \\ \midrule
@@ -334,7 +340,6 @@ Table~\ref{tbl:usersgraph} presents main properties of this graph.
 {\emph{Outdegree}} & \textgreater0 & 0 \\ 
 {\emph{Edge Weight}}& \multicolumn{2}{c}{\#Tweets}\\ \bottomrule
 \end{tabular}
-\caption{Node properties in user graph}
 \label{tbl:usersgraph}
 \vspace{-2em}
 \end{table}
@@ -364,6 +369,7 @@ language community exists as a profile-only node as no user posted in
 
 \begin{table}[htb]
 \centering
+\caption{Node properties in communities graph}
 \begin{tabular}{@{}lrr@{}}
 \toprule
 \textbf{}& \textbf{Community Node} \\ \midrule
@@ -371,7 +377,6 @@ language community exists as a profile-only node as no user posted in
 {\emph{Outdegree}} & profiles \\ 
 {\emph{Edge Weight}}& \#Tweets\\ \bottomrule
 \end{tabular}
-\caption{Node properties in communities graph}
 \label{tbl:communitiesgraph}
 \end{table}
 
@@ -522,6 +527,7 @@ language community exists as a profile-only node as no user posted in
 
 % \begin{table}[!htb]
 % \centering
+% \caption{Users' behaviour in using languages different to their profile (normalised)}
 % \begin{tabular}{@{}lcr@{}}
 % \toprule
 % \textbf{Profile-Posting Edge} & \textbf{Weight} \\ \midrule
@@ -532,7 +538,6 @@ language community exists as a profile-only node as no user posted in
 % {\emph{tr-en}} & 0.37 \\
 % {\emph{en-tr}} & 0.36 \\ \bottomrule
 % \end{tabular}
-% \caption{Users' behaviour in using languages different to their profile (normalised)}
 % \label{tbl:baltimoredifflang}
 % \end{table}
 
@@ -643,7 +648,7 @@ different languages.
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.8\columnwidth]{images/multilingualcommunities.png}
+\includegraphics[width=0.9\columnwidth]{images/multilingualcommunities.png}
 \caption{Multilingual communities on {\texttt{\#Eurovision}} and their associated activities.}
 \label{fig:multilingual}
 \end{figure}
@@ -682,6 +687,7 @@ in terms of activity.
 
 %\begin{table}[htb]
 %\centering
+%\caption{Nodes properties in communities graph}
 %\begin{tabular}{@{}lcr@{}}
 %\toprule
 %\textbf{Language} & \textbf{Indeg} & \textbf{Outdeg} \\%& \textbf{Posting} & \textbf{Profile} \\ 
@@ -693,12 +699,12 @@ in terms of activity.
 %{\emph{de}} & 10 & 10 \\ 
 %\bottomrule
 %\end{tabular}
-%\caption{Nodes properties in communities graph}
 %\label{tbl:communitiesgraph}
 %\end{table}
 
 % \begin{table}[!htb]
 % \centering
+% \caption{Users' behaviour in using languages different to their profile (normalised)}
 % \begin{tabular}{@{}lcr@{}}
 % \toprule
 % \textbf{Profile-Posting Edge} & \textbf{Weight} \\ \midrule
@@ -709,7 +715,6 @@ in terms of activity.
 % {\emph{tr-en}} & 0.37 \\
 % {\emph{en-tr}} & 0.36 \\ \bottomrule
 % \end{tabular}
-% \caption{Users' behaviour in using languages different to their profile (normalised)}
 % \label{tbl:baltimoredifflang}
 % \end{table}
 
@@ -739,7 +744,7 @@ posted.
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.8\textwidth]{images/communitiesgraphs.png}
+\includegraphics[width=0.9\textwidth]{images/communitiesgraphs.png}
 \caption{Language Communities Graphs for {\texttt{\#Eurovision}}.}
 \label{fig:communitiesgraphs}
 \end{figure}
@@ -788,6 +793,7 @@ graph from the remainder.
 
 % \begin{table}[!htb]
 % \centering
+% \caption{Active profile communities within the Russian posting community}
 % \begin{tabular}{@{}lc}
 % \toprule
 % \textbf{Community} & \textbf{\%} \\ 
@@ -796,7 +802,6 @@ graph from the remainder.
 % {\emph{en}} & 7.26 \\
 % \bottomrule
 % \end{tabular}
-% \caption{Active profile communities within the Russian posting community}
 % \label{tbl:russian}
 % \end{table}
 
@@ -816,6 +821,7 @@ graph from the remainder.
 
 % \begin{table}[!htb]
 % \centering
+% \caption{Top 95\% of participation languages from `{\emph{en}}' profiles}
 % \begin{tabular}{@{}lc}
 % \toprule
 % \textbf{Language} & \textbf{\%} \\ 
@@ -831,7 +837,6 @@ graph from the remainder.
 % {\emph{el}} & 0.86 \\ 
 % \bottomrule
 % \end{tabular}
-% \caption{Top 95\% of participation languages from `{\emph{en}}' profiles}
 % \label{tbl:enpartlangs}
 % \end{table}
 
@@ -905,7 +910,7 @@ perspective for influence analysis.
 
 
 % bib
-\bibliographystyle{abbrvnat}
+\bibliographystyle{splncs}
 \bibliography{iccci2017}
 
 \end{document}
