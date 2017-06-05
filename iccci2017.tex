@@ -254,7 +254,7 @@ demonstrated in Figure~\ref{fig:graphstructures}.
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.9\columnwidth]{images/graphstructures.png}
+\includegraphics[width=0.8\columnwidth]{images/graphstructures.png}
 \caption{Examples of simple models of language graphs}
 \label{fig:graphstructures}
 \vspace{-2em}
@@ -330,9 +330,13 @@ nodes identifier), indegree of 3 (number of users posted in this
 language), and weighted indegree of 9 (total number of tweets posted);
 Table~\ref{tbl:usersgraph} presents main properties of this graph.
 
-\begin{table}[htb]
+
+
+\begin{table}[!h]
 \centering
-\caption{Node properties in user graph}
+\begin{minipage}{.4\textwidth}
+%\centering
+\caption{Node properties in\newline user graph}
 \begin{tabular}{@{}lrr@{}}
 \toprule
 \textbf{}& \textbf{User} & \textbf{Language} \\ \midrule
@@ -341,8 +345,35 @@ Table~\ref{tbl:usersgraph} presents main properties of this graph.
 {\emph{Edge Weight}}& \multicolumn{2}{c}{\#Tweets}\\ \bottomrule
 \end{tabular}
 \label{tbl:usersgraph}
-\vspace{-2em}
+\end{minipage}
+\begin{minipage}{.4\textwidth}
+%\centering
+\caption{Node properties in communities graph}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+\textbf{}& \textbf{Community Node} \\ \midrule
+{\emph{Indegree}} &  posts\\
+{\emph{Outdegree}} & profiles \\ 
+{\emph{Edge Weight}}& \#Tweets\\ \bottomrule
+\end{tabular}
+\label{tbl:communitiesgraph}
+\end{minipage}
 \end{table}
+
+
+% \begin{table}[htb]
+% \centering
+% \caption{Node properties in user graph}
+% \begin{tabular}{@{}lrr@{}}
+% \toprule
+% \textbf{}& \textbf{User} & \textbf{Language} \\ \midrule
+% {\emph{Indegree}} & 0 & \textgreater0 \\
+% {\emph{Outdegree}} & \textgreater0 & 0 \\ 
+% {\emph{Edge Weight}}& \multicolumn{2}{c}{\#Tweets}\\ \bottomrule
+% \end{tabular}
+% \label{tbl:usersgraph}
+% \vspace{-2em}
+% \end{table}
 
 \subsubsection{Communities Graph Properties}
 
@@ -367,18 +398,18 @@ language community exists as a profile-only node as no user posted in
 `{\emph{fr}}'; these measures are summarised in Table
 \ref{tbl:communitiesgraph}.
 
-\begin{table}[htb]
-\centering
-\caption{Node properties in communities graph}
-\begin{tabular}{@{}lrr@{}}
-\toprule
-\textbf{}& \textbf{Community Node} \\ \midrule
-{\emph{Indegree}} &  posts\\
-{\emph{Outdegree}} & profiles \\ 
-{\emph{Edge Weight}}& \#Tweets\\ \bottomrule
-\end{tabular}
-\label{tbl:communitiesgraph}
-\end{table}
+% \begin{table}[htb]
+% \centering
+% \caption{Node properties in communities graph}
+% \begin{tabular}{@{}lrr@{}}
+% \toprule
+% \textbf{}& \textbf{Community Node} \\ \midrule
+% {\emph{Indegree}} &  posts\\
+% {\emph{Outdegree}} & profiles \\ 
+% {\emph{Edge Weight}}& \#Tweets\\ \bottomrule
+% \end{tabular}
+% \label{tbl:communitiesgraph}
+% \end{table}
 
 % We present two language diversity measurements. The
 % first, which we call `diversity', is to measure uses of languages
@@ -566,9 +597,6 @@ language community exists as a profile-only node as no user posted in
 % \label{fig:baltimore_multilingual}
 % \end{figure}
 
-% FUDGE
-\vspace{-3em}
-
 \section{Case Study and Discussion}\label{results}
 
 % The Eurovision Song Contest is the longest-running annual
@@ -630,7 +658,6 @@ which 4\% tweets with an `{\emph{unidentified}}' language were
 eliminated. As for profiles, all users have chosen language
 preferences and no profile was found with the default language
 settings.
-
 
 \subsection{Multilingualism}
 
@@ -744,7 +771,7 @@ posted.
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.9\textwidth]{images/communitiesgraphs.png}
+\includegraphics[width=0.95\textwidth]{images/communitiesgraphs.png}
 \caption{Language Communities Graphs for {\texttt{\#Eurovision}}.}
 \label{fig:communitiesgraphs}
 \end{figure}
